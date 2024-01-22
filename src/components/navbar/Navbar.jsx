@@ -1,11 +1,13 @@
-import {Bars3Icon, UserCircleIcon} from "@heroicons/react/24/solid"
-
 export function Navbar() {
-  return <div className="flex justify-between">
-    <div><Bars3Icon className="w-6"/></div>
-    <div>Hamidreza Delshad</div>
-    <div>
-      <UserCircleIcon className="w-6"/>
+  return (
+    <div className="flex flex-col">
+      <div className="flex flex-col">
+        <div className="font-['zeyada'] text-5xl mt-8 text-gray-300">
+          Hamidreza<br/><span className="text-7xl">Delshad</span> 
+        </div>
+        <p className="text-gray-500">Fullstack Developer & Graphic Designer</p>
+      </div>
+      <div></div>
     </div>
-  </div>;
+  );
 }

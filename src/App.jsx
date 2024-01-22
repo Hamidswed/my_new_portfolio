@@ -4,7 +4,7 @@ import { Navbar } from "./components/navbar/Navbar";
 
 function App() {
   return (
-    <div className="container xl:max-w-screen-xl py-3 px-4">
+    <div className="container xl:max-w-screen-xl py-3 px-5 h-screen bg-grayH">
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
