@@ -1,14 +1,8 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+
 
 function App() {
-
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <div className="w-screen h-screen bg-blue-600 flex justify-center items-center gap-y-4"></div>
   );
 }
 
