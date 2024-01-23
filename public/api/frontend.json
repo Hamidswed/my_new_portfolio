@@ -1,0 +1,33 @@
+[{
+    "id": 1,
+    "title": "Swedish Fashion",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Frontend",
+    "image": "/frontend/group-project.png",
+    "link":"https://products-app-kohl.vercel.app/"
+  },
+  {
+    "id": 2,
+    "title": "Country App",
+    "description": "It is a individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Frontend",
+    "image": "/frontend/country.png",
+    "link":"https://country-hazel.vercel.app/"
+  },
+  {
+    "id": 3,
+    "title": "Yummy App",
+    "description": "It is a individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Frontend",
+    "image": "/frontend/yummy.png",
+    "link":"https://catering-yummy.vercel.app/"
+  },
+  {
+    "id": 4,
+    "title": "Product App",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Frontend",
+    "image": "/frontend/product.png",
+    "link":"https://isa-6-react-shopping-cart.vercel.app/"
+  }
+]

@@ -1,26 +1,36 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex flex-col z-10 mt-4">
       <div className="flex flex-col">
-        <div className="font-['zeyada'] text-5xl text-gray-300 flex flex-col -gap-y-4">
+        <div className="font-['zeyada'] text-5xl text-stone-300 flex flex-col -gap-y-4">
           <span>Hamidreza</span>
           <span className="text-7xl -mt-2">Delshad</span>
         </div>
-        <p className="text-gray-500 -mt-4">
+        <p className="text-stone-500 -mt-4">
           Fullstack Developer
           <br /> & Graphic Designer
         </p>
       </div>
       <div className="mt-8">
-        <ul className="text-gray-300 text-sm flex flex-col gap-y-2">
+        <ul className="text-stone-300 text-sm flex flex-col gap-y-2">
           <li>
-            <a href="#" className="hover:text-amber-400 transition-all duration-200">Home</a>
+            <Link
+              to="/"
+              className="hover:text-amber-400 transition-all duration-200"
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <a href="#" onClick={() => setIsOpen(!isOpen)} className="hover:text-amber-400 transition-all duration-200">
+            <a
+              href="#"
+              onClick={() => setIsOpen(!isOpen)}
+              className="hover:text-amber-400 transition-all duration-200"
+            >
               Projects
             </a>
             <div
@@ -28,12 +38,27 @@ export function Navbar() {
                 isOpen ? "" : "hidden"
               }`}
             >
-              <a href="#" className="hover:text-amber-400 transition-all duration-200">Web</a>
-              <a href="#" className="hover:text-amber-400 transition-all duration-200">Graphic</a>
+              <Link
+                to="/projects/web"
+                className="hover:text-amber-400 transition-all duration-200"
+              >
+                Web
+              </Link>
+              <a
+                href="#"
+                className="hover:text-amber-400 transition-all duration-200"
+              >
+                Graphic
+              </a>
             </div>
           </li>
           <li>
-            <a href="#" className="hover:text-amber-400 transition-all duration-200">Info</a>
+            <a
+              href="#"
+              className="hover:text-amber-400 transition-all duration-200"
+            >
+              Info
+            </a>
           </li>
         </ul>
       </div>

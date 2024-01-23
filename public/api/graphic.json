@@ -1,0 +1,43 @@
+[{
+    "id": 1,
+    "title": "Kajutan Restauran",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Graphic",
+    "image": "/graphic/kajutan/kajutan-logo1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Kaman Choob",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Graphic",
+    "image": "/graphic/kamanchoob/kaman-logo1.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Deli Shopping",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Graphic",
+    "image": "/graphic/delishopping/deli-logo1.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Ms.Parvan",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Graphic",
+    "image": "/graphic/msparvan/ms-logo1.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Noor Gostaran",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Graphic",
+    "image": "/graphic/noorgostaran/noor-logo1.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Ghazal Goz",
+    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "category": "Graphic",
+    "image": "/graphic/ghazalgoz/goz-logo1.jpg"
+  }
+]

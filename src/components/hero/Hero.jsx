@@ -5,7 +5,7 @@ export function Hero() {
        md:max-w-full z-0">
         <img src="/public/Design.png" alt="hamid" />
       </div>
-      <div className="absolute left-2 top-20 text-gray-400">
+      <div className="absolute left-2 top-20 text-stone-400">
         <p className="text-xs">
           My name is Hamidreza Delshad, a passionate junior full stack developer
           and a freelance graphic designer from Sweden. My passion for software
