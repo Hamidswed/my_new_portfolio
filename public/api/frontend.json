@@ -1,5 +1,14 @@
-[{
+[
+  {
     "id": 1,
+    "title": "Mobile Studio",
+    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend I used Node.js, Express.js, JWS strategic and MongoDB as a database",
+    "category": "Frontend",
+    "image": "/frontend/mobile.png",
+    "link":"https://frontend-fullstack.onrender.com/"
+  },
+  {
+    "id": 2,
     "title": "Swedish Fashion",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
@@ -7,23 +16,23 @@
     "link":"https://products-app-kohl.vercel.app/"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Country App",
-    "description": "It is a individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
     "image": "/frontend/country.png",
     "link":"https://country-hazel.vercel.app/"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Yummy App",
-    "description": "It is a individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
     "image": "/frontend/yummy.png",
     "link":"https://catering-yummy.vercel.app/"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Product App",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",

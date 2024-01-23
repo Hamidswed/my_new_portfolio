@@ -10,7 +10,7 @@ export function Navbar() {
           <span>Hamidreza</span>
           <span className="text-7xl -mt-2">Delshad</span>
         </div>
-        <p className="text-stone-500 -mt-4">
+        <p className="text-stone-400 -mt-4">
           Fullstack Developer
           <br /> & Graphic Designer
         </p>
