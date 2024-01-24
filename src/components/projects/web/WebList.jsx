@@ -6,7 +6,7 @@ export function WebList() {
   const [data, setData] = useState();
 
   const getData = async () => {
-    const res = await axios.get("/public/api/frontend.json");
+    const res = await axios.get("/api/frontend.json");
     setData(res.data);
   };
 

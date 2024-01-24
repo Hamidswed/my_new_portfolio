@@ -5,7 +5,7 @@ export function Hero() {
         className="fixed right-0 bottom-0
        z-0 w-full sm:w-1/3"
       >
-        <img src="/public/Design.png" alt="hamid" />
+        <img src="../../public/Design.png" alt="hamid" />
       </div>
       <div className="absolute left-2 top-20 text-stone-400 w-1/2">
         <p>
