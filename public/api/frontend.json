@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Mobile Studio",
-    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend I used Node.js, Express.js, JWS strategic and MongoDB as a database",
+    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend used Node.js, Express.js, JWS strategy and MongoDB as a database",
     "category": "Frontend",
     "image": "/frontend/mobile.png",
     "link":"https://frontend-fullstack.onrender.com/"

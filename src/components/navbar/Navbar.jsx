@@ -1,8 +1,8 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
+
 import { Link } from "react-router-dom";
 
-export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+export function Navbar({ isOpen, openHandler }) {
   return (
     <div className="flex flex-col z-10 mt-4">
       <div className="flex flex-col">
@@ -12,7 +12,7 @@ export function Navbar() {
         </div>
         <p className="text-stone-400 -mt-4 md:-mt-6 md:text-lg">
           Fullstack Developer
-          <br className="md:hidden"/> & Graphic Designer
+          <br className="md:hidden" /> & Graphic Designer
         </p>
       </div>
       <div className="mt-8">
@@ -21,6 +21,7 @@ export function Navbar() {
             <Link
               to="/"
               className="hover:text-amber-400 transition-all duration-200"
+              onClick={() => openHandler(false)}
             >
               Home
             </Link>
@@ -28,7 +29,7 @@ export function Navbar() {
           <li>
             <a
               href="#"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => openHandler(!isOpen)}
               className="hover:text-amber-400 transition-all duration-200"
             >
               Projects
@@ -41,12 +42,14 @@ export function Navbar() {
               <Link
                 to="/projects/web"
                 className="hover:text-amber-400 transition-all duration-200"
+                onClick={() => openHandler(false)}
               >
                 Web
               </Link>
               <a
                 href="#"
                 className="hover:text-amber-400 transition-all duration-200"
+                onClick={() => openHandler(false)}
               >
                 Graphic
               </a>
@@ -56,6 +59,7 @@ export function Navbar() {
             <a
               href="#"
               className="hover:text-amber-400 transition-all duration-200"
+              onClick={() => openHandler(false)}
             >
               Info
             </a>
