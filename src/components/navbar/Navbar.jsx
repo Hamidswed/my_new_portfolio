@@ -6,13 +6,13 @@ export function Navbar() {
   return (
     <div className="flex flex-col z-10 mt-4">
       <div className="flex flex-col">
-        <div className="font-['zeyada'] text-5xl text-stone-300 flex flex-col -gap-y-4">
+        <div className="font-['zeyada'] text-5xl text-stone-300 flex flex-col -gap-y-4 md:text-7xl">
           <span>Hamidreza</span>
-          <span className="text-7xl -mt-2">Delshad</span>
+          <span className="text-7xl -mt-2 md:text-9xl">Delshad</span>
         </div>
-        <p className="text-stone-400 -mt-4">
+        <p className="text-stone-400 -mt-4 md:-mt-6 md:text-lg">
           Fullstack Developer
-          <br /> & Graphic Designer
+          <br className="md:hidden"/> & Graphic Designer
         </p>
       </div>
       <div className="mt-8">
