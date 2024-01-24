@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export function Navbar({ isOpen, openHandler }) {
+export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex flex-col z-10 mt-4">
       <div className="flex flex-col">
@@ -21,7 +23,7 @@ export function Navbar({ isOpen, openHandler }) {
             <Link
               to="/"
               className="hover:text-amber-400 transition-all duration-200"
-              onClick={() => openHandler(false)}
+              onClick={() => setIsOpen(false)}
             >
               Home
             </Link>
@@ -29,7 +31,7 @@ export function Navbar({ isOpen, openHandler }) {
           <li>
             <a
               href="#"
-              onClick={() => openHandler(!isOpen)}
+              onClick={() => setIsOpen(!isOpen)}
               className="hover:text-amber-400 transition-all duration-200"
             >
               Projects
@@ -42,14 +44,14 @@ export function Navbar({ isOpen, openHandler }) {
               <Link
                 to="/projects/web"
                 className="hover:text-amber-400 transition-all duration-200"
-                onClick={() => openHandler(false)}
+                onClick={() => setIsOpen(false)}
               >
                 Web
               </Link>
               <a
                 href="#"
                 className="hover:text-amber-400 transition-all duration-200"
-                onClick={() => openHandler(false)}
+                onClick={() => setIsOpen(false)}
               >
                 Graphic
               </a>
@@ -59,7 +61,7 @@ export function Navbar({ isOpen, openHandler }) {
             <a
               href="#"
               className="hover:text-amber-400 transition-all duration-200"
-              onClick={() => openHandler(false)}
+              onClick={() => setIsOpen(false)}
             >
               Info
             </a>
