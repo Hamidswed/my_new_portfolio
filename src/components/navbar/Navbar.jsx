@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
-
+import { ArrowRightCircleIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isClicked, setIsClicked] = useState("home");
+
   return (
     <div className="flex flex-col z-10 mt-4">
       <div className="flex flex-col">
@@ -18,26 +20,40 @@ export function Navbar() {
         </p>
       </div>
       <div className="mt-8">
-        <ul className="text-stone-300 text-sm flex flex-col gap-y-2">
-          <li>
+        <ul className="text-stone-300 flex flex-col gap-y-2">
+          <li className="flex items-center gap-x-1">
+            <span className={`${isClicked === "home" ? "" : "hidden"}`}>
+              <ArrowRightCircleIcon className="w-3 h-3 text-amber-400 transition-all duration-500" />
+            </span>
             <Link
               to="/"
               className="hover:text-amber-400 transition-all duration-200"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                setIsClicked("home");
+              }}
             >
               Home
             </Link>
           </li>
           <li>
-            <a
-              href="#"
-              onClick={() => setIsOpen(!isOpen)}
-              className="hover:text-amber-400 transition-all duration-200"
-            >
-              Projects
-            </a>
+            <div className="flex items-center gap-x-1">
+              <span className={`${isClicked === "projects" ? "" : "hidden"}`}>
+                <ArrowRightCircleIcon className="w-3 h-3 text-amber-400" />
+              </span>
+              <a
+                href="#"
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                  setIsClicked("projects");
+                }}
+                className="hover:text-amber-400 transition-all duration-200"
+              >
+                Projects
+              </a>
+            </div>
             <div
-              className={`flex flex-col text-xs mt-1 pl-1 gap-y-1 transition-all duration-500 ${
+              className={`flex flex-col text-sm mt-1 pl-1 gap-y-1 transition-all duration-500 ${
                 isOpen ? "" : "hidden"
               }`}
             >
@@ -57,11 +73,17 @@ export function Navbar() {
               </a>
             </div>
           </li>
-          <li>
+          <li className="flex items-center gap-x-1">
+            <span className={`${isClicked === "info" ? "" : "hidden"}`}>
+              <ArrowRightCircleIcon className="w-3 h-3 text-amber-400" />
+            </span>
             <a
               href="#"
               className="hover:text-amber-400 transition-all duration-200"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                setIsClicked("info");
+              }}
             >
               Info
             </a>
