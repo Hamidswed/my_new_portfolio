@@ -22,12 +22,18 @@ export function Navbar() {
       <div className="mt-8">
         <ul className="text-stone-300 flex flex-col gap-y-2">
           <li className="flex items-center gap-x-1">
-            <span className={`${isClicked === "home" ? "" : "hidden"}`}>
+            <span
+              className={`${
+                isClicked === "home"
+                  ? "visible transition-all duration-500 opacity-100"
+                  : "invisible transition-all duration-500 opacity-0"
+              }`}
+            >
               <ArrowRightCircleIcon className="w-3 h-3 text-amber-400 transition-all duration-500" />
             </span>
             <Link
               to="/"
-              className="hover:text-amber-400 transition-all duration-200"
+              className="hover:text-amber-400 hover:transition-all hover:duration-500"
               onClick={() => {
                 setIsOpen(false);
                 setIsClicked("home");
@@ -38,7 +44,13 @@ export function Navbar() {
           </li>
           <li>
             <div className="flex items-center gap-x-1">
-              <span className={`${isClicked === "projects" ? "" : "hidden"}`}>
+              <span
+                className={`${
+                  isClicked === "projects"
+                    ? "visible transition-all duration-500 opacity-100"
+                    : "invisible transition-all duration-500 opacity-0"
+                }`}
+              >
                 <ArrowRightCircleIcon className="w-3 h-3 text-amber-400" />
               </span>
               <a
@@ -47,7 +59,7 @@ export function Navbar() {
                   setIsOpen(!isOpen);
                   setIsClicked("projects");
                 }}
-                className="hover:text-amber-400 transition-all duration-200"
+                className="hover:text-amber-400 hover:transition-all hover:duration-500"
               >
                 Projects
               </a>
@@ -59,14 +71,14 @@ export function Navbar() {
             >
               <Link
                 to="/projects/web"
-                className="hover:text-amber-400 transition-all duration-200"
+                className="hover:text-amber-400 hover:transition-all hover:duration-500 transition-all duration-500 translate-x-4"
                 onClick={() => setIsOpen(false)}
               >
                 Web
               </Link>
               <a
                 href="#"
-                className="hover:text-amber-400 transition-all duration-200"
+                className="hover:text-amber-400 hover:transition-all hover:duration-500 translate-x-4"
                 onClick={() => setIsOpen(false)}
               >
                 Graphic
@@ -74,12 +86,18 @@ export function Navbar() {
             </div>
           </li>
           <li className="flex items-center gap-x-1">
-            <span className={`${isClicked === "info" ? "" : "hidden"}`}>
+            <span
+              className={`${
+                isClicked === "info"
+                  ? "visible transition-all duration-500 opacity-100"
+                  : "invisible transition-all duration-500 opacity-0"
+              }`}
+            >
               <ArrowRightCircleIcon className="w-3 h-3 text-amber-400" />
             </span>
             <a
               href="#"
-              className="hover:text-amber-400 transition-all duration-200"
+              className="hover:text-amber-400 hover:transition-all hover:duration-500"
               onClick={() => {
                 setIsOpen(false);
                 setIsClicked("info");
