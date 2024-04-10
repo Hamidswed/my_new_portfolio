@@ -15,7 +15,7 @@ export function WebList() {
   }, []);
 
   return (
-    <div className="mt-8 flex flex-col gap-y-4 md:flex-row md:justify-between md:flex-wrap">
+    <div className="mt-16 flex flex-col items-center gap-y-4 min-[500px]:flex-row min-[500px]:justify-between min-[500px]:flex-wrap">
       {data?.map((item) => {
         return <WebItem key={item.id} item={item} />;
       })}

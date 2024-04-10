@@ -1,6 +1,14 @@
 [
   {
     "id": 1,
+    "title": "Kajutan restaurant",
+    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend used Node.js, Express.js, JWS strategy and MongoDB as a database",
+    "category": "Frontend",
+    "image": "/frontend/kajutan.jpg",
+    "link":"https://kajutan.onrender.com/"
+  },
+  {
+    "id": 2,
     "title": "Mobile Studio",
     "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend used Node.js, Express.js, JWS strategy and MongoDB as a database",
     "category": "Frontend",
@@ -8,7 +16,7 @@
     "link":"https://frontend-fullstack.onrender.com/"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Swedish Fashion",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
@@ -16,7 +24,7 @@
     "link":"https://products-app-kohl.vercel.app/"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Country App",
     "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
@@ -24,7 +32,7 @@
     "link":"https://country-hazel.vercel.app/"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Yummy App",
     "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
@@ -32,7 +40,7 @@
     "link":"https://catering-yummy.vercel.app/"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "Product App",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",

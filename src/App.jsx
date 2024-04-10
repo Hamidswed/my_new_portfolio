@@ -5,7 +5,7 @@ import { WebProjects } from "./pages/WebProjects";
 
 function App() {
   return (
-    <div className="container mx-auto xl:max-w-screen-xl py-3 px-5">
+    <div className="container mx-auto xl:max-w-screen-xl pt-3 px-5 pb-24">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
