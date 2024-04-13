@@ -7,7 +7,7 @@ export function Hero() {
         <img src={Profile} alt="hamid" />
       </div> */}
       <div className=" text-darkColor w-full flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <div className="max-h-48 max-w-36 bg-cyan-400 rounded-full overflow-hidden sm:flex-1">
+        <div className="max-h-48 max-w-36 bg-lightRed rounded-full overflow-hidden sm:flex-1">
           <img src={Profile} alt="profile" className="object-cover w-full h-full"/>
         </div>
         <p className="sm:flex-1 lg:max-w-[40%]">

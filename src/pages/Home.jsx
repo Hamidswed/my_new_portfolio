@@ -5,7 +5,6 @@ export function Home() {
   return (
     <div>
       <Hero />
-      <WebList />
     </div>
   );
 }

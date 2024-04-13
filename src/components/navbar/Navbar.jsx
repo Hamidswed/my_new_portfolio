@@ -8,7 +8,7 @@ export function Navbar() {
   const [isClicked, setIsClicked] = useState("home");
 
   return (
-    <div className="flex flex-col z-10 mt-4">
+    <div className="flex flex-col z-10 mt-4 md:flex-row md:justify-center md:items-center md:gap-10 mb-24">
       <div className="flex flex-col">
         <div className="font-['zeyada'] text-5xl text-darkColor flex flex-col -gap-y-4 md:text-7xl">
           <span>Hamidreza</span>
@@ -20,7 +20,7 @@ export function Navbar() {
         </p>
       </div>
       <div className="mt-8">
-        <ul className="text-darkColor flex flex-col gap-y-2">
+        <ul className="text-darkColor flex flex-col gap-y-2 md:flex-row md:gap-x-4">
           <li className="flex items-center gap-x-1">
             <span
               className={`${
@@ -53,8 +53,8 @@ export function Navbar() {
               >
                 <ArrowRightCircleIcon className="w-3 h-3 text-lightRed" />
               </span>
-              <a
-                href="#"
+              <Link
+                to="/projects"
                 onClick={() => {
                   setIsOpen(!isOpen);
                   setIsClicked("projects");
@@ -62,9 +62,9 @@ export function Navbar() {
                 className="hover:text-lightRed hover:transition-all hover:duration-500"
               >
                 Projects
-              </a>
+              </Link>
             </div>
-            <div
+            {/* <div
               className={`flex flex-col text-sm mt-1 pl-1 gap-y-1 transition-all duration-500 ${
                 isOpen ? "" : "hidden"
               }`}
@@ -83,7 +83,7 @@ export function Navbar() {
               >
                 Graphic
               </a>
-            </div>
+            </div> */}
           </li>
           <li className="flex items-center gap-x-1">
             <span
@@ -95,8 +95,8 @@ export function Navbar() {
             >
               <ArrowRightCircleIcon className="w-3 h-3 text-lightRed" />
             </span>
-            <a
-              href="#"
+            <Link
+              to="/info"
               className="hover:text-lightRed hover:transition-all hover:duration-500"
               onClick={() => {
                 setIsOpen(false);
@@ -104,7 +104,7 @@ export function Navbar() {
               }}
             >
               Info
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

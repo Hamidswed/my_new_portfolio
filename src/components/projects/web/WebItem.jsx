@@ -3,23 +3,26 @@ import { Link } from "react-router-dom";
 
 export function WebItem({ item }) {
   return (
-    <div
-      className={`relative h-60 max-w-48 bg-darkColor rounded-full overflow-hidden`}
-    >
-      <div className="h-1/2 w-full">
-        <img src={item.image} alt={item.title} className="w-full h-full object-cover"/>
+    <div className="relative p-4 border border-creamColor">
+      <div className="max-h-[50%] w-full">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="w-full h-full object-cover"
+        />
       </div>
-      <div className="absolute top-28 px-4 w-full z-10 py-4 flex flex-col items-center gap-y-4">
-        <h2 className="font-bold text-backColor mb-2">{item.title}</h2>
-        <button className="py-1 bg-lightRed w-20 rounded-full">
+      <div className="top-28 px-2 w-full min-h-[240px] py-4 flex flex-col justify-between gap-y-4">
+        <div>
+
+        <h2 className="font-bold text-creamColor mb-3">{item.title}</h2>
+        <p className="text-sm text-creamColor h-full">{item.description}</p>
+        </div>
+        <button className="py-1 bg-lightRed w-20 rounded-full self-end">
           <Link to={item.link} target="_blank">
-            View site
+            Open
           </Link>
         </button>
       </div>
-      {/* <div
-        className={`bg-darkColor h-[25vh] absolute top-28 w-full opacity-45`}
-      ></div> */}
     </div>
   );
 }
