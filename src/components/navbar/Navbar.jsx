@@ -1,11 +1,10 @@
 /* eslint-disable react/prop-types */
 import { ArrowRightCircleIcon } from "@heroicons/react/16/solid";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isClicked, setIsClicked] = useState("home");
+  const location = useLocation();
+  const path = location.pathname;
 
   return (
     <div className="flex flex-col z-10 mt-4 md:flex-row md:justify-center md:items-center md:gap-10 mb-24">
@@ -24,20 +23,16 @@ export function Navbar() {
           <li className="flex items-center gap-x-1">
             <span
               className={`${
-                isClicked === "home"
-                  ? "visible transition-all duration-500 opacity-100"
-                  : "invisible transition-all duration-500 opacity-0"
+                path === "/"
+                  ? "visible transition-all duration-300 opacity-100"
+                  : "invisible transition-all duration-300 opacity-0"
               }`}
             >
-              <ArrowRightCircleIcon className="w-3 h-3 text-lightRed transition-all duration-500" />
+              <ArrowRightCircleIcon className="w-3 h-3 text-lightRed transition-all duration-300" />
             </span>
             <Link
               to="/"
-              className="hover:text-lightRed hover:transition-all hover:duration-500"
-              onClick={() => {
-                setIsOpen(false);
-                setIsClicked("home");
-              }}
+              className="hover:text-lightRed hover:transition-all hover:duration-300"
             >
               Home
             </Link>
@@ -46,62 +41,34 @@ export function Navbar() {
             <div className="flex items-center gap-x-1">
               <span
                 className={`${
-                  isClicked === "projects"
-                    ? "visible transition-all duration-500 opacity-100"
-                    : "invisible transition-all duration-500 opacity-0"
+                  path === "/projects"
+                    ? "visible transition-all duration-300 opacity-100"
+                    : "invisible transition-all duration-300 opacity-0"
                 }`}
               >
                 <ArrowRightCircleIcon className="w-3 h-3 text-lightRed" />
               </span>
               <Link
                 to="/projects"
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                  setIsClicked("projects");
-                }}
-                className="hover:text-lightRed hover:transition-all hover:duration-500"
+                className="hover:text-lightRed hover:transition-all hover:duration-300"
               >
                 Projects
               </Link>
             </div>
-            {/* <div
-              className={`flex flex-col text-sm mt-1 pl-1 gap-y-1 transition-all duration-500 ${
-                isOpen ? "" : "hidden"
-              }`}
-            >
-              <Link
-                to="/projects/web"
-                className="hover:text-lightRed hover:transition-all hover:duration-500 transition-all duration-500 translate-x-4"
-                onClick={() => setIsOpen(false)}
-              >
-                Web
-              </Link>
-              <a
-                href="#"
-                className="hover:text-lightRed hover:transition-all hover:duration-500 translate-x-4"
-                onClick={() => setIsOpen(false)}
-              >
-                Graphic
-              </a>
-            </div> */}
           </li>
           <li className="flex items-center gap-x-1">
             <span
               className={`${
-                isClicked === "info"
-                  ? "visible transition-all duration-500 opacity-100"
-                  : "invisible transition-all duration-500 opacity-0"
+                path === "/info"
+                  ? "visible transition-all duration-300 opacity-100"
+                  : "invisible transition-all duration-300 opacity-0"
               }`}
             >
               <ArrowRightCircleIcon className="w-3 h-3 text-lightRed" />
             </span>
             <Link
               to="/info"
-              className="hover:text-lightRed hover:transition-all hover:duration-500"
-              onClick={() => {
-                setIsOpen(false);
-                setIsClicked("info");
-              }}
+              className="hover:text-lightRed hover:transition-all hover:duration-300"
             >
               Info
             </Link>
