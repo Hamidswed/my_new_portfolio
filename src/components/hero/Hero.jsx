@@ -7,7 +7,7 @@ export function Hero() {
       <div className=" text-darkColor w-full flex flex-col items-center justify-center gap-4 sm:flex-row sm:items-end">
         <Profile />
         <div className="sm:flex-1 lg:max-w-[50%]">
-          <p className="mb-3">
+          <p className="mb-4">
             My name is Hamidreza Delshad, a passionate junior full stack
             developer and a freelance graphic designer from Sweden. My passion
             for software is coming up with concepts and turning them into

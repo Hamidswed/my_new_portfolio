@@ -1,4 +1,5 @@
 import { IoLogoInstagram, IoLogoGithub } from "react-icons/io";
+import { IoMailOutline } from "react-icons/io5";
 import { LiaLinkedin, LiaWhatsapp, LiaTelegram } from "react-icons/lia";
 import { Link } from "react-router-dom";
 
@@ -10,27 +11,27 @@ export default function SocialMedia() {
   const github = "https://github.com/Hamidswed";
 
   return (
-    <div className="w-full h-10 flex items-center gap-2">
+    <div className="w-full h-10 flex items-center gap-3">
       <Link
         to={github}
         target="_blank"
         className="hover:-translate-y-1 transition-all duration-300 ease-in-out"
       >
-        <IoLogoGithub size={35} color="#9e8e7f" />
+        <IoLogoGithub size={30} color="#9e8e7f" />
       </Link>
       <Link
         to={instagram}
         target="_blank"
         className="hover:-translate-y-1 transition-all duration-300 ease-in-out"
       >
-        <IoLogoInstagram size={35} color="#9e8e7f" />
+        <IoLogoInstagram size={30} color="#9e8e7f" />
       </Link>
       <Link
         to={linkedin}
         target="_blank"
         className="hover:-translate-y-1 transition-all duration-300 ease-in-out"
       >
-        <LiaLinkedin size={35} color="#9e8e7f" />
+        <LiaLinkedin size={30} color="#9e8e7f" />
       </Link>
       <Link
         to={whatsapp}
@@ -38,7 +39,7 @@ export default function SocialMedia() {
         className="hover:-translate-y-1 transition-all duration-300 ease-in-out"
       >
         <LiaWhatsapp
-          size={35}
+          size={30}
           color="#9e8e7f"
           className="hover:-translate-y-1 transition-all duration-300 ease-in-out"
         />
@@ -48,7 +49,14 @@ export default function SocialMedia() {
         target="_blank"
         className="hover:-translate-y-1 transition-all duration-300 ease-in-out"
       >
-        <LiaTelegram size={35} color="#9e8e7f" />
+        <LiaTelegram size={30} color="#9e8e7f" />
+      </Link>
+      <Link
+        to="mailto:delshad.swdn@gmail.com"
+        target="_blank"
+        className="hover:-translate-y-1 transition-all duration-300 ease-in-out"
+      >
+        <IoMailOutline size={30} color="#9e8e7f" />
       </Link>
     </div>
   );
