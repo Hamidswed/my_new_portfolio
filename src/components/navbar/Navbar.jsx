@@ -7,7 +7,7 @@ export function Navbar() {
   const path = location.pathname;
 
   return (
-    <div className="flex flex-col z-10 mt-4 md:flex-row md:justify-center md:items-center md:gap-10 mb-24">
+    <div className="flex flex-col z-10 mt-4 md:flex-row md:justify-center md:items-center md:gap-36 md:mb-16 mb-8">
       <div className="flex flex-col">
         <div className="font-['zeyada'] text-5xl text-darkColor flex flex-col -gap-y-4 md:text-7xl">
           <span>Hamidreza</span>
@@ -19,7 +19,7 @@ export function Navbar() {
         </p>
       </div>
       <div className="mt-8">
-        <ul className="text-darkColor flex flex-col gap-y-2 md:flex-row md:gap-x-4">
+        <ul className="text-darkColor flex flex-col gap-y-2 sm:text-xl md:flex-row md:gap-x-4">
           <li className="flex items-center gap-x-1">
             <span
               className={`${
@@ -55,23 +55,6 @@ export function Navbar() {
                 Projects
               </Link>
             </div>
-          </li>
-          <li className="flex items-center gap-x-1">
-            <span
-              className={`${
-                path === "/info"
-                  ? "visible transition-all duration-300 opacity-100"
-                  : "invisible transition-all duration-300 opacity-0"
-              }`}
-            >
-              <ArrowRightCircleIcon className="w-3 h-3 text-lightRed" />
-            </span>
-            <Link
-              to="/info"
-              className="hover:text-lightRed hover:transition-all hover:duration-300"
-            >
-              Info
-            </Link>
           </li>
         </ul>
       </div>
