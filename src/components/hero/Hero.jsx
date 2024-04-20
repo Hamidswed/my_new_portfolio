@@ -8,7 +8,7 @@ export function Hero() {
         <Profile />
         <div className="sm:flex-1 lg:max-w-[50%]">
           <p className="mb-4">
-            My name is Hamidreza Delshad, a passionate junior full stack
+            My name is Hamidreza Delshad, a passionate full stack
             developer and a freelance graphic designer from Sweden. My passion
             for software is coming up with concepts and turning them into
             beautiful interfaces. When I develop something, I pay close
