@@ -12,7 +12,7 @@
     "title": "Mobile Studio",
     "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend used Node.js, Express.js, JWS strategy and MongoDB as a database",
     "category": "Frontend",
-    "image": "/frontend/mobile.png",
+    "image": "/frontend/mobile.jpg",
     "link":"https://frontend-fullstack.onrender.com/"
   },
   {
@@ -20,7 +20,7 @@
     "title": "Swedish Fashion",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
-    "image": "/frontend/group-project.png",
+    "image": "/frontend/group-project.jpg",
     "link":"https://products-app-kohl.vercel.app/"
   },
   {
@@ -28,7 +28,7 @@
     "title": "Yummy App",
     "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
-    "image": "/frontend/yummy.png",
+    "image": "/frontend/yummy.jpg",
     "link":"https://catering-yummy.vercel.app/"
   },
   {
@@ -36,7 +36,7 @@
     "title": "Product App",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
-    "image": "/frontend/product.png",
-    "link":"https://isa-6-react-shopping-cart.vercel.app/"
+    "image": "/frontend/product.jpg",
+    "link":"https://shopping-cart-simple.vercel.app/"
   }
 ]
