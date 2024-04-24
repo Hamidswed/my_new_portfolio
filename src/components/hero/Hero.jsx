@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
 import Profile from "./Profile";
 import SocialMedia from "./socialMedia/SocialMedia";
+import { FaDownload } from "react-icons/fa6";
+import Pdf from "/download/CV_HamidrezaDelshad.pdf";
 
 export function Hero() {
   return (
@@ -8,13 +11,23 @@ export function Hero() {
         <Profile />
         <div className="sm:flex-1 lg:max-w-[50%]">
           <p className="mb-4">
-            My name is Hamidreza Delshad, a passionate full stack
-            developer and a freelance graphic designer from Sweden. My passion
-            for software is coming up with concepts and turning them into
-            beautiful interfaces. When I develop something, I pay close
-            attention to the user experience, architecture, and code quality.
+            My name is Hamidreza Delshad, a passionate full stack developer and
+            a freelance graphic designer from Sweden. My passion for software is
+            coming up with concepts and turning them into beautiful interfaces.
+            When I develop something, I pay close attention to the user
+            experience, architecture, and code quality.
           </p>
-          <SocialMedia />
+          <div className="w-full flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
+            <Link to={Pdf} target="_blank" download="CV_HamidrezaDelshad" className="sm:order-2">
+              <button className="flex items-center gap-2 flex-1 transition-all duration-300 ease-in-out text-darkColor hover:text-creamColor">
+                <FaDownload className="animate-pulse"/>
+                <span className="font-semibold">Download CV</span>
+              </button>
+            </Link>
+            <div>
+              <SocialMedia />
+            </div>
+          </div>
         </div>
       </div>
     </div>
