@@ -1,42 +1,74 @@
 [
   {
     "id": 1,
-    "title": "Kajutan restaurant",
-    "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWS strategy and MongoDB as a database",
+    "title": "Blog managment app",
+    "description": "It is an individual project that implemented by Next.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
     "category": "Frontend",
     "image": "/frontend/kajutan.jpg",
-    "link":"https://kajutan.onrender.com/"
+    "link":"",
+    "github":"https://github.com/Hamidswed/blog_app_nextjs"
   },
   {
     "id": 2,
-    "title": "Mobile Studio",
-    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend used Node.js, Express.js, JWS strategy and MongoDB as a database",
+    "title": "Job portal",
+    "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
     "category": "Frontend",
-    "image": "/frontend/mobile.jpg",
-    "link":"https://frontend-fullstack.onrender.com/"
+    "image": "/frontend/kajutan.jpg",
+    "link":"",
+    "github":"https://github.com/Hamidswed/jobseek"
   },
   {
     "id": 3,
+    "title": "Hotel booking",
+    "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Json Server",
+    "category": "Frontend",
+    "image": "/frontend/kajutan.jpg",
+    "link":"",
+    "github":"https://github.com/Hamidswed/hotel-booking"
+  },
+  {
+    "id": 4,
+    "title": "Kajutan restaurant",
+    "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
+    "category": "Frontend",
+    "image": "/frontend/kajutan.jpg",
+    "link":"https://kajutan.onrender.com/",
+    "github":"https://github.com/Hamidswed/kajutan"
+  },
+  {
+    "id": 5,
+    "title": "Mobile Studio",
+    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
+    "category": "Frontend",
+    "image": "/frontend/mobile.jpg",
+    "link":"https://frontend-fullstack.onrender.com/",
+    "github":"https://github.com/Hamidswed/FullStack-ecommerce-mobile"
+  },
+  {
+    "id": 6,
     "title": "Swedish Fashion",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
     "image": "/frontend/group-project.jpg",
-    "link":"https://products-app-kohl.vercel.app/"
+    "link":"https://products-app-kohl.vercel.app/",
+    "github":"https://github.com/Hamidswed/frontend_group1"
   },
   {
-    "id": 4,
+    "id": 7,
     "title": "Yummy App",
     "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
     "image": "/frontend/yummy.jpg",
-    "link":"https://catering-yummy.vercel.app/"
+    "link":"https://catering-yummy.vercel.app/",
+    "github":"https://github.com/Hamidswed/yummy"
   },
   {
-    "id": 5,
+    "id": 8,
     "title": "Product App",
     "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
     "category": "Frontend",
     "image": "/frontend/product.jpg",
-    "link":"https://shopping-cart-simple.vercel.app/"
+    "link":"https://shopping-cart-simple.vercel.app/",
+    "github":"https://github.com/Hamidswed/shopping_cart_simple"
   }
 ]
