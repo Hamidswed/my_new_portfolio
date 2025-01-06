@@ -4,7 +4,7 @@
     "title": "Blog managment app",
     "description": "It is an individual project that implemented by Next.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
     "category": "Frontend",
-    "image": "/frontend/kajutan.jpg",
+    "image": "/frontend/blog.jpg",
     "link":"",
     "github":"https://github.com/Hamidswed/blog_app_nextjs"
   },
@@ -13,16 +13,16 @@
     "title": "Job portal",
     "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
     "category": "Frontend",
-    "image": "/frontend/kajutan.jpg",
+    "image": "/frontend/job-portal.jpg",
     "link":"",
     "github":"https://github.com/Hamidswed/jobseek"
   },
   {
     "id": 3,
     "title": "Hotel booking",
-    "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Json Server",
+    "description": "It is an individual project that implemented by React.js, useContext, Leaflet for map, and Tainwind Css as CSS in frontend side. For backend used Json Server",
     "category": "Frontend",
-    "image": "/frontend/kajutan.jpg",
+    "image": "/frontend/hotel.jpg",
     "link":"",
     "github":"https://github.com/Hamidswed/hotel-booking"
   },
