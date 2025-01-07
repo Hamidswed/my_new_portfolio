@@ -1,18 +1,28 @@
 import { useEffect, useState } from "react";
 import { WebItem } from "./WebItem";
 import axios from "axios";
+import { Loading } from "../../loading/Loading";
 
 export function WebList() {
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getData = async () => {
-    const res = await axios.get("/api/frontend.json");
-    setData(res.data);
+    try {
+      const res = await axios.get("/api/frontend.json");
+      setData(res.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      setIsLoading(true);
+    }
   };
 
   useEffect(() => {
     getData();
   }, []);
+
+  if (isLoading) return <Loading />;
 
   return (
     <div
