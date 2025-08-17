@@ -9,7 +9,7 @@ export function Navbar() {
   return (
     <div className="flex flex-col z-20 mt-2 lg:flex-row lg:justify-between lg:items-center mb-6 lg:mb-8 animate-slide-down">
       <div className="flex flex-col animate-slide-left mb-6 lg:mb-0 relative">
-        <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl flex flex-col group cursor-default">
+        <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl flex flex-col group cursor-default space-y-2 sm:space-y-0">
           <span className="elegant-name-text">
             Hamidreza
           </span>

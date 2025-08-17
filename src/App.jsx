@@ -6,6 +6,7 @@ import { Contact } from "./pages/Contact";
 import Info from "./components/info/Info";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { useEffect } from "react";
+import { ChatBox } from "./components/ChatBox";
 
 // Floating particles component
 const FloatingParticles = () => {
@@ -42,7 +43,8 @@ function App() {
     <div className="min-h-screen animated-bg">
       <FloatingParticles />
       <ThemeToggle />
-      <div className="container mx-auto max-w-7xl pt-2 px-4 sm:px-6 lg:px-8 pb-8 relative z-10 min-h-screen flex flex-col">
+      <ChatBox />
+      <div className="container mx-auto max-w-6xl pt-2 px-4 sm:px-6 lg:px-8 pb-8 relative z-10 min-h-screen flex flex-col">
         <div className="animate-fade-in">
           <Navbar />
           <Routes>
