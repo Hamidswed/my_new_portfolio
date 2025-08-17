@@ -1,51 +1,82 @@
 /* eslint-disable react/prop-types */
 import { IoLogoGithub } from "react-icons/io";
+import { HiExternalLink, HiEye } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 export function WebItem({ item }) {
   return (
-    <div className="relative p-4 border border-creamColor transition-all duration-300 ease-in-out hover:rounded-2xl hover:shadow-lg hover:scale-105 hover:border-lightRed hover:bg-darkColor">
-      <div className="max-h-[50%] w-full">
+    <div className="group relative glass rounded-2xl p-6 transition-all duration-500 ease-out hover-lift hover:scale-105 border border-dark-border/50 hover:border-dark-primary/50 overflow-hidden h-full flex flex-col">
+      {/* Background glow effect */}
+      <div className="absolute inset-0 bg-gradient-to-br from-dark-primary/5 via-dark-secondary/5 to-dark-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+      
+      {/* Image container */}
+      <div className="relative w-full h-48 mb-4 rounded-xl overflow-hidden flex-shrink-0">
         <img
           src={item.image}
           alt={item.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
         />
-      </div>
-      <div className="top-28 px-2 w-full min-h-[240px] py-4 flex flex-col justify-between gap-y-4">
-        <div>
-          <h2 className="font-bold text-creamColor mb-3">{item.title}</h2>
-          <p className="text-sm text-creamColor h-full">{item.description}</p>
+        
+        {/* Image overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        
+        {/* Hover preview button */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="bg-dark-primary/90 backdrop-blur-sm rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
+            <HiEye className="w-6 h-6 text-white" />
+          </div>
         </div>
-        <div className="flex justify-between items-center">
-          <button className="flex-1">
-            <Link to={item.github} target="_blank">
-              <IoLogoGithub
-                size={30}
-                // color="#9e8e7f"
-                className="hover:scale-125 text-creamColor hover:text-backColor transition-all duration-300 ease-in-out"
-              />
-            </Link>
-          </button>
+      </div>
 
-          <button
-            disabled={!item.link}
-            className={`py-1 w-20 rounded-full flex-1 transition-all duration-500 ease-in-out ${
-              item.link ? "bg-lightRed hover:bg-backColor" : "bg-gray-400"
+      {/* Content */}
+      <div className="relative z-10 flex flex-col gap-4 flex-1">
+        <div className="flex-1 flex flex-col">
+          <h2 className="font-bold dark:text-dark-text light:text-light-text mb-3 text-lg dark:group-hover:text-dark-primary light:group-hover:text-light-primary transition-colors duration-300 line-clamp-2">
+            {item.title}
+          </h2>
+          <p className="text-sm dark:text-dark-muted light:text-light-muted leading-relaxed dark:group-hover:text-dark-text light:group-hover:text-light-text transition-colors duration-300 flex-1 line-clamp-3">
+            {item.description}
+          </p>
+        </div>
+
+        {/* Action buttons */}
+        <div className="flex items-center gap-3 pt-4 border-t border-dark-border/30 mt-auto">
+          {/* GitHub button */}
+          <Link 
+            to={item.github} 
+            target="_blank"
+            className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-card hover:bg-gray-700 text-dark-muted hover:text-white transition-all duration-300 hover:scale-110 group/btn"
+            title="View Source Code"
+          >
+            <IoLogoGithub size={20} className="group-hover/btn:animate-pulse" />
+          </Link>
+
+          {/* Live demo button */}
+          <Link
+            to={item.link || "#"}
+            target={item.link ? "_blank" : "_self"}
+            className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+              item.link 
+                ? "neon-button text-dark-primary border-dark-primary hover:text-white hover:shadow-lg hover:shadow-dark-primary/25" 
+                : "bg-dark-card/50 text-dark-muted cursor-not-allowed border border-dark-border/30"
             }`}
+            onClick={!item.link ? (e) => e.preventDefault() : undefined}
           >
             {item.link ? (
-              <Link to={item.link} target="_blank">
-                Open
-              </Link>
+              <>
+                <HiExternalLink size={16} />
+                <span>Live Demo</span>
+              </>
             ) : (
-              <span className="text-sm font-bold text-gray-300">
-                Not deplyed
-              </span>
+              <span className="text-xs">Not Deployed</span>
             )}
-          </button>
+          </Link>
         </div>
       </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-4 right-4 w-2 h-2 bg-dark-accent rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
+      <div className="absolute bottom-4 left-4 w-1 h-1 bg-dark-secondary rounded-full opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-300"></div>
     </div>
   );
 }

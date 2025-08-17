@@ -1,17 +1,8 @@
-import { ThreeDots } from "react-loader-spinner";
 
-export function Loading({ width = "75", height = "40", color = "#9e8e7f" }) {
+export const Loading = () => {
   return (
-    <ThreeDots
-      height={height}
-      width={width}
-      radius={9}
-      color={color}
-      wrapperStyle={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-      visible={true}
-    />
+    <div className="flex items-center justify-center min-h-[200px]">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-primary dark:border-primary-dark"></div>
+    </div>
   );
-}
+};
