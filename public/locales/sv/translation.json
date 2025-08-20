@@ -142,5 +142,11 @@
   "viewSource": "Visa källkod",
   "liveDemo": "Live-demo",
   "notDeployed": "Ej publicerat"
+  },
+  "chat": {
+  "online": "Uppkopplad",
+  "title": "Chatt",
+  "placeholder": "Skriv ditt meddelande...",
+  "send": "Skicka"
   }
 }

@@ -1,10 +1,13 @@
+// src/components/ChatBox.jsx
 import { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import io from 'socket.io-client';
 import profileImage from '../assets/hamid.webp';
 
 const socket = io('https://chat-backend-3xpu.onrender.com');
 
 export function ChatBox() {
+  const { t } = useTranslation();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(false);
@@ -30,51 +33,107 @@ export function ChatBox() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shift) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+
   return (
-    <div className="fixed bottom-8 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-50">
+      {/* دکمه باز/بسته چت */}
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2 p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-shadow"
+          className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl dark:shadow-gray-900/30 transition-all duration-300 hover:scale-105 group focus:outline-none"
         >
-          <img src={profileImage} alt="Profile" className="w-10 h-10 rounded-full object-cover" />
-          <span className="pr-2 font-medium text-sm">Online</span>
+          <div className="relative">
+            <img
+              src={profileImage}
+              alt="Profile"
+              className="w-10 h-10 rounded-full object-cover border-2 border-blue-400 dark:border-blue-500"
+            />
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-800"></span>
+          </div>
+          <span className="font-medium text-sm dark:text-gray-200">{t('chat.online')}</span>
         </button>
       ) : (
-        <div className="w-80 bg-white dark:bg-gray-800 rounded-lg shadow-lg flex flex-col">
-          <div className="p-2 border-b dark:border-gray-700 font-bold flex justify-between items-center">
-            <span>Online Chat</span>
+        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border dark:border-gray-700 flex flex-col overflow-hidden transition-all duration-300 animate-fade-in">
+          {/* هدر چت */}
+          <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 border-b dark:border-gray-700">
+            <div className="flex items-center gap-2">
+              <img
+                src={profileImage}
+                alt="Hamidreza"
+                className="w-8 h-8 rounded-full object-cover"
+              />
+              <span className="font-bold text-gray-800 dark:text-white">{t('chat.title')}</span>
+            </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-color-300 text-gray-600 dark:text-gray-300"
+              aria-label={t('chat.close')}
             >
               ✕
             </button>
           </div>
-      <div className="flex-1 overflow-y-auto p-2" style={{ maxHeight: '300px' }}>
-        {messages.map((msg, idx) => (
-          <div key={idx} className={`mb-2 text-sm ${msg.from === 'user' ? 'text-right' : 'text-left'}`}>
-            <span className={`inline-block px-2 py-1 rounded ${msg.from === 'user' ? 'bg-blue-100 dark:bg-blue-900' : 'bg-gray-200 dark:bg-gray-700'}`}>
-              {msg.text}
-            </span>
+
+          {/* بادی چت */}
+          <div
+            className="flex-1 p-3 overflow-y-auto space-y-3 bg-gray-50/50 dark:bg-gray-900/50"
+            style={{ maxHeight: '400px' }}
+          >
+            {messages.length === 0 ? (
+              <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
+                {t('chat.noMessages')}
+              </div>
+            ) : (
+              messages.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm ${
+                      msg.from === 'user'
+                        ? 'bg-blue-600 text-white rounded-tr-none'
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-tl-none'
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
+                </div>
+              ))
+            )}
+            <div ref={messagesEndRef} />
           </div>
-        ))}
-          <div ref={messagesEndRef} />
-          </div>
-          <div className="p-2 flex gap-2 border-t dark:border-gray-700">
-            <input
-              className="flex-1 px-2 py-1 rounded border dark:bg-gray-900 dark:text-white"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && sendMessage()}
-              placeholder="Please type your message..."
-            />
-            <button
-              className="px-3 py-1 bg-blue-600 text-white rounded"
-              onClick={sendMessage}
+
+          {/* فوتر (ورودی و دکمه) */}
+          <div className="p-3 bg-white dark:bg-gray-900 border-t dark:border-gray-700">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                sendMessage();
+              }}
+              className="flex gap-2"
             >
-              Send
-            </button>
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder={t('chat.placeholder')}
+                className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-800 border-0 rounded-xl text-gray-800 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all"
+              />
+              <button
+                type="submit"
+                disabled={!input.trim()}
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 dark:disabled:bg-blue-800 text-white rounded-xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
+              >
+                {t('chat.send')}
+              </button>
+            </form>
           </div>
         </div>
       )}

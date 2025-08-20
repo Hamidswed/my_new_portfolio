@@ -142,5 +142,11 @@
   "viewSource": "View Source Code",
   "liveDemo": "Live Demo",
   "notDeployed": "Not Deployed"
+  },
+  "chat": {
+  "online": "Online",
+  "title": "Online Chat",
+  "placeholder": "Please type your message...",
+  "send": "Send"
   }
 }
