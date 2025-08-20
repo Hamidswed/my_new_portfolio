@@ -114,7 +114,9 @@ export function ChatBox() {
           </div>
 
           {/* Body */}
-          <div className="flex-1 p-4 flex flex-col space-y-4">
+          <div className="flex-1 p-4 flex flex-col space-y-4"
+            style={{ animation: 'fadeInDown 0.3s ease-out' }}
+          >
             {/* Step 1: User Info Form */}
             {step === 'initial' && (
               <form onSubmit={handleUserInfoSubmit} className="space-y-3">
@@ -162,7 +164,7 @@ export function ChatBox() {
               <>
                 <div
                   className="flex-1 overflow-y-auto space-y-3 bg-gray-50/50 dark:bg-gray-900/50 p-2 rounded-lg"
-                  style={{ maxHeight: '300px' }}
+                  style={{ maxHeight: '300px', animation: 'fadeInDown 0.3s ease-out' }}
                 >
                   {messages.length === 0 ? (
                     <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
