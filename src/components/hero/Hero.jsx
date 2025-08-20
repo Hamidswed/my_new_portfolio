@@ -14,8 +14,12 @@ export function Hero() {
     <div className="animate-fade-in">
       {/* Hero Section */}
       <div className="hero-grid min-h-[calc(100vh-200px)] py-4 lg:py-8">
+        {/* Profile Image Section */}
+        <div className="animate-slide-right">
+          <Profile />
+        </div>
         {/* Content Section */}
-        <div className="order-1 lg:order-1 animate-slide-left space-y-6 lg:space-y-8">
+        <div className="animate-slide-left space-y-6 lg:space-y-8">
           {/* Animated greeting */}
           <div className="space-y-4 lg:space-y-6">
             <div className="flex items-center gap-2 flex-wrap">
@@ -91,11 +95,6 @@ export function Hero() {
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Profile Image Section */}
-        <div className="order-2 lg:order-2 animate-slide-right">
-          <Profile />
         </div>
       </div>
 

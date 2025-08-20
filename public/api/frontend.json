@@ -1,74 +1,138 @@
 [
   {
     "id": 1,
-    "title": "Blog managment app",
-    "description": "It is an individual project that implemented by Next.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
+    "title": {
+      "en": "Blog Management App",
+      "fa": "اپلیکیشن مدیریت وبلاگ",
+      "sv": "Blogghanteringsapp"
+    },
+    "description": {
+      "en": "It is an individual project that implemented by Next.js, React Query, and Tailwind CSS on the frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database.",
+      "fa": "این یک پروژه فردی است که فرانت‌اند آن با Next.js، React Query و Tailwind CSS پیاده‌سازی شده است. بک‌اند با Node.js، Express.js، استراتژی JWT و MongoDB به عنوان پایگاه داده اجرا شده است.",
+      "sv": "Det är ett individuellt projekt som implementerats med Next.js, React Query och Tailwind CSS på frontend-sidan. För backend användes Node.js, Express.js, JWT-strategi och MongoDB som databas."
+    },
     "category": "Frontend",
     "image": "/frontend/blog.jpg",
-    "link":"",
-    "github":"https://github.com/Hamidswed/blog_app_nextjs"
+    "link": "",
+    "github": "https://github.com/Hamidswed/blog_app_nextjs"
   },
   {
     "id": 2,
-    "title": "Job portal",
-    "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
+    "title": {
+      "en": "Job Portal",
+      "fa": "پورتال استخدام",
+      "sv": "Jobbportal"
+    },
+    "description": {
+      "en": "It is an individual project that implemented by React.js, React Query, and Tailwind CSS on the frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database.",
+      "fa": "این یک پروژه فردی است که فرانت‌اند آن با React.js، React Query و Tailwind CSS پیاده‌سازی شده است. بک‌اند با Node.js، Express.js، استراتژی JWT و MongoDB به عنوان پایگاه داده اجرا شده است.",
+      "sv": "Det är ett individuellt projekt som implementerats med React.js, React Query och Tailwind CSS på frontend-sidan. För backend användes Node.js, Express.js, JWT-strategi och MongoDB som databas."
+    },
     "category": "Frontend",
     "image": "/frontend/job-portal.jpg",
-    "link":"",
-    "github":"https://github.com/Hamidswed/jobseek"
+    "link": "",
+    "github": "https://github.com/Hamidswed/jobseek"
   },
   {
     "id": 3,
-    "title": "Hotel booking",
-    "description": "It is an individual project that implemented by React.js, useContext, Leaflet for map, and Tainwind Css as CSS in frontend side. For backend used Json Server",
+    "title": {
+      "en": "Hotel Booking",
+      "fa": "رزرو هتل",
+      "sv": "Hotellbokning"
+    },
+    "description": {
+      "en": "It is an individual project that implemented by React.js, useContext, Leaflet for map, and Tailwind CSS on the frontend side. For backend used Json Server.",
+      "fa": "این یک پروژه فردی است که فرانت‌اند آن با React.js، useContext، Leaflet برای نقشه و Tailwind CSS پیاده‌سازی شده است. بک‌اند با Json Server اجرا شده است.",
+      "sv": "Det är ett individuellt projekt som implementerats med React.js, useContext, Leaflet för karta och Tailwind CSS på frontend-sidan. För backend användes Json Server."
+    },
     "category": "Frontend",
     "image": "/frontend/hotel.jpg",
-    "link":"",
-    "github":"https://github.com/Hamidswed/hotel-booking"
+    "link": "",
+    "github": "https://github.com/Hamidswed/hotel-booking"
   },
   {
     "id": 4,
-    "title": "Kajutan restaurant",
-    "description": "It is an individual project that implemented by React.js, React Query, and Tainwind Css as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
+    "title": {
+      "en": "Kajutan Restaurant",
+      "fa": "رستوران کایوتان",
+      "sv": "Kajutan Restaurang"
+    },
+    "description": {
+      "en": "It is an individual project that implemented by React.js, React Query, and Tailwind CSS on the frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database.",
+      "fa": "این یک پروژه فردی است که فرانت‌اند آن با React.js، React Query و Tailwind CSS پیاده‌سازی شده است. بک‌اند با Node.js، Express.js، استراتژی JWT و MongoDB به عنوان پایگاه داده اجرا شده است.",
+      "sv": "Det är ett individuellt projekt som implementerats med React.js, React Query och Tailwind CSS på frontend-sidan. För backend användes Node.js, Express.js, JWT-strategi och MongoDB som databas."
+    },
     "category": "Frontend",
     "image": "/frontend/kajutan.jpg",
-    "link":"https://kajutan.onrender.com/",
-    "github":"https://github.com/Hamidswed/kajutan"
+    "link": "https://kajutan.onrender.com/",
+    "github": "https://github.com/Hamidswed/kajutan"
   },
   {
     "id": 5,
-    "title": "Mobile Studio",
-    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS in frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database",
+    "title": {
+      "en": "Mobile Studio",
+      "fa": "استودیو موبایل",
+      "sv": "Mobil Studio"
+    },
+    "description": {
+      "en": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI on the frontend side. For backend used Node.js, Express.js, JWT strategy and MongoDB as a database.",
+      "fa": "این یک پروژه فردی است که فرانت‌اند آن با React.js، Redux Toolkit، TypeScript و Material UI پیاده‌سازی شده است. بک‌اند با Node.js، Express.js، استراتژی JWT و MongoDB به عنوان پایگاه داده اجرا شده است.",
+      "sv": "Det är ett individuellt projekt som implementerats med React.js, Redux Toolkit, TypeScript och Material UI på frontend-sidan. För backend användes Node.js, Express.js, JWT-strategi och MongoDB som databas."
+    },
     "category": "Frontend",
     "image": "/frontend/mobile.jpg",
-    "link":"https://frontend-fullstack.onrender.com/",
-    "github":"https://github.com/Hamidswed/FullStack-ecommerce-mobile"
+    "link": "https://frontend-fullstack.onrender.com/",
+    "github": "https://github.com/Hamidswed/FullStack-ecommerce-mobile"
   },
   {
     "id": 6,
-    "title": "Swedish Fashion",
-    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "title": {
+      "en": "Swedish Fashion",
+      "fa": "مد سوئدی",
+      "sv": "Svensk Mode"
+    },
+    "description": {
+      "en": "It is a team project that implemented by React.js, Redux Toolkit, TypeScript and Material UI on the frontend side.",
+      "fa": "این یک پروژه تیمی است که فرانت‌اند آن با React.js، Redux Toolkit، TypeScript و Material UI پیاده‌سازی شده است.",
+      "sv": "Det är ett teamprojekt som implementerats med React.js, Redux Toolkit, TypeScript och Material UI på frontend-sidan."
+    },
     "category": "Frontend",
     "image": "/frontend/group-project.jpg",
-    "link":"https://products-app-kohl.vercel.app/",
-    "github":"https://github.com/Hamidswed/frontend_group1"
+    "link": "https://products-app-kohl.vercel.app/",
+    "github": "https://github.com/Hamidswed/frontend_group1"
   },
   {
     "id": 7,
-    "title": "Yummy App",
-    "description": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "title": {
+      "en": "Yummy App",
+      "fa": "اپلیکیشن یامی",
+      "sv": "Yummy App"
+    },
+    "description": {
+      "en": "It is an individual project that implemented by React.js, Redux Toolkit, TypeScript and Material UI on the frontend side.",
+      "fa": "این یک پروژه فردی است که فرانت‌اند آن با React.js، Redux Toolkit، TypeScript و Material UI پیاده‌سازی شده است.",
+      "sv": "Det är ett individuellt projekt som implementerats med React.js, Redux Toolkit, TypeScript och Material UI på frontend-sidan."
+    },
     "category": "Frontend",
     "image": "/frontend/yummy.jpg",
-    "link":"https://catering-yummy.vercel.app/",
-    "github":"https://github.com/Hamidswed/yummy"
+    "link": "https://catering-yummy.vercel.app/",
+    "github": "https://github.com/Hamidswed/yummy"
   },
   {
     "id": 8,
-    "title": "Product App",
-    "description": "It is a team work project that implemented by React.js, Redux Toolkit, TypeScript and Material UI as CSS.",
+    "title": {
+      "en": "Product App",
+      "fa": "اپلیکیشن محصولات",
+      "sv": "Produktapp"
+    },
+    "description": {
+      "en": "It is a team project that implemented by React.js, Redux Toolkit, TypeScript and Material UI on the frontend side.",
+      "fa": "این یک پروژه تیمی است که فرانت‌اند آن با React.js، Redux Toolkit، TypeScript و Material UI پیاده‌سازی شده است.",
+      "sv": "Det är ett teamprojekt som implementerats med React.js, Redux Toolkit, TypeScript och Material UI på frontend-sidan."
+    },
     "category": "Frontend",
     "image": "/frontend/product.jpg",
-    "link":"https://shopping-cart-simple.vercel.app/",
-    "github":"https://github.com/Hamidswed/shopping_cart_simple"
+    "link": "https://shopping-cart-simple.vercel.app/",
+    "github": "https://github.com/Hamidswed/shopping_cart_simple"
   }
 ]

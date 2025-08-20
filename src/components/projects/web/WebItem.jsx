@@ -2,8 +2,12 @@
 import { IoLogoGithub } from "react-icons/io";
 import { HiExternalLink, HiEye } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 export function WebItem({ item }) {
+  const { t, i18n } = useTranslation(); 
+  const lang = i18n.language || 'en'
+
   return (
     <div className="group relative glass rounded-2xl p-6 transition-all duration-500 ease-out hover-lift hover:scale-105 border border-dark-border/50 hover:border-dark-primary/50 overflow-hidden h-full flex flex-col">
       {/* Background glow effect */}
@@ -32,10 +36,10 @@ export function WebItem({ item }) {
       <div className="relative z-10 flex flex-col gap-4 flex-1">
         <div className="flex-1 flex flex-col">
           <h2 className="font-bold dark:text-dark-text light:text-light-text mb-3 text-lg dark:group-hover:text-dark-primary light:group-hover:text-light-primary transition-colors duration-300 line-clamp-2">
-            {item.title}
+            {typeof item.title === 'object' ? item.title[lang] : item.title}
           </h2>
           <p className="text-sm dark:text-dark-muted light:text-light-muted leading-relaxed dark:group-hover:text-dark-text light:group-hover:text-light-text transition-colors duration-300 flex-1 line-clamp-3">
-            {item.description}
+            {typeof item.description === 'object' ? item.description[lang] : item.description}
           </p>
         </div>
 
@@ -46,7 +50,7 @@ export function WebItem({ item }) {
             to={item.github} 
             target="_blank"
             className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-card hover:bg-gray-700 text-dark-muted hover:text-white transition-all duration-300 hover:scale-110 group/btn"
-            title="View Source Code"
+            title={t('projects.viewSource')} // ✅
           >
             <IoLogoGithub size={20} className="group-hover/btn:animate-pulse" />
           </Link>
@@ -65,10 +69,10 @@ export function WebItem({ item }) {
             {item.link ? (
               <>
                 <HiExternalLink size={16} />
-                <span>Live Demo</span>
+                <span>{t('projects.liveDemo')}</span>
               </>
             ) : (
-              <span className="text-xs">Not Deployed</span>
+              <span className="text-xs">{t('projects.notDeployed')}</span>
             )}
           </Link>
         </div>
