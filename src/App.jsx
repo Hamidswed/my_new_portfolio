@@ -8,6 +8,7 @@ import { ThemeToggle } from "./components/ThemeToggle";
 import { ChatBox } from "./components/ChatBox";
 import Resume from "./components/Resume";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 // Floating particles component
 // const FloatingParticles = () => {
@@ -39,12 +40,17 @@ import { LanguageSwitcher } from "./components/LanguageSwitcher";
 
 function App() {
   // Theme initialization is now handled by ThemeToggle component
+ const { i18n }= useTranslation()
+
+  const isRTL = i18n.language === 'fa';
 
   return (
     <div className="min-h-screen animated-bg overflow-x-hidden">
       {/* <FloatingParticles /> */}
-      <ThemeToggle />
-      <LanguageSwitcher/>
+      <div className={`fixed z-50 flex items-center gap-4 top-6 ${isRTL ? "left-6" : "right-6"}`}>
+        <LanguageSwitcher/>
+        <ThemeToggle />
+      </div>
       <ChatBox />
       <div className="container mx-auto max-w-6xl pt-2 px-4 sm:px-6 lg:px-8 pb-8 relative z-10 min-h-screen flex flex-col">
         <div className="animate-fade-in">

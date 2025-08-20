@@ -30,7 +30,7 @@ export function LanguageSwitcher() {
   const currentLang = languages.find((l) => l.code === i18n.language) || languages[0];
 
   return (
-    <div className={`fixed top-20 ${isRTL ? "left-6" : "right-6"} sm:top-6 sm:right-24 z-50 glass rounded-full border dark:border-dark-border/30 light:border-light-border/30 dark:hover:border-dark-primary/50 light:hover:border-light-primary/50 transition-all duration-300 hover-lift group`}>
+    <div className={`z-50 glass rounded-full border dark:border-dark-border/30 light:border-light-border/30 dark:hover:border-dark-primary/50 light:hover:border-light-primary/50 transition-all duration-300 hover-lift group`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center p-3"

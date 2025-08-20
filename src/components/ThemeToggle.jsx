@@ -1,17 +1,13 @@
 import { HiSun, HiMoon } from 'react-icons/hi2';
 import { useTheme } from '../hooks/useTheme';
-import { useTranslation } from 'react-i18next';
 
 export function ThemeToggle() {
   const { isDark, toggleTheme } = useTheme();
-  const { i18n }= useTranslation()
-
-  const isRTL = i18n.language === 'fa';
 
   // Don't render until theme is determined
   if (isDark === null) {
     return (
-      <div className={`fixed top-6 ${isRTL ? "left-6" : "right-6"} z-50 rounded-full p-3 bg-gray-200 dark:bg-gray-800 animate-pulse`}>
+      <div className={`z-50 rounded-full p-3 bg-gray-200 dark:bg-gray-800 animate-pulse`}>
         <div className="w-6 h-6 bg-gray-300 dark:bg-gray-700 rounded"></div>
       </div>
     );
@@ -20,7 +16,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className={`fixed top-6 ${isRTL ? "left-6" : "right-6"} z-50 glass rounded-full p-3 border dark:border-dark-border/30 light:border-light-border/30 dark:hover:border-dark-primary/50 light:hover:border-light-primary/50 transition-all duration-300 hover-lift group`}
+      className={`z-50 glass rounded-full p-3 border dark:border-dark-border/30 light:border-light-border/30 dark:hover:border-dark-primary/50 light:hover:border-light-primary/50 transition-all duration-300 hover-lift group`}
       title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
     >
       <div className="relative w-6 h-6">
