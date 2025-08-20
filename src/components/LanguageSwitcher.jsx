@@ -30,17 +30,16 @@ export function LanguageSwitcher() {
   const currentLang = languages.find((l) => l.code === i18n.language) || languages[0];
 
   return (
-    <div className={`z-50 glass rounded-full border dark:border-dark-border/30 light:border-light-border/30 dark:hover:border-dark-primary/50 light:hover:border-light-primary/50 transition-all duration-300 hover-lift group`}>
+    <div className={`z-50 flex items-center justify-center w-12 h-12 glass rounded-full border dark:border-dark-border/30 light:border-light-border/30 dark:hover:border-dark-primary/50 light:hover:border-light-primary/50 transition-all duration-300 hover-lift group`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center p-3"
       >
         {/* <span>{currentLang.flag}</span> */}
         <span>{currentLang.code.toUpperCase()}</span>
       </button>
 
       {isOpen && (
-        <ul className={`absolute ${isRTL ? "left-6" : "right-6"} mt-2 bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border dark:border-gray-700 text-sm`}>
+        <ul className={`absolute top-10 ${isRTL ? "left-6" : "right-6"} mt-2 bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden border dark:border-gray-700 text-sm`}>
           {languages.map((lang) => (
             <li key={lang.code}>
               <button
