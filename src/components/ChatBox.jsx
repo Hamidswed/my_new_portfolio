@@ -11,31 +11,46 @@ export function ChatBox() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(false);
-  const [step, setStep] = useState('initial'); // initial -> chat
-  const [userInfo, setUserInfo] = useState({ name: '', email: '' });
+  const [step, setStep] = useState(() => {
+    const saved = localStorage.getItem('chatStep');
+    return saved || 'initial';
+  });
+  const [userInfo, setUserInfo] = useState(() => {
+    const saved = localStorage.getItem('chatUserInfo');
+    return saved ? JSON.parse(saved) : { name: '', email: '' };
+  });
   const messagesEndRef = useRef(null);
 
+  // ذخیره حالت چت و اطلاعات کاربر
+  useEffect(() => {
+    localStorage.setItem('chatStep', step);
+  }, [step]);
+
+  useEffect(() => {
+    if (userInfo.name && userInfo.email) {
+      localStorage.setItem('chatUserInfo', JSON.stringify(userInfo));
+    }
+  }, [userInfo]);
+
+  // اتصال به سوکت
   useEffect(() => {
     socket.on('chat_history', (history) => setMessages(history));
     socket.on('new_message', (msg) => setMessages((prev) => [...prev, msg]));
+
     return () => {
       socket.off('chat_history');
       socket.off('new_message');
     };
   }, []);
 
+  // اسکرول به آخرین پیام
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleUserInfoSubmit = (e) => {
+  // ارسال پیام
+  const sendMessage = (e) => {
     e.preventDefault();
-    if (userInfo.name.trim() && userInfo.email.trim()) {
-      setStep('chat');
-    }
-  };
-
-  const sendMessage = () => {
     if (input.trim()) {
       const messageData = {
         from: 'user',
@@ -48,10 +63,11 @@ export function ChatBox() {
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      sendMessage();
+  // ارسال فرم نام و ایمیل
+  const handleUserInfoSubmit = (e) => {
+    e.preventDefault();
+    if (userInfo.name.trim() && userInfo.email.trim()) {
+      setStep('chat');
     }
   };
 
@@ -73,7 +89,12 @@ export function ChatBox() {
           <span className="font-medium text-sm dark:text-gray-200">{t('chat.online')}</span>
         </button>
       ) : (
-        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border dark:border-gray-700 flex flex-col overflow-hidden">
+        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border dark:border-gray-700 flex flex-col overflow-hidden mx-auto"
+          style={{
+          maxWidth: '90vw',
+          width: 'auto',
+          }}
+        >
           {/* Header */}
           <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 border-b dark:border-gray-700">
             <div className="flex items-center gap-2">
@@ -106,7 +127,9 @@ export function ChatBox() {
                   <input
                     type="text"
                     value={userInfo.name}
-                    onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
+                    onChange={(e) =>
+                      setUserInfo({ ...userInfo, name: e.target.value })
+                    }
                     className="w-full px-3 py-2 border dark:bg-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -118,7 +141,9 @@ export function ChatBox() {
                   <input
                     type="email"
                     value={userInfo.email}
-                    onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
+                    onChange={(e) =>
+                      setUserInfo({ ...userInfo, email: e.target.value })
+                    }
                     className="w-full px-3 py-2 border dark:bg-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -161,14 +186,14 @@ export function ChatBox() {
                   <div ref={messagesEndRef} />
                 </div>
 
-                <form onSubmit={sendMessage} className="flex gap-2">
+                {/* Input and Send Button */}
+                <form onSubmit={sendMessage} className="flex gap-2 p-2">
                   <input
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={handleKeyDown}
                     placeholder={t('chat.placeholder')}
-                    className="flex-1 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 w-2/3 px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <button
                     type="submit"
