@@ -7,6 +7,7 @@ import { ThemeToggle } from "./components/ThemeToggle";
 // import { useEffect } from "react";
 import { ChatBox } from "./components/ChatBox";
 import Resume from "./components/Resume";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
 
 // Floating particles component
 // const FloatingParticles = () => {
@@ -43,6 +44,7 @@ function App() {
     <div className="min-h-screen animated-bg overflow-x-hidden">
       {/* <FloatingParticles /> */}
       <ThemeToggle />
+      <LanguageSwitcher/>
       <ChatBox />
       <div className="container mx-auto max-w-6xl pt-2 px-4 sm:px-6 lg:px-8 pb-8 relative z-10 min-h-screen flex flex-col">
         <div className="animate-fade-in">

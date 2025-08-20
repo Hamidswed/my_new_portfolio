@@ -1,0 +1,110 @@
+{
+  "nav": {
+  "home": "Home",
+  "projects": "Projects",
+  "contact": "Contact",
+  "resume": "Resume"
+},
+"navbar": {
+  "dev": "Fullstack Developer",
+  "designer": "Graphic Designer"
+},
+  "hero": {
+  "greeting": "Welcome to my portfolio",
+  "title1": "Crafting Digital",
+  "title2": "Experiences",
+  "name": "Hamidreza Delshad",
+  "description1": {
+    "part1": "My name is ",
+    "part2": ", a passionate ",
+    "part3": " and a freelance ",
+    "part4": " from Sweden."
+  },
+  "role": {
+    "dev": "full stack developer",
+    "designer": "graphic designer"
+  },
+  "description2": {
+    "part1": "My passion for software is coming up with concepts and turning them into ",
+    "part2": ". When I develop something, I pay close attention to the ",
+    "part3": ", ",
+    "part4": ", and ",
+    "part5": "."
+  },
+  "highlight": {
+    "interfaces": "beautiful interfaces",
+    "experience": "user experience",
+    "architecture": "architecture",
+    "code": "code quality"
+  }
+},
+  "common": {
+    "fullstack": "Full Stack Developer & Designer",
+    "downloadCV": "Download CV (PDF)",
+    "location": "Umeå, Sweden",
+    "email": "delshad.swdn@gmail.com",
+    "phone": "Phone",
+    "emailLabel": "Email",
+    "locationLabel": "Location",
+    "phoneValue": "+46 735 883 889",
+    "emailValue": "delshad.swdn@gmail.com",
+    "locationValue": "Sweden"
+  },
+  "resume": {
+    "profile": "Career Profile",
+    "skills": "Skills",
+    "experience": "Work Experience",
+    "projects": "Key Projects",
+    "education": "Education",
+    "languages": "Languages",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "devops": "DevOps",
+    "cloud": "Cloud Services",
+    "design": "Design Tools",
+    "familiar": "Familiar",
+    "projectTitle": "Full-stack developer",
+    "projectSubtitle": "Kajutan Restaurant Website",
+    "blogTitle": "Blog App with Admin Panel",
+    "jobPortalTitle": "Job Portal Website",
+    "education1": "Master of Bioinformatics",
+    "education2": "Bachelor of Science in Computer Science"
+  },
+  "testimonials": {
+  "title": "What People Say",
+  "subtitle": "Recommendations from colleagues and clients I've had the pleasure to work with",
+  "loading": "Loading testimonials...",
+  "readMore": "Read more",
+  "showLess": "Show less",
+  "prev": "Previous testimonial",
+  "next": "Next testimonial",
+  "goTo": "Go to testimonial {{id}}",
+  "pause": "⏸️ Pause",
+  "play": "▶️ Play",
+  "autoScroll": "Auto-scroll"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "description": "Have a project in mind? Let's discuss how we can work together to bring your ideas to life.",
+    "quickStats": "Quick Stats",
+    "responseTime": "Response Time",
+    "clientSatisfaction": "Client Satisfaction",
+    "nameLabel": "Name",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "subjectLabel": "Subject",
+    "subjectPlaceholder": "Project discussion",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "sent": "Message Sent!",
+    "letsgo": "Let's get in touch"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewLive": "View Live",
+    "sourceCode": "Source Code"
+  }
+}

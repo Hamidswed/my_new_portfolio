@@ -1,11 +1,15 @@
+// src/components/hero/Hero.jsx
 import { Link } from "react-router-dom";
 import Profile from "./Profile";
 import SocialMedia from "./socialMedia/SocialMedia";
 import { FaDownload, FaRocket } from "react-icons/fa6";
 import { HiSparkles } from "react-icons/hi2";
 import Pdf from "/download/CV_HamidrezaDelshad.pdf";
+import { useTranslation } from 'react-i18next'; // ✅ ایمپورت
 
 export function Hero() {
+  const { t } = useTranslation(); // ✅ استفاده از ترجمه
+
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
@@ -17,18 +21,18 @@ export function Hero() {
             <div className="flex items-center gap-2 flex-wrap">
               <HiSparkles className="dark:text-dark-accent light:text-light-accent animate-pulse text-xl" />
               <span className="dark:text-dark-muted light:text-light-muted text-sm uppercase tracking-wider font-medium">
-                Welcome to my portfolio
+                {t('hero.greeting')} {/* ✅ */}
               </span>
               <HiSparkles className="dark:text-dark-secondary light:text-light-secondary animate-pulse text-xl" />
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="gradient-text">
-                Crafting Digital
+                {t('hero.title1')} {/* ✅ */}
               </span>
               <br />
               <span className="dark:text-dark-text light:text-light-text">
-                Experiences
+                {t('hero.title2')} {/* ✅ */}
               </span>
             </h1>
           </div>
@@ -36,17 +40,38 @@ export function Hero() {
           {/* Main description with glass effect */}
           <div className="glass rounded-2xl p-4 lg:p-6 hover-lift space-y-3">
             <p className="text-lg dark:text-dark-text light:text-light-text leading-relaxed">
-              My name is <span className="dark:text-dark-primary light:text-light-primary font-semibold">Hamidreza Delshad</span>,
-              a passionate <span className="dark:text-dark-secondary light:text-light-secondary font-semibold">full stack developer</span> and
-              a freelance <span className="dark:text-dark-accent light:text-light-accent font-semibold">graphic designer</span> from Sweden.
+              {t('hero.description1.part1')} {/* ✅ */}
+              <span className="dark:text-dark-primary light:text-light-primary font-semibold">
+                {t('hero.name')}
+              </span>
+              {t('hero.description1.part2')}
+              <span className="dark:text-dark-secondary light:text-light-secondary font-semibold">
+                {t('hero.role.dev')}
+              </span>
+              {t('hero.description1.part3')}
+              <span className="dark:text-dark-accent light:text-light-accent font-semibold">
+                {t('hero.role.designer')}
+              </span>
+              {t('hero.description1.part4')}
             </p>
             <p className="dark:text-dark-muted light:text-light-muted leading-relaxed">
-              My passion for software is coming up with concepts and turning them into
-              <span className="dark:text-dark-primary light:text-light-primary"> beautiful interfaces</span>.
-              When I develop something, I pay close attention to the
-              <span className="dark:text-dark-secondary light:text-light-secondary"> user experience</span>,
-              <span className="dark:text-dark-accent light:text-light-accent"> architecture</span>, and
-              <span className="dark:text-dark-primary light:text-light-primary"> code quality</span>.
+              {t('hero.description2.part1')}
+              <span className="dark:text-dark-primary light:text-light-primary">
+                {t('hero.highlight.interfaces')}
+              </span>
+              {t('hero.description2.part2')}
+              <span className="dark:text-dark-secondary light:text-light-secondary">
+                {t('hero.highlight.experience')}
+              </span>
+              {t('hero.description2.part3')}
+              <span className="dark:text-dark-accent light:text-light-accent">
+                {t('hero.highlight.architecture')}
+              </span>
+              {t('hero.description2.part4')}
+              <span className="dark:text-dark-primary light:text-light-primary">
+                {t('hero.highlight.code')}
+              </span>
+              {t('hero.description2.part5')}
             </p>
           </div>
 
@@ -60,7 +85,7 @@ export function Hero() {
               <Link to={Pdf} target="_blank" download="CV_HamidrezaDelshad">
                 <button className="neon-button flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-base transition-all duration-300 hover-lift group whitespace-nowrap">
                   <FaDownload className="animate-bounce group-hover:animate-pulse transition-all duration-300 flex-shrink-0" />
-                  <span className="flex-shrink-0">Download CV</span>
+                  <span className="flex-shrink-0">{t('common.downloadCV')}</span> {/* ✅ */}
                   <FaRocket className="opacity-0 group-hover:opacity-100 transition-all duration-300 animate-pulse flex-shrink-0" />
                 </button>
               </Link>

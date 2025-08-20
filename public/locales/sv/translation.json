@@ -1,0 +1,110 @@
+{
+  "nav": {
+  "home": "Hem",
+  "projects": "Projekt",
+  "contact": "Kontakt",
+  "resume": "CV"
+},
+"navbar": {
+  "dev": "Fullstack-utvecklare",
+  "designer": "Grafisk designer"
+},
+  "hero": {
+  "greeting": "Välkommen till mitt portfolio",
+  "title1": "Skapar digitala",
+  "title2": "upplevelser",
+  "name": "Hamidreza Delshad",
+  "description1": {
+    "part1": "Jag heter ",
+    "part2": ", en passionerad ",
+    "part3": " och frilansande ",
+    "part4": " från Sverige."
+  },
+  "role": {
+    "dev": "fullstack-utvecklare",
+    "designer": "grafisk designer"
+  },
+  "description2": {
+    "part1": "Mitt intresse för mjukvara handlar om att skapa koncept och förvandla dem till ",
+    "part2": " vackra gränssnitt. När jag utvecklar något, lägger jag stor vikt vid ",
+    "part3": ", ",
+    "part4": " och ",
+    "part5": "."
+  },
+  "highlight": {
+    "interfaces": "vackra gränssnitt",
+    "experience": "användarupplevelse",
+    "architecture": "arkitektur",
+    "code": "kodkvalitet"
+  }
+},
+  "common": {
+    "fullstack": "Fullstack-utvecklare & Designer",
+    "downloadCV": "Ladda ner CV (PDF)",
+    "location": "Umeå, Sverige",
+    "email": "delshad.swdn@gmail.com",
+    "phone": "Telefon",
+    "emailLabel": "E-post",
+    "locationLabel": "Plats",
+    "phoneValue": "+46 735 883 889",
+    "emailValue": "delshad.swdn@gmail.com",
+    "locationValue": "Sverige"
+  },
+  "resume": {
+    "profile": "Yrkesprofil",
+    "skills": "Färdigheter",
+    "experience": "Arbetslivserfarenhet",
+    "projects": "Nyckelprojekt",
+    "education": "Utbildning",
+    "languages": "Språk",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "devops": "DevOps",
+    "cloud": "Molntjänster",
+    "design": "Designverktyg",
+    "familiar": "Kunskap i",
+    "projectTitle": "Fullstack-utvecklare",
+    "projectSubtitle": "Restaurangwebbplats Kajutan",
+    "blogTitle": "Bloggapp med administrationspanel",
+    "jobPortalTitle": "Jobbportal",
+    "education1": "Master i bioinformatik",
+    "education2": "Kandidatexamen i datavetenskap"
+  },
+  "testimonials": {
+  "title": "Vad folk säger",
+  "subtitle": "Rekommendationer från kollegor och kunder jag haft nöjet att arbeta med",
+  "loading": "Laddar rekommendationer...",
+  "readMore": "Läs mer",
+  "showLess": "Visa mindre",
+  "prev": "Föregående rekommendation",
+  "next": "Nästa rekommendation",
+  "goTo": "Gå till rekommendation {{id}}",
+  "pause": "⏸️ Pausa",
+  "play": "▶️ Spela",
+  "autoScroll": "Automatisk skrollning"
+  },
+  "contact": {
+    "title": "Kontakta mig",
+    "description": "Har du ett projekt i åtanke? Låt oss diskutera hur vi kan samarbeta för att förverkliga dina idéer.",
+    "quickStats": "Snabbstatistik",
+    "responseTime": "Svarstid",
+    "clientSatisfaction": "Kundnöjdhet",
+    "nameLabel": "Namn",
+    "namePlaceholder": "Ditt namn",
+    "emailLabel": "E-post",
+    "emailPlaceholder": "din@email.com",
+    "subjectLabel": "Ämne",
+    "subjectPlaceholder": "Projektdiskussion",
+    "messageLabel": "Meddelande",
+    "messagePlaceholder": "Berätta om ditt projekt...",
+    "send": "Skicka meddelande",
+    "sending": "Skickar...",
+    "sent": "Meddelandet skickat!",
+    "letsgo": "Kontakta mig idag"
+  },
+  "projects": {
+    "title": "Projekt",
+    "viewLive": "Se live",
+    "sourceCode": "Källkod"
+  }
+}

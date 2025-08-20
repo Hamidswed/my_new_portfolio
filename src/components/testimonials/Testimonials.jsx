@@ -1,9 +1,12 @@
+// src/components/testimonials/Testimonials.jsx
 import { useState, useEffect } from 'react';
 import { HiChevronLeft, HiChevronRight, HiStar } from 'react-icons/hi';
 import { HiSparkles } from 'react-icons/hi2';
 import axios from "axios";
+import { useTranslation } from 'react-i18next'; // ✅ ایمپورت
 
 export function Testimonials() {
+  const { t } = useTranslation(); // ✅ استفاده از ترجمه
   const [testimonialsData, setTestimonialsData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -64,7 +67,6 @@ export function Testimonials() {
   };
 
   const currentTestimonial = testimonialsData[currentIndex];
-
   const isLongText = currentTestimonial?.text?.split(' ').length > 50;
 
   return (
@@ -74,12 +76,12 @@ export function Testimonials() {
         <div className="flex items-center justify-center gap-2 mb-4">
           <HiSparkles className="dark:text-dark-accent light:text-light-accent animate-pulse text-2xl" />
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">
-            What People Say
+            {t('testimonials.title')}
           </h2>
           <HiSparkles className="dark:text-dark-primary light:text-light-primary animate-pulse text-2xl" />
         </div>
         <p className="dark:text-dark-muted light:text-light-muted max-w-2xl mx-auto">
-          Recommendations from colleagues and clients I&apos;ve had the pleasure to work with
+          {t('testimonials.subtitle')}
         </p>
       </div>
 
@@ -151,13 +153,13 @@ export function Testimonials() {
                       onClick={() => setExpanded(!expanded)}
                       className="text-sm font-medium dark:text-dark-primary light:text-light-primary hover:underline focus:outline-none"
                     >
-                      {expanded ? 'Show less' : 'Read more'}
+                      {expanded ? t('testimonials.showLess') : t('testimonials.readMore')}
                     </button>
                   </div>
                 )}
               </div>
 
-              {/* Author Info - Always at the bottom */}
+              {/* Author Info */}
               <div className="space-y-1 mt-4">
                 <h4 className="font-semibold text-lg dark:text-dark-text light:text-light-text">
                   {currentTestimonial.name}
@@ -174,7 +176,9 @@ export function Testimonials() {
             </div>
           </div>
         ) : (
-          <p className="text-center dark:text-dark-muted light:text-light-muted">Loading testimonials...</p>
+          <p className="text-center dark:text-dark-muted light:text-light-muted">
+            {t('testimonials.loading')}
+          </p>
         )}
 
         {/* Navigation Arrows */}
@@ -183,7 +187,7 @@ export function Testimonials() {
             <button
               onClick={prevTestimonial}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center dark:text-dark-text light:text-light-text hover:scale-110 transition-all duration-300 hover-lift"
-              aria-label="Previous testimonial"
+              aria-label={t('testimonials.prev')}
             >
               <HiChevronLeft className="w-6 h-6" />
             </button>
@@ -191,7 +195,7 @@ export function Testimonials() {
             <button
               onClick={nextTestimonial}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center dark:text-dark-text light:text-light-text hover:scale-110 transition-all duration-300 hover-lift"
-              aria-label="Next testimonial"
+              aria-label={t('testimonials.next')}
             >
               <HiChevronRight className="w-6 h-6" />
             </button>
@@ -210,7 +214,7 @@ export function Testimonials() {
                     ? 'dark:bg-dark-primary light:bg-light-primary scale-125'
                     : 'dark:bg-dark-muted/30 light:bg-light-muted/30 hover:scale-110'
                 }`}
-                aria-label={`Go to testimonial ${testimonial.id}`}
+                aria-label={t('testimonials.goTo', { id: testimonial.id })}
               />
             ))}
           </div>
@@ -223,7 +227,7 @@ export function Testimonials() {
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
               className="text-xs dark:text-dark-muted light:text-light-muted hover:text-dark-primary transition-colors duration-300"
             >
-              {isAutoPlaying ? '⏸️ Pause' : '▶️ Play'} Auto-scroll
+              {isAutoPlaying ? t('testimonials.pause') : t('testimonials.play')} {t('testimonials.autoScroll')}
             </button>
           </div>
         )}

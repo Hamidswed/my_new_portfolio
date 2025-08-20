@@ -16,8 +16,18 @@ html {
   scroll-behavior: smooth;
 }
 
+@layer base {
+  :root {
+    font-family: 'Maven Pro', sans-serif;
+  }
+
+  [dir='rtl'] {
+    font-family: 'Vazirmatn', 'Maven Pro', sans-serif;
+  }
+}
+
 body {
-  font-family: "Inter", "Maven Pro", sans-serif;
+  font-family: "Inter", "Maven Pro", 'Vazirmatn', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
 }

@@ -4,6 +4,15 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          'Maven Pro',
+          'Vazirmatn',
+          'ui-sans-serif',
+          'system-ui',
+          'sans-serif'
+        ],
+      },
       colors: {
         // Light theme colors
         grayH: "#343a40",

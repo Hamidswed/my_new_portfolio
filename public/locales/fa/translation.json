@@ -1,0 +1,110 @@
+{
+  "nav": {
+  "home": "خانه",
+  "projects": "پروژه‌ها",
+  "contact": "تماس",
+  "resume": "رزومه"
+},
+"navbar": {
+  "dev": "توسعه‌دهنده فول‌استک",
+  "designer": "طراح گرافیک"
+},
+  "hero": {
+  "greeting": "به نمونه کار من خوش آمدید",
+  "title1": "طراحی تجربیات دیجیتال",
+  "title2": "",
+  "name": "حمیدرضا دلشاد",
+  "description1": {
+    "part1": "من ",
+    "part2": " هستم، یک توسعه‌دهنده فول‌استک پرشور و یک ",
+    "part3": " طراح گرافیک فریلنسر ",
+    "part4": " اهل سوئد."
+  },
+  "role": {
+    "dev": "",
+    "designer": ""
+  },
+  "description2": {
+    "part1": "عشق من به نرم‌افزار، طراحی مفاهیم و تبدیل آن‌ها به ",
+    "part2": "  است. هنگام توسعه، به ",
+    "part3": "، ",
+    "part4": " و ",
+    "part5": " توجه ویژه‌ای دارم."
+  },
+  "highlight": {
+    "interfaces": "رابط‌های زیبا",
+    "experience": "تجربه کاربری",
+    "architecture": "معماری",
+    "code": "کیفیت کد"
+  }
+},
+  "common": {
+    "fullstack": "توسعه‌دهنده فول‌استک و طراح",
+    "downloadCV": "دانلود رزومه (PDF)",
+    "location": "ومو، سوئد",
+    "email": "delshad.swdn@gmail.com",
+    "phone": "تلفن",
+    "emailLabel": "ایمیل",
+    "locationLabel": "موقعیت",
+    "phoneValue": "+46 735 883 889",
+    "emailValue": "delshad.swdn@gmail.com",
+    "locationValue": "سوئد"
+  },
+  "resume": {
+    "profile": "مشخصات حرفه‌ای",
+    "skills": "مهارت‌ها",
+    "experience": "تجربه کاری",
+    "projects": "پروژه‌های کلیدی",
+    "education": "تحصیلات",
+    "languages": "زبان‌ها",
+    "frontend": "فرانت‌اند",
+    "backend": "بک‌اند",
+    "devops": "دیواپس",
+    "cloud": "سرویس‌های ابری",
+    "design": "ابزار طراحی",
+    "familiar": "آشنایی",
+    "projectTitle": "توسعه‌دهنده فول‌استک",
+    "projectSubtitle": "وبسایت رستوران کاجاتان",
+    "blogTitle": "اپلیکیشن وبلاگ با پنل مدیریت",
+    "jobPortalTitle": "پورتال استخدام",
+    "education1": "کارشناسی ارشد بیوانفورماتیک",
+    "education2": "کارشناسی علوم کامپیوتر"
+  },
+  "testimonials": {
+  "title": "نظرات افراد",
+  "subtitle": "توصیه‌هایی از همکاران و مشتریانی که افتخار همکاری با آن‌ها رو داشته‌ام",
+  "loading": "در حال بارگذاری توصیه‌ها...",
+  "readMore": "بیشتر بخوانید",
+  "showLess": "کمتر نمایش بده",
+  "prev": "تستیمونیال قبلی",
+  "next": "تستیمونیال بعدی",
+  "goTo": "برو به تستیمونیال {{id}}",
+  "pause": "⏸️ متوقف کن",
+  "play": "▶️ اجرا کن",
+  "autoScroll": "پیمایش خودکار"
+  },
+  "contact": {
+    "title": "در تماس باشید",
+    "description": "ایده پروژه‌ای دارید؟ بیایید در مورد نحوه همکاری برای تحقق بخشیدن به ایده‌هایتان صحبت کنیم.",
+    "quickStats": "آمار سریع",
+    "responseTime": "زمان پاسخ‌دهی",
+    "clientSatisfaction": "رضایت مشتری",
+    "nameLabel": "نام",
+    "namePlaceholder": "نام شما",
+    "emailLabel": "ایمیل",
+    "emailPlaceholder": "ایمیل شما",
+    "subjectLabel": "موضوع",
+    "subjectPlaceholder": "بحث پروژه",
+    "messageLabel": "پیام",
+    "messagePlaceholder": "در مورد پروژه خود به من بگویید...",
+    "send": "ارسال پیام",
+    "sending": "در حال ارسال...",
+    "sent": "پیام ارسال شد!",
+    "letsgo": "برای همکاری در تماس باشیم"
+  },
+  "projects": {
+    "title": "پروژه‌ها",
+    "viewLive": "مشاهده آنلاین",
+    "sourceCode": "کد منبع"
+  }
+}
