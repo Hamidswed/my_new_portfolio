@@ -4,7 +4,21 @@ import { useTranslation } from 'react-i18next';
 import io from 'socket.io-client';
 import profileImage from '../assets/hamid.webp';
 
-const socket = io('https://chat-backend-3xpu.onrender.com');
+// ✅ ایجاد یا بازیابی یک Session ID منحصر به فرد
+const generateSessionId = () => {
+  let sessionId = localStorage.getItem('chatSessionId');
+  if (!sessionId) {
+    // مستقیماً با chat- تولید میشه
+    sessionId = 'chat-' + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem('chatSessionId', sessionId);
+  }
+  return sessionId;
+};
+
+// ✅ اتصال به سوکت با Session ID
+const socket = io('https://chat-backend-3xpu.onrender.com', {
+  auth: { sessionId: generateSessionId() }
+});
 
 export function ChatBox() {
   const { t } = useTranslation();
@@ -32,10 +46,23 @@ export function ChatBox() {
     }
   }, [userInfo]);
 
-  // اتصال به سوکت
+  // ✅ اتصال به سوکت و مدیریت چت بر اساس Session ID
   useEffect(() => {
-    socket.on('chat_history', (history) => setMessages(history));
-    socket.on('new_message', (msg) => setMessages((prev) => [...prev, msg]));
+    const sessionId = socket.auth.sessionId;
+    const room = `chat-${sessionId}`;
+
+    // ✅ عضویت در اتاق شخصی
+    socket.emit('join_room', room);
+
+    // ✅ دریافت تاریخچه اختصاصی
+    socket.on('chat_history', (history) => {
+      setMessages(history);
+    });
+
+    // ✅ دریافت پیام جدید فقط از این اتاق
+    socket.on('new_message', (msg) => {
+      setMessages((prev) => [...prev, msg]);
+    });
 
     return () => {
       socket.off('chat_history');
@@ -58,6 +85,7 @@ export function ChatBox() {
         name: userInfo.name,
         email: userInfo.email,
       };
+      // ✅ ارسال پیام به اتاق شخصی
       socket.emit('user_message', messageData);
       setInput('');
     }
@@ -89,10 +117,11 @@ export function ChatBox() {
           <span className="font-medium text-sm dark:text-gray-200">{t('chat.online')}</span>
         </button>
       ) : (
-        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border dark:border-gray-700 flex flex-col overflow-hidden mx-auto"
+        <div
+          className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border dark:border-gray-700 flex flex-col overflow-hidden mx-auto"
           style={{
-          maxWidth: '90vw',
-          width: 'auto',
+            maxWidth: '90vw',
+            width: 'auto',
           }}
         >
           {/* Header */}
@@ -114,9 +143,7 @@ export function ChatBox() {
           </div>
 
           {/* Body */}
-          <div className="flex-1 p-4 flex flex-col space-y-4"
-            style={{ animation: 'fadeInDown 0.3s ease-out' }}
-          >
+          <div className="flex-1 p-4 flex flex-col space-y-4" style={{ animation: 'fadeInDown 0.3s ease-out' }}>
             {/* Step 1: User Info Form */}
             {step === 'initial' && (
               <form onSubmit={handleUserInfoSubmit} className="space-y-3">
@@ -129,9 +156,7 @@ export function ChatBox() {
                   <input
                     type="text"
                     value={userInfo.name}
-                    onChange={(e) =>
-                      setUserInfo({ ...userInfo, name: e.target.value })
-                    }
+                    onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })}
                     className="w-full px-3 py-2 border dark:bg-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -143,9 +168,7 @@ export function ChatBox() {
                   <input
                     type="email"
                     value={userInfo.email}
-                    onChange={(e) =>
-                      setUserInfo({ ...userInfo, email: e.target.value })
-                    }
+                    onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
                     className="w-full px-3 py-2 border dark:bg-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
