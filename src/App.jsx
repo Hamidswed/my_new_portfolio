@@ -5,43 +5,43 @@ import { WebProjects } from "./pages/WebProjects";
 import { Contact } from "./pages/Contact";
 import Info from "./components/info/Info";
 import { ThemeToggle } from "./components/ThemeToggle";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { ChatBox } from "./components/ChatBox";
 
 // Floating particles component
-const FloatingParticles = () => {
-  useEffect(() => {
-    const createParticle = () => {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 6 + 's';
-      particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+// const FloatingParticles = () => {
+//   useEffect(() => {
+//     const createParticle = () => {
+//       const particle = document.createElement('div');
+//       particle.className = 'particle';
+//       particle.style.left = Math.random() * 100 + '%';
+//       particle.style.animationDelay = Math.random() * 6 + 's';
+//       particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
       
-      const particles = document.querySelector('.particles');
-      if (particles) {
-        particles.appendChild(particle);
+//       const particles = document.querySelector('.particles');
+//       if (particles) {
+//         particles.appendChild(particle);
         
-        setTimeout(() => {
-          particle.remove();
-        }, 10000);
-      }
-    };
+//         setTimeout(() => {
+//           particle.remove();
+//         }, 10000);
+//       }
+//     };
 
-    const interval = setInterval(createParticle, 300);
+//     const interval = setInterval(createParticle, 300);
     
-    return () => clearInterval(interval);
-  }, []);
+//     return () => clearInterval(interval);
+//   }, []);
 
-  return <div className="particles"></div>;
-};
+//   return <div className="particles"></div>;
+// };
 
 function App() {
   // Theme initialization is now handled by ThemeToggle component
 
   return (
     <div className="min-h-screen animated-bg">
-      <FloatingParticles />
+      {/* <FloatingParticles /> */}
       <ThemeToggle />
       <ChatBox />
       <div className="container mx-auto max-w-6xl pt-2 px-4 sm:px-6 lg:px-8 pb-8 relative z-10 min-h-screen flex flex-col">

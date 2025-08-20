@@ -44,11 +44,28 @@ io.on('connection', (socket) => {
   });
 });
 
+// تنظیم webhook تلگرام
+const WEBHOOK_URL = 'https://chat-backend-3xpu.onrender.com/telegram-webhook';
+
+// تنظیم webhook در تلگرام
+async function setWebhook() {
+  try {
+    const response = await axios.post(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook`, {
+      url: WEBHOOK_URL
+    });
+    console.log('Webhook set successfully:', response.data);
+  } catch (error) {
+    console.error('Failed to set webhook:', error.response?.data || error.message);
+  }
+}
+
+setWebhook();
+
 // ویب‌هوک تلگرام
 app.post('/telegram-webhook', (req, res) => {
   const message = req.body.message;
 
-  if (message && message.text && message.reply_to_message) {
+  if (message && message.text) {
     const replyMsg = { from: 'admin', text: message.text };
     chatHistory.push(replyMsg);
     io.emit('new_message', replyMsg);
