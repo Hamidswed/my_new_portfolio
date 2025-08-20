@@ -3,10 +3,10 @@ import { Home } from "./pages/Home";
 import { Navbar } from "./components/navbar/Navbar";
 import { WebProjects } from "./pages/WebProjects";
 import { Contact } from "./pages/Contact";
-import Info from "./components/info/Info";
 import { ThemeToggle } from "./components/ThemeToggle";
 // import { useEffect } from "react";
 import { ChatBox } from "./components/ChatBox";
+import Resume from "./components/Resume";
 
 // Floating particles component
 // const FloatingParticles = () => {
@@ -51,7 +51,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<WebProjects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/info" element={<Info />} />
+            <Route path="/resume" element={<Resume />} />
           </Routes>
         </div>
       </div>

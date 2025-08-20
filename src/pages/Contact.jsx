@@ -46,7 +46,7 @@ export function Contact() {
       }
     } catch (error) {
       console.error('Error:', error);
-      // اگه Formspree کار نکرد، از mailto استفاده کن
+      
       const subject = encodeURIComponent(formData.subject);
       const body = encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
@@ -63,7 +63,7 @@ export function Contact() {
   };
 
   return (
-    <div className="animate-fade-in py-8">
+    <div className="animate-fade-in py-8 lg:py-16">
       {/* Header */}
       <div className="text-center mb-12 animate-slide-down">
         <div className="flex items-center justify-center gap-2 mb-4">

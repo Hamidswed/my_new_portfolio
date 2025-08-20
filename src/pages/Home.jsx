@@ -33,7 +33,7 @@ export function Home() {
   }
 
   return (
-    <div className={`flex-1 flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <div className={`flex-1 py-8 lg:py-16 flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <Hero />
       <Testimonials />
       

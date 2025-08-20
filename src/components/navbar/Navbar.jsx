@@ -33,7 +33,7 @@ export function Navbar() {
         </div>
       </div>
       <div className="animate-slide-right">
-        <ul className="dark:text-dark-text light:text-light-text sm:text-xl flex gap-x-6 sm:gap-x-10 items-center">
+        <ul className="dark:text-dark-text light:text-light-text sm:text-xl flex gap-x-2 text-sm sm:gap-x-10 items-center">
           <li className="flex items-center gap-x-2 group">
             <span
               className={`${
@@ -92,6 +92,26 @@ export function Navbar() {
               </Link>
             </div>
           </li>
+          <li className="group">
+  <div className="flex items-center gap-x-2">
+    <span
+      className={`${
+        path === "/resume"
+          ? "visible transition-all duration-500 opacity-100 scale-100"
+          : "invisible transition-all duration-500 opacity-0 scale-0"
+      }`}
+    >
+      <ArrowRightCircleIcon className="w-4 h-4 dark:text-dark-primary light:text-light-primary animate-pulse" />
+    </span>
+    <Link
+      to="/resume"
+      className="relative dark:hover:text-dark-primary light:hover:text-light-primary transition-all duration-300 hover:scale-110 group-hover:translate-x-1"
+    >
+      <span className="relative z-10">Resume</span>
+      <span className="absolute inset-0 bg-gradient-to-r from-dark-primary to-dark-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg -m-2"></span>
+    </Link>
+  </div>
+</li>
         </ul>
       </div>
     </div>

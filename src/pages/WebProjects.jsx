@@ -9,7 +9,7 @@ export function WebProjects() {
   }, []);
 
   return (
-    <div className={`relative transition-all duration-1000 mt-8 lg:mt-12 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <div className={`relative transition-all duration-1000 py-8 lg:py-16 lg:mt-12 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <WebList />
     </div>
   );
