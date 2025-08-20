@@ -7,7 +7,7 @@ export function Navbar() {
   const path = location.pathname;
 
   return (
-    <div className="flex flex-col z-20 mt-2 lg:flex-row lg:justify-between lg:items-center mb-6 lg:mb-8 animate-slide-down">
+    <div className="flex flex-col z-20 mt-4 lg:flex-row lg:justify-between lg:items-center mb-6 lg:mb-8 animate-slide-down">
       <div className="flex flex-col animate-slide-left mb-6 lg:mb-0 relative">
         <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl flex flex-col group cursor-default space-y-2 sm:space-y-0">
           <span className="elegant-name-text">
@@ -33,7 +33,7 @@ export function Navbar() {
         </div>
       </div>
       <div className="animate-slide-right">
-        <ul className="dark:text-dark-text light:text-light-text flex flex-col gap-y-4 text-lg sm:text-xl lg:flex-row lg:gap-x-12 lg:items-center">
+        <ul className="dark:text-dark-text light:text-light-text sm:text-xl flex gap-x-6 sm:gap-x-10 items-center">
           <li className="flex items-center gap-x-2 group">
             <span
               className={`${

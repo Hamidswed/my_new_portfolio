@@ -40,7 +40,7 @@ function App() {
   // Theme initialization is now handled by ThemeToggle component
 
   return (
-    <div className="min-h-screen animated-bg">
+    <div className="min-h-screen animated-bg overflow-x-hidden">
       {/* <FloatingParticles /> */}
       <ThemeToggle />
       <ChatBox />
