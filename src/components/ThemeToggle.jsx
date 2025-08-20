@@ -1,4 +1,4 @@
-import { HiSun, HiMoon } from 'react-icons/hi2';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { useTheme } from '../hooks/useTheme';
 
 export function ThemeToggle() {
@@ -21,7 +21,7 @@ export function ThemeToggle() {
     >
       <div className="relative w-6 h-6">
         {/* Sun icon */}
-        <HiSun 
+        <SunIcon 
           className={`absolute inset-0 w-6 h-6 transition-all duration-500 ${
             isDark 
               ? 'opacity-0 rotate-90 scale-0' 
@@ -30,7 +30,7 @@ export function ThemeToggle() {
         />
         
         {/* Moon icon */}
-        <HiMoon 
+        <MoonIcon 
           className={`absolute inset-0 w-6 h-6 transition-all duration-500 ${
             isDark 
               ? 'opacity-100 rotate-0 scale-100 dark:text-dark-primary light:text-light-primary' 

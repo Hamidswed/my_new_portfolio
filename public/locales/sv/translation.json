@@ -147,6 +147,11 @@
   "online": "Uppkopplad",
   "title": "Chatt",
   "placeholder": "Skriv ditt meddelande...",
-  "send": "Skicka"
+  "send": "Skicka",
+  "welcome": "Låt oss starta konversationen!",
+  "intro": "Vänligen fyll i din information så att jag kan svara bättre.",
+  "name": "Ditt namn",
+  "email": "Din e-post",
+  "startChat": "Starta chatt"
   }
 }

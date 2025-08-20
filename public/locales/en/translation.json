@@ -147,6 +147,11 @@
   "online": "Online",
   "title": "Online Chat",
   "placeholder": "Please type your message...",
-  "send": "Send"
+  "send": "Send",
+  "welcome": "Let's start the conversation!",
+  "intro": "Please enter your information so I can respond better.",
+  "name": "Your Name",
+  "email": "Your Email",
+  "startChat": "Start Chat"
   }
 }
