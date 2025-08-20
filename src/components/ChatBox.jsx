@@ -42,7 +42,7 @@ export function ChatBox() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50">
-      {/* دکمه باز/بسته چت */}
+      
       {!isOpen ? (
         <button
           onClick={() => setIsOpen(true)}
@@ -60,7 +60,7 @@ export function ChatBox() {
         </button>
       ) : (
         <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border dark:border-gray-700 flex flex-col overflow-hidden transition-all duration-300 animate-fade-in">
-          {/* هدر چت */}
+          
           <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 border-b dark:border-gray-700">
             <div className="flex items-center gap-2">
               <img
@@ -79,7 +79,6 @@ export function ChatBox() {
             </button>
           </div>
 
-          {/* بادی چت */}
           <div
             className="flex-1 p-3 overflow-y-auto space-y-3 bg-gray-50/50 dark:bg-gray-900/50"
             style={{ maxHeight: '400px' }}
@@ -109,7 +108,6 @@ export function ChatBox() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* فوتر (ورودی و دکمه) */}
           <div className="p-3 bg-white dark:bg-gray-900 border-t dark:border-gray-700">
             <form
               onSubmit={(e) => {
