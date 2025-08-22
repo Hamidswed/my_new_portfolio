@@ -144,14 +144,39 @@
   "notDeployed": "Ej publicerat"
   },
   "chat": {
-  "online": "Uppkopplad",
-  "title": "Chatt",
-  "placeholder": "Skriv ditt meddelande...",
-  "send": "Skicka",
-  "welcome": "Låt oss starta konversationen!",
-  "intro": "Vänligen fyll i din information så att jag kan svara bättre.",
-  "name": "Ditt namn",
-  "email": "Din e-post",
-  "startChat": "Starta chatt"
+    "welcomeMessage": "Hej! Jag är Hamid. Hur kan jag hjälpa dig idag?",
+    "online": "Online",
+    "title": "Chatta med mig",
+    "welcome": "Välkommen!",
+    "intro": "Jag är här för att hjälpa dig. Vänligen presentera dig själv.",
+    "name": "Namn",
+    "namePlaceholder": "Ditt namn",
+    "email": "E-post",
+    "emailPlaceholder": "din@epost.se",
+    "startChat": "Starta chatt",
+    "placeholder": "Skriv ditt meddelande...",
+    "send": "Skicka",
+    "noMessages": "Inga meddelanden ännو",
+    "loading": "Läser in...",
+    "errors": {
+      "nameRequired": "Namn är obligatoriskt",
+      "emailRequired": "E-post är obligatorisk",
+      "invalidEmail": "Vänligen ange en giltig e-postadress"
+    }
+  },
+  "admin": {
+  "login": "Admininloggning",
+  "password": "Lösenord",
+  "enterPassword": "Ange lösenord",
+  "invalidPassword": "Ogiltigt lösenord",
+  "connectionError": "Anslutningsfel till servern",
+  "chatPanel": "Chattadministrationspanel",
+  "receivedMessages": "Mottagna meddelanden",
+  "noMessages": "Inga meddelanden mottagna ännu",
+  "replyTo": "Svara till",
+  "typeReply": "Skriv ditt svar...",
+  "sendReply": "Skicka svar",
+  "logout": "Logga ut",
+  "selectMessage": "Välj ett meddelande för att svara"
   }
 }

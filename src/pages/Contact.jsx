@@ -1,10 +1,11 @@
 // Contact.jsx
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next'; // ✅ ایمپورت صحیح
+import { withPageLoader } from '../components/loading/withPageLoader';
 import { HiMail, HiPhone, HiLocationMarker, HiPaperAirplane } from 'react-icons/hi';
 import { HiSparkles } from 'react-icons/hi2';
 
-export function Contact() {
+function ContactInner() {
   const { t } = useTranslation(); // ✅ استفاده صحیح
   const [formData, setFormData] = useState({
     name: '',
@@ -246,3 +247,5 @@ export function Contact() {
     </div>
   );
 }
+
+export const Contact = withPageLoader(ContactInner);

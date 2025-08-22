@@ -144,14 +144,40 @@
   "notDeployed": "Not Deployed"
   },
   "chat": {
-  "online": "Online",
-  "title": "Online Chat",
-  "placeholder": "Please type your message...",
-  "send": "Send",
-  "welcome": "Let's start the conversation!",
-  "intro": "Please enter your information so I can respond better.",
-  "name": "Your Name",
-  "email": "Your Email",
-  "startChat": "Start Chat"
+    "welcomeMessage": "Hi! I'm Hamid. How can I help you today?",
+    "online": "Online",
+    "title": "Chat with me",
+    "welcome": "Welcome!",
+    "intro": "I'm here to help. Please introduce yourself.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "your@email.com",
+    "startChat": "Start Chat",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "noMessages": "No messages yet",
+    "loading": "Loading...",
+    "errors": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "invalidEmail": "Please enter a valid email"
+    }
+  },
+  "admin": {
+  "login": "Admin Login",
+  "password": "Password",
+  "enterPassword": "Enter password",
+  "invalidPassword": "Invalid password",
+  "connectionError": "Connection Error",
+  "chatPanel": "Chat Management Panel",
+  "receivedMessages": "Received Messages",
+  "noMessages": "No messages received yet",
+  "replyTo": "Reply to",
+  "typeReply": "Type your reply...",
+  "sendReply": "Send Reply",
+  "replied": "Replied",
+  "logout": "Logout",
+  "selectMessage": "Select a message to reply"
   }
 }

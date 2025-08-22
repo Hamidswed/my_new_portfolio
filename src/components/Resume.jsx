@@ -1,13 +1,22 @@
 // pages/Resume.jsx
+import { useEffect, useState } from 'react';
+import { withPageLoader } from './loading/withPageLoader';
 import { useTranslation } from 'react-i18next'; 
 
 const Resume = () => {
   const { t } = useTranslation(); 
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // تاخیر کوتاه برای ایجاد افکت ظاهرشدن
+    const id = setTimeout(() => setIsVisible(true), 0);
+    return () => clearTimeout(id);
+  }, []);
 
   return (
-    <div className="py-8 px-6 md:px-12 max-w-4xl mx-auto lg:py-16">
+    <div className={`py-8 px-6 md:px-12 max-w-4xl mx-auto lg:py-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'}`}>
       {/* Header */}
-      <header className="text-center mb-12">
+      <header className="text-center mb-12 animate-slide-down">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text text-transparent">
           Hamidreza Delshad
         </h1>
@@ -49,7 +58,7 @@ const Resume = () => {
       </header>
 
       {/* Career Profile */}
-      <section className="mb-10">
+      <section className="mb-10 animate-fade-in">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b pb-2 border-gray-300 dark:border-gray-700">
           {t('resume.profile')}
         </h2>
@@ -59,7 +68,7 @@ const Resume = () => {
       </section>
 
       {/* Skills */}
-      <section className="mb-10">
+      <section className="mb-10 animate-fade-in [animation-delay:120ms]">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b pb-2 border-gray-300 dark:border-gray-700">
           {t('resume.skills')}
         </h2>
@@ -99,7 +108,7 @@ const Resume = () => {
       </section>
 
       {/* Work Experience */}
-      <section className="mb-10">
+      <section className="mb-10 animate-fade-in [animation-delay:240ms]">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b pb-2 border-gray-300 dark:border-gray-700">
           {t('resume.experience')}
         </h2>
@@ -201,7 +210,7 @@ const Resume = () => {
       </section>
 
       {/* Education */}
-      <section>
+      <section className="animate-fade-in [animation-delay:360ms]">
         <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b pb-2 border-gray-300 dark:border-gray-700">
           {t('resume.education')}
         </h2>
@@ -214,7 +223,7 @@ const Resume = () => {
       </section>
 
       {/* Download Button */}
-      <div className="text-center mt-12">
+      <div className="text-center mt-12 animate-slide-up">
         <a
           href="/CV_HamidrezaDelshad_2025.pdf"
           download
@@ -227,4 +236,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default withPageLoader(Resume);

@@ -1,16 +1,12 @@
 import { WebList } from "../components/projects/web/WebList";
-import { useEffect, useState } from "react";
+import { withPageLoader } from "../components/loading/withPageLoader";
 
-export function WebProjects() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
+function WebProjectsInner() {
   return (
-    <div className={`relative transition-all duration-1000 py-8 lg:py-16 lg:mt-12 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+    <div className="relative py-8 lg:py-16 lg:mt-12">
       <WebList />
     </div>
   );
 }
+
+export const WebProjects = withPageLoader(WebProjectsInner);

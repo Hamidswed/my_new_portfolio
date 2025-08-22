@@ -1,14 +1,16 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Navbar } from "./components/navbar/Navbar";
 import { WebProjects } from "./pages/WebProjects";
 import { Contact } from "./pages/Contact";
 import { ThemeToggle } from "./components/ThemeToggle";
 // import { useEffect } from "react";
-import { ChatBox } from "./components/ChatBox";
 import Resume from "./components/Resume";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import AdminLogin from "./pages/AdminLogin";
+import AdminChat from "./pages/AdminChat";
+import { ChatBox } from "./components/chatBox/ChatBox";
 
 // Floating particles component
 // const FloatingParticles = () => {
@@ -38,9 +40,20 @@ import { useTranslation } from "react-i18next";
 //   return <div className="particles"></div>;
 // };
 
+function RequireAdmin({ children }) {
+  const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
+  if (!token) {
+    return <Navigate to="/admin-login" replace />;
+  }
+  return children;
+}
+
 function App() {
   // Theme initialization is now handled by ThemeToggle component
  const { i18n }= useTranslation()
+ const { pathname }= useLocation()
+
+ const isAdminPage = pathname.startsWith('/admin-')
 
   const isRTL = i18n.language === 'fa';
 
@@ -51,15 +64,17 @@ function App() {
         <LanguageSwitcher/>
         <ThemeToggle />
       </div>
-      <ChatBox />
+      {!isAdminPage && <ChatBox />}
       <div className="container mx-auto max-w-6xl pt-2 px-4 sm:px-6 lg:px-8 pb-8 relative z-10 min-h-screen flex flex-col">
         <div className="animate-fade-in">
-          <Navbar />
+          {!isAdminPage && <Navbar />}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<WebProjects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin-chat" element={<RequireAdmin><AdminChat /></RequireAdmin>} />
           </Routes>
         </div>
       </div>
