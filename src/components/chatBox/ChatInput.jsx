@@ -12,12 +12,14 @@ export function ChatInput({ userInfo, onLocalSend }) {
     e.preventDefault();
     if (input.trim() && userInfo) {
       const text = input.trim();
+      const clientId = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
       // آپدیت خوشبینانه UI
-      onLocalSend?.({ from: 'user', text, name: userInfo.name, email: userInfo.email, timestamp: new Date().toISOString() });
+      onLocalSend?.({ from: 'user', text, name: userInfo.name, email: userInfo.email, timestamp: new Date().toISOString(), clientId });
       getSocket().emit('user_message', {
         text,
         name: userInfo.name,
-        email: userInfo.email
+        email: userInfo.email,
+        clientId
       });
       setInput('');
     }

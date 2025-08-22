@@ -21,7 +21,14 @@ export function ChatMessages({ messages, setMessages }) {
     };
 
     const onNewMessage = (msg) => {
-      setMessages(prev => [...prev, msg]);
+      setMessages(prev => {
+        // اگر این پیام قبلاً به صورت خوشبینانه اضافه شده باشد، تکراری ثبت نکن
+        if (msg.clientId && prev.some(m => m.clientId === msg.clientId)) {
+          // در صورت نیاز تایم‌استمپ سرور را روی مورد موجود به‌روزرسانی کن
+          return prev.map(m => m.clientId === msg.clientId ? { ...m, timestamp: msg.timestamp || m.timestamp } : m);
+        }
+        return [...prev, msg];
+      });
     };
 
     socket.on('chat_history', onHistory);
