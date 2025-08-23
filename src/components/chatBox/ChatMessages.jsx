@@ -1,8 +1,9 @@
 // src/components/ChatBox/ChatMessages.jsx
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { getSocket } from '../../utils/socket';
-import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { getSocket } from "../../utils/socket";
+import { getRelativeTime } from "../../utils/timeUtils";
+import PropTypes from "prop-types";
 
 export function ChatMessages({ messages, setMessages }) {
   const { t, i18n } = useTranslation();
@@ -11,20 +12,22 @@ export function ChatMessages({ messages, setMessages }) {
 
   // تابع برای ایجاد پیام خوشامدگویی با زبان فعلی
   const createWelcomeMessage = () => ({
-    from: 'admin',
-    text: t('chat.welcomeMessage'),
+    from: "admin",
+    text: t("chat.welcomeMessage"),
     timestamp: new Date().toISOString(),
-    clientId: 'welcome-message'
+    clientId: "welcome-message",
   });
 
   // آپدیت پیام خوشامدگویی وقتی زبان تغییر می‌کنه
   useEffect(() => {
-    setMessages(prev => {
+    setMessages((prev) => {
       // اگر پیام خوشامدگویی وجود داره، اون رو با زبان جدید آپدیت کن
-      const hasWelcomeMessage = prev.some(msg => msg.clientId === 'welcome-message');
+      const hasWelcomeMessage = prev.some(
+        (msg) => msg.clientId === "welcome-message"
+      );
       if (hasWelcomeMessage) {
-        return prev.map(msg => 
-          msg.clientId === 'welcome-message' ? createWelcomeMessage() : msg
+        return prev.map((msg) =>
+          msg.clientId === "welcome-message" ? createWelcomeMessage() : msg
         );
       }
       return prev;
@@ -45,53 +48,72 @@ export function ChatMessages({ messages, setMessages }) {
     };
 
     const onNewMessage = (msg) => {
-      setMessages(prev => {
+      setMessages((prev) => {
         // اگر این پیام قبلاً به صورت خوشبینانه اضافه شده باشد، تکراری ثبت نکن
-        if (msg.clientId && prev.some(m => m.clientId === msg.clientId)) {
+        if (msg.clientId && prev.some((m) => m.clientId === msg.clientId)) {
           // در صورت نیاز تایم‌استمپ سرور را روی مورد موجود به‌روزرسانی کن
-          return prev.map(m => m.clientId === msg.clientId ? { ...m, timestamp: msg.timestamp || m.timestamp } : m);
+          return prev.map((m) =>
+            m.clientId === msg.clientId
+              ? { ...m, timestamp: msg.timestamp || m.timestamp }
+              : m
+          );
         }
         return [...prev, msg];
       });
     };
 
-    socket.on('chat_history', onHistory);
-    socket.on('new_message', onNewMessage);
+    socket.on("chat_history", onHistory);
+    socket.on("new_message", onNewMessage);
 
     return () => {
-      socket.off('chat_history', onHistory);
-      socket.off('new_message', onNewMessage);
+      socket.off("chat_history", onHistory);
+      socket.off("new_message", onNewMessage);
     };
   }, [setMessages, t, i18n.language]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   return (
     <div
-      className="flex-1 overflow-y-auto space-y-3 bg-gray-50/50 dark:bg-gray-900/50 p-2 rounded-lg"
-      style={{ maxHeight: '300px' }}
+      className="sm:max-w-sm flex-1 overflow-y-auto space-y-3 bg-gray-50/50 dark:bg-gray-900/50 p-2 rounded-lg"
+      style={{ maxHeight: "300px" }}
     >
       {isLoadingHistory ? (
         <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
-          {t('chat.loading')}...
+          {t("chat.loading")}
         </div>
       ) : messages.length === 0 ? (
         <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
-          {t('chat.noMessages')}
+          {t("chat.noMessages")}
         </div>
       ) : (
         messages.map((msg, idx) => (
-          <div key={msg.clientId || idx} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div
-              className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm ${
-                msg.from === 'user'
-                  ? 'bg-blue-600 text-white rounded-tr-none'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-tl-none'
-              }`}
-            >
-              {msg.text}
+          <div
+            key={msg.clientId || idx}
+            className={`flex ${msg.from === "user" ? "justify-end" : "justify-start"}`}
+          >
+            <div className="flex flex-col">
+              <div
+                className={`px-4 py-2 rounded-2xl text-sm ${
+                  msg.from === "user"
+                    ? "bg-blue-600 text-white rounded-tr-none"
+                    : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-tl-none"
+                }`}
+              >
+                {msg.text}
+              </div>
+              {/* نمایش زمان زیر هر پیام */}
+              {msg.timestamp && (
+                <div
+                  className={`text-xs text-gray-500 dark:text-gray-400 mt-1 px-1 ${
+                    msg.from === "user" ? "text-right" : "text-left"
+                  }`}
+                >
+                  {getRelativeTime(msg.timestamp, t)}
+                </div>
+              )}
             </div>
           </div>
         ))
@@ -103,5 +125,5 @@ export function ChatMessages({ messages, setMessages }) {
 
 ChatMessages.propTypes = {
   messages: PropTypes.array.isRequired,
-  setMessages: PropTypes.func.isRequired
+  setMessages: PropTypes.func.isRequired,
 };

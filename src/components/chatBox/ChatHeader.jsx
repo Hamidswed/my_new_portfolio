@@ -1,7 +1,7 @@
 // src/components/ChatBox/ChatHeader.jsx
-import { useTranslation } from 'react-i18next';
-import profileImage from '../../assets/hamid.webp';
-import PropTypes from 'prop-types';
+import { useTranslation } from "react-i18next";
+import profileImage from "../../assets/hamid.webp";
+import PropTypes from "prop-types";
 
 export function ChatHeader({ onClose }) {
   const { t } = useTranslation();
@@ -14,7 +14,9 @@ export function ChatHeader({ onClose }) {
           alt="Hamidreza"
           className="w-8 h-8 rounded-full object-cover"
         />
-        <span className="font-bold text-gray-800 dark:text-white">{t('chat.title')}</span>
+        <span className="font-bold text-gray-800 dark:text-white">
+          {t("chat.title")}
+        </span>
       </div>
       <button
         onClick={onClose}
@@ -27,5 +29,5 @@ export function ChatHeader({ onClose }) {
 }
 
 ChatHeader.propTypes = {
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
 };

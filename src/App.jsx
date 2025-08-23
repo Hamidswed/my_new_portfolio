@@ -21,11 +21,11 @@ import { ChatBox } from "./components/chatBox/ChatBox";
 //       particle.style.left = Math.random() * 100 + '%';
 //       particle.style.animationDelay = Math.random() * 6 + 's';
 //       particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
-      
+
 //       const particles = document.querySelector('.particles');
 //       if (particles) {
 //         particles.appendChild(particle);
-        
+
 //         setTimeout(() => {
 //           particle.remove();
 //         }, 10000);
@@ -33,15 +33,17 @@ import { ChatBox } from "./components/chatBox/ChatBox";
 //     };
 
 //     const interval = setInterval(createParticle, 300);
-    
+
 //     return () => clearInterval(interval);
 //   }, []);
 
 //   return <div className="particles"></div>;
 // };
 
+// eslint-disable-next-line react/prop-types
 function RequireAdmin({ children }) {
-  const token = typeof window !== 'undefined' ? localStorage.getItem('adminToken') : null;
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("adminToken") : null;
   if (!token) {
     return <Navigate to="/admin-login" replace />;
   }
@@ -50,18 +52,20 @@ function RequireAdmin({ children }) {
 
 function App() {
   // Theme initialization is now handled by ThemeToggle component
- const { i18n }= useTranslation()
- const { pathname }= useLocation()
+  const { i18n } = useTranslation();
+  const { pathname } = useLocation();
 
- const isAdminPage = pathname.startsWith('/admin-')
+  const isAdminPage = pathname.startsWith("/admin-");
 
-  const isRTL = i18n.language === 'fa';
+  const isRTL = i18n.language === "fa";
 
   return (
     <div className="min-h-screen animated-bg overflow-x-hidden">
       {/* <FloatingParticles /> */}
-      <div className={`fixed z-50 flex items-center gap-4 top-6 ${isRTL ? "left-6" : "right-6"}`}>
-        <LanguageSwitcher/>
+      <div
+        className={`fixed z-50 flex items-center gap-4 top-6 ${isRTL || isAdminPage ? "left-6" : "right-6"}`}
+      >
+        {!isAdminPage && <LanguageSwitcher />}
         <ThemeToggle />
       </div>
       {!isAdminPage && <ChatBox />}
@@ -74,7 +78,14 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/admin-login" element={<AdminLogin />} />
-            <Route path="/admin-chat" element={<RequireAdmin><AdminChat /></RequireAdmin>} />
+            <Route
+              path="/admin-chat"
+              element={
+                <RequireAdmin>
+                  <AdminChat />
+                </RequireAdmin>
+              }
+            />
           </Routes>
         </div>
       </div>
