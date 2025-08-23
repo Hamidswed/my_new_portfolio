@@ -156,7 +156,7 @@
     "startChat": "Starta chatt",
     "placeholder": "Skriv ditt meddelande...",
     "send": "Skicka",
-    "noMessages": "Inga meddelanden ännو",
+    "noMessages": "Inga meddelanden ännu",
     "loading": "Läser in...",
     "errors": {
       "nameRequired": "Namn är obligatoriskt",

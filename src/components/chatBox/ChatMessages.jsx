@@ -1,5 +1,5 @@
 // src/components/ChatBox/ChatMessages.jsx
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getSocket } from '../../utils/socket';
 import PropTypes from 'prop-types';
@@ -7,16 +7,40 @@ import PropTypes from 'prop-types';
 export function ChatMessages({ messages, setMessages }) {
   const { t, i18n } = useTranslation();
   const messagesEndRef = useRef(null);
-  
+  const [isLoadingHistory, setIsLoadingHistory] = useState(true);
+
+  // تابع برای ایجاد پیام خوشامدگویی با زبان فعلی
+  const createWelcomeMessage = () => ({
+    from: 'admin',
+    text: t('chat.welcomeMessage'),
+    timestamp: new Date().toISOString(),
+    clientId: 'welcome-message'
+  });
+
+  // آپدیت پیام خوشامدگویی وقتی زبان تغییر می‌کنه
+  useEffect(() => {
+    setMessages(prev => {
+      // اگر پیام خوشامدگویی وجود داره، اون رو با زبان جدید آپدیت کن
+      const hasWelcomeMessage = prev.some(msg => msg.clientId === 'welcome-message');
+      if (hasWelcomeMessage) {
+        return prev.map(msg => 
+          msg.clientId === 'welcome-message' ? createWelcomeMessage() : msg
+        );
+      }
+      return prev;
+    });
+  }, [i18n.language, t]);
 
   useEffect(() => {
     const socket = getSocket();
 
     const onHistory = (history) => {
+      setIsLoadingHistory(false);
       if (Array.isArray(history) && history.length > 0) {
         setMessages(history);
       } else {
-        setMessages(prev => (prev.length === 0 ? [{ from: 'admin', text: t('chat.welcomeMessage') }] : prev));
+        // اگر تاریخچه‌ای وجود ندارد، پیام خوشامدگویی با زبان فعلی نمایش بده
+        setMessages([createWelcomeMessage()]);
       }
     };
 
@@ -49,13 +73,17 @@ export function ChatMessages({ messages, setMessages }) {
       className="flex-1 overflow-y-auto space-y-3 bg-gray-50/50 dark:bg-gray-900/50 p-2 rounded-lg"
       style={{ maxHeight: '300px' }}
     >
-      {messages.length === 0 ? (
+      {isLoadingHistory ? (
         <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
-          {t('chat.loading')}
+          {t('chat.loading')}...
+        </div>
+      ) : messages.length === 0 ? (
+        <div className="text-center py-4 text-gray-500 dark:text-gray-400 text-sm">
+          {t('chat.noMessages')}
         </div>
       ) : (
         messages.map((msg, idx) => (
-          <div key={idx} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
+          <div key={msg.clientId || idx} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
               className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm ${
                 msg.from === 'user'

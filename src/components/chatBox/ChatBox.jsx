@@ -45,6 +45,9 @@ export function ChatBox() {
       const socket = getSocket();
       const room = socket.auth.sessionId;
       socket.emit('join_room', room);
+      
+      // درخواست تاریخچه چت
+      socket.emit('request_chat_history', room);
     }
   }, [step]);
 
@@ -58,11 +61,21 @@ export function ChatBox() {
     setMessages(prev => [...prev, msg]);
   };
 
+  // Handle opening chat box and loading history
+  const handleOpenChat = () => {
+    setIsOpen(true);
+    // اگر کاربر قبلاً ثبت شده و در مرحله چت هست، تاریخچه رو لود کن
+    if (step === 'chat' && userInfo) {
+      const socket = getSocket();
+      socket.emit('request_chat_history', socket.auth.sessionId);
+    }
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {!isOpen ? (
         <button
-          onClick={() => setIsOpen(true)}
+          onClick={handleOpenChat}
           className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
         >
           <div className="relative">
@@ -88,14 +101,9 @@ export function ChatBox() {
             ) : (
               <>
                 <ChatMessages messages={messages} setMessages={setMessages} />
-                {/* ✅ فقط اگر userInfo وجود داشته باشد ChatInput رندر شود */}
                 {userInfo ? (
                   <ChatInput userInfo={userInfo} onLocalSend={handleLocalSend} />
-                ) : (
-                  <div className="text-center py-2 text-sm text-gray-500 dark:text-gray-400">
-                    {t('chat.loading')}...
-                  </div>
-                )}
+                ) : null}
               </>
             )}
           </div>
