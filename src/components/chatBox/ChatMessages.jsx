@@ -10,14 +10,6 @@ export function ChatMessages({ messages, setMessages }) {
   const messagesEndRef = useRef(null);
   const [isLoadingHistory, setIsLoadingHistory] = useState(true);
 
-  // تابع برای ایجاد پیام خوشامدگویی با زبان فعلی
-  const createWelcomeMessage = () => ({
-    from: "admin",
-    text: t("chat.welcomeMessage"),
-    timestamp: new Date().toISOString(),
-    clientId: "welcome-message",
-  });
-
   // آپدیت پیام خوشامدگویی وقتی زبان تغییر می‌کنه
   useEffect(() => {
     setMessages((prev) => {
@@ -27,12 +19,19 @@ export function ChatMessages({ messages, setMessages }) {
       );
       if (hasWelcomeMessage) {
         return prev.map((msg) =>
-          msg.clientId === "welcome-message" ? createWelcomeMessage() : msg
+          msg.clientId === "welcome-message"
+            ? {
+                from: "admin",
+                text: t("chat.welcomeMessage"),
+                timestamp: new Date().toISOString(),
+                clientId: "welcome-message",
+              }
+            : msg
         );
       }
       return prev;
     });
-  }, [i18n.language, t]);
+  }, [i18n.language, t, setMessages]);
 
   useEffect(() => {
     const socket = getSocket();
@@ -43,7 +42,14 @@ export function ChatMessages({ messages, setMessages }) {
         setMessages(history);
       } else {
         // اگر تاریخچه‌ای وجود ندارد، پیام خوشامدگویی با زبان فعلی نمایش بده
-        setMessages([createWelcomeMessage()]);
+        setMessages([
+          {
+            from: "admin",
+            text: t("chat.welcomeMessage"),
+            timestamp: new Date().toISOString(),
+            clientId: "welcome-message",
+          },
+        ]);
       }
     };
 
