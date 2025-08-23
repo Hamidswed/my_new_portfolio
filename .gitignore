@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 chat-backen
 dist
+dist.zip
 dist-ssr
 *.local
 

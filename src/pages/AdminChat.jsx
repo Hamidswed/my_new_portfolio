@@ -203,7 +203,7 @@ export default function AdminChat() {
                   threadMessages.map((m, i) => (
                     <div key={i} className={`flex ${m.from === 'user' ? 'justify-start' : 'justify-end'}`}>
                       <div className="flex flex-col">
-                        <div className={`max-w-[80%] px-4 py-2 rounded-2xl text-sm break-words ${m.from === 'user' ? 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-tl-none' : 'bg-blue-600 text-white rounded-tr-none'}`}>
+                        <div className={`px-4 py-2 rounded-2xl text-sm ${m.from === 'user' ? 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-tl-none' : 'bg-blue-600 text-white rounded-tr-none'}`}>
                           {m.text}
                         </div>
                         {/* نمایش زمان زیر هر پیام */}
