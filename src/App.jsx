@@ -5,6 +5,7 @@ import { WebProjects } from "./pages/WebProjects";
 import { Contact } from "./pages/Contact";
 import { ThemeToggle } from "./components/ThemeToggle";
 // import { useEffect } from "react";
+import { withPageLoader } from "./components/loading/withPageLoader";
 import Resume from "./components/Resume";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
@@ -50,6 +51,8 @@ function RequireAdmin({ children }) {
   return children;
 }
 
+const ResumePage = withPageLoader(Resume);
+
 function App() {
   // Theme initialization is now handled by ThemeToggle component
   const { i18n } = useTranslation();
@@ -76,7 +79,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<WebProjects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/resume" element={<Resume />} />
+            <Route path="/resume" element={<ResumePage />} />
             <Route path="/admin-login" element={<AdminLogin />} />
             <Route
               path="/admin-chat"

@@ -72,7 +72,7 @@ function ContactInner() {
       <div className="text-center mb-12 animate-slide-down">
         <div className="flex items-center justify-center gap-2 mb-4">
           <HiSparkles className="dark:text-dark-accent light:text-light-accent animate-pulse text-2xl" />
-          <h1 className="text-3xl md:text-4xl font-bold gradient-text">
+          <h1 className="text-3xl md:text-4xl pb-3 font-bold gradient-text">
             {t('contact.title')}
           </h1>
           <HiSparkles className="dark:text-dark-primary light:text-light-primary animate-pulse text-2xl" />
