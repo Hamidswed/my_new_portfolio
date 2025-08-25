@@ -98,4 +98,6 @@ function SocialMediaComponent() {
   );
 }
 
-export default memo(SocialMediaComponent);
+const SocialMedia = memo(SocialMediaComponent);
+
+export default SocialMedia;
