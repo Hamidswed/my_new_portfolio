@@ -36,7 +36,8 @@
       "experience": "user experience",
       "architecture": "architecture",
       "code": "code quality"
-    }
+    },
+    "connect": "Connect:"
   },
   "common": {
     "fullstack": "Full Stack Developer & Designer",

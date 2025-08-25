@@ -1,11 +1,11 @@
 // src/components/testimonials/Testimonials.jsx
-import { useState, useEffect } from 'react';
-import { HiChevronLeft, HiChevronRight, HiStar } from 'react-icons/hi';
-import { HiSparkles } from 'react-icons/hi2';
+import { useState, useEffect, memo } from "react";
+import { HiChevronLeft, HiChevronRight, HiStar } from "react-icons/hi";
+import { HiSparkles } from "react-icons/hi2";
 import axios from "axios";
-import { useTranslation } from 'react-i18next'; // ✅ ایمپورت
+import { useTranslation } from "react-i18next"; // ✅ ایمپورت
 
-export function Testimonials() {
+function TestimonialsComponent() {
   const { t } = useTranslation(); // ✅ استفاده از ترجمه
   const [testimonialsData, setTestimonialsData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,8 +28,8 @@ export function Testimonials() {
             image: "https://via.placeholder.com/150",
             text: "Great developer and team player with excellent skills in full-stack development.",
             rating: 5,
-            linkedinUrl: "#"
-          }
+            linkedinUrl: "#",
+          },
         ]);
       }
     };
@@ -55,7 +55,9 @@ export function Testimonials() {
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length
+    );
     setExpanded(false);
     setIsAutoPlaying(false);
   };
@@ -67,7 +69,7 @@ export function Testimonials() {
   };
 
   const currentTestimonial = testimonialsData[currentIndex];
-  const isLongText = currentTestimonial?.text?.split(' ').length > 50;
+  const isLongText = currentTestimonial?.text?.split(" ").length > 50;
 
   return (
     <section className="py-16 animate-fade-in">
@@ -76,12 +78,12 @@ export function Testimonials() {
         <div className="flex items-center justify-center gap-2 mb-4">
           <HiSparkles className="dark:text-dark-accent light:text-light-accent animate-pulse text-2xl" />
           <h2 className="text-3xl md:text-4xl font-bold gradient-text">
-            {t('testimonials.title')}
+            {t("testimonials.title")}
           </h2>
           <HiSparkles className="dark:text-dark-primary light:text-light-primary animate-pulse text-2xl" />
         </div>
         <p className="dark:text-dark-muted light:text-light-muted max-w-2xl mx-auto">
-          {t('testimonials.subtitle')}
+          {t("testimonials.subtitle")}
         </p>
       </div>
 
@@ -90,7 +92,7 @@ export function Testimonials() {
         {currentTestimonial ? (
           <div
             className="glass rounded-3xl p-8 lg:p-12 hover-lift relative overflow-hidden"
-            style={{ minHeight: '520px' }}
+            style={{ minHeight: "520px" }}
           >
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-dark-primary/10 to-dark-secondary/10 rounded-full blur-3xl"></div>
@@ -109,7 +111,10 @@ export function Testimonials() {
                 {/* Profile Image */}
                 <div className="relative w-20 h-20 mx-auto mb-6">
                   <img
-                    src={currentTestimonial.image || "https://via.placeholder.com/80"}
+                    src={
+                      currentTestimonial.image ||
+                      "https://via.placeholder.com/80"
+                    }
                     alt={currentTestimonial.name}
                     className="w-full h-full rounded-full object-cover border-4 dark:border-dark-primary/30 light:border-light-primary/30"
                   />
@@ -119,8 +124,12 @@ export function Testimonials() {
                     rel="noopener noreferrer"
                     className="absolute -bottom-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center"
                   >
-                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    <svg
+                      className="w-3 h-3 text-white"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                   </a>
                 </div>
@@ -136,11 +145,11 @@ export function Testimonials() {
                 <blockquote
                   className="text-sm lg:text-lg dark:text-dark-text light:text-light-text leading-relaxed mb-4 max-w-3xl mx-auto transition-all duration-300"
                   style={{
-                    maxHeight: expanded ? 'none' : '120px',
-                    overflow: 'hidden',
-                    display: '-webkit-box',
-                    WebkitLineClamp: expanded ? 'unset' : 5,
-                    WebkitBoxOrient: 'vertical',
+                    maxHeight: expanded ? "none" : "120px",
+                    overflow: "hidden",
+                    display: "-webkit-box",
+                    WebkitLineClamp: expanded ? "unset" : 5,
+                    WebkitBoxOrient: "vertical",
                   }}
                 >
                   {currentTestimonial.text}
@@ -153,7 +162,9 @@ export function Testimonials() {
                       onClick={() => setExpanded(!expanded)}
                       className="text-sm font-medium dark:text-dark-primary light:text-light-primary hover:underline focus:outline-none"
                     >
-                      {expanded ? t('testimonials.showLess') : t('testimonials.readMore')}
+                      {expanded
+                        ? t("testimonials.showLess")
+                        : t("testimonials.readMore")}
                     </button>
                   </div>
                 )}
@@ -177,7 +188,7 @@ export function Testimonials() {
           </div>
         ) : (
           <p className="text-center dark:text-dark-muted light:text-light-muted">
-            {t('testimonials.loading')}
+            {t("testimonials.loading")}
           </p>
         )}
 
@@ -187,7 +198,7 @@ export function Testimonials() {
             <button
               onClick={prevTestimonial}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center dark:text-dark-text light:text-light-text hover:scale-110 transition-all duration-300 hover-lift"
-              aria-label={t('testimonials.prev')}
+              aria-label={t("testimonials.prev")}
             >
               <HiChevronLeft className="w-6 h-6" />
             </button>
@@ -195,7 +206,7 @@ export function Testimonials() {
             <button
               onClick={nextTestimonial}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center dark:text-dark-text light:text-light-text hover:scale-110 transition-all duration-300 hover-lift"
-              aria-label={t('testimonials.next')}
+              aria-label={t("testimonials.next")}
             >
               <HiChevronRight className="w-6 h-6" />
             </button>
@@ -211,10 +222,10 @@ export function Testimonials() {
                 onClick={() => goToTestimonial(testimonial.id - 1)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   testimonial.id - 1 === currentIndex
-                    ? 'dark:bg-dark-primary light:bg-light-primary scale-125'
-                    : 'dark:bg-dark-muted/30 light:bg-light-muted/30 hover:scale-110'
+                    ? "dark:bg-dark-primary light:bg-light-primary scale-125"
+                    : "dark:bg-dark-muted/30 light:bg-light-muted/30 hover:scale-110"
                 }`}
-                aria-label={t('testimonials.goTo', { id: testimonial.id })}
+                aria-label={t("testimonials.goTo", { id: testimonial.id })}
               />
             ))}
           </div>
@@ -227,7 +238,8 @@ export function Testimonials() {
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
               className="text-xs dark:text-dark-muted light:text-light-muted hover:text-dark-primary transition-colors duration-300"
             >
-              {isAutoPlaying ? t('testimonials.pause') : t('testimonials.play')} {t('testimonials.autoScroll')}
+              {isAutoPlaying ? t("testimonials.pause") : t("testimonials.play")}{" "}
+              {t("testimonials.autoScroll")}
             </button>
           </div>
         )}
@@ -235,3 +247,5 @@ export function Testimonials() {
     </section>
   );
 }
+
+export const Testimonials = memo(TestimonialsComponent);

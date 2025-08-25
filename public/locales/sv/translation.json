@@ -36,7 +36,8 @@
       "experience": "användarupplevelse",
       "architecture": "arkitektur",
       "code": "kodkvalitet"
-    }
+    },
+    "connect": "Kontakta:"
   },
   "common": {
     "fullstack": "Fullstack-utvecklare & Designer",
