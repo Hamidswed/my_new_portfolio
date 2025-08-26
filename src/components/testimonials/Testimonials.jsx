@@ -4,7 +4,7 @@ import { HiChevronLeft, HiChevronRight, HiStar } from "react-icons/hi";
 import { HiSparkles } from "react-icons/hi2";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import Placeholder from "../../assets/placeholder.svg"
+import Placeholder from "../../assets/placeholder.svg";
 
 function TestimonialsComponent() {
   const { t } = useTranslation(); // ✅ استفاده از ترجمه
@@ -12,6 +12,7 @@ function TestimonialsComponent() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [expanded, setExpanded] = useState(false);
+  const [imageErrors, setImageErrors] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +58,7 @@ function TestimonialsComponent() {
 
   const prevTestimonial = () => {
     setCurrentIndex(
-      (prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length
+      (prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length,
     );
     setExpanded(false);
     setIsAutoPlaying(false);
@@ -69,63 +70,74 @@ function TestimonialsComponent() {
     setIsAutoPlaying(false);
   };
 
+  const handleImageError = (testimonialId) => {
+    setImageErrors((prev) => ({
+      ...prev,
+      [testimonialId]: true,
+    }));
+  };
+
   const currentTestimonial = testimonialsData[currentIndex];
   const isLongText = currentTestimonial?.text?.split(" ").length > 50;
 
   return (
-    <section className="py-16 animate-fade-in">
+    <section className="animate-fade-in py-16">
       {/* Header */}
-      <div className="text-center mb-12 animate-slide-down">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <HiSparkles className="dark:text-dark-accent light:text-light-accent animate-pulse text-2xl" />
-          <h2 className="text-3xl md:text-4xl pb-3 font-bold gradient-text">
+      <div className="mb-12 animate-slide-down text-center">
+        <div className="mb-4 flex items-center justify-center gap-2">
+          <HiSparkles className="light:text-light-accent animate-pulse text-2xl dark:text-dark-accent" />
+          <h2 className="gradient-text pb-3 text-3xl font-bold md:text-4xl">
             {t("testimonials.title")}
           </h2>
-          <HiSparkles className="dark:text-dark-primary light:text-light-primary animate-pulse text-2xl" />
+          <HiSparkles className="light:text-light-primary animate-pulse text-2xl dark:text-dark-primary" />
         </div>
-        <p className="dark:text-dark-muted light:text-light-muted max-w-2xl mx-auto">
+        <p className="light:text-light-muted mx-auto max-w-2xl dark:text-dark-muted">
           {t("testimonials.subtitle")}
         </p>
       </div>
 
       {/* Testimonials Carousel */}
-      <div className="relative max-w-4xl mx-auto">
+      <div className="relative mx-auto max-w-4xl">
         {currentTestimonial ? (
           <div
-            className="glass rounded-3xl p-8 lg:p-12 hover-lift relative overflow-hidden"
+            className="glass hover-lift relative overflow-hidden rounded-3xl p-8 lg:p-12"
             style={{ minHeight: "520px" }}
           >
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-dark-primary/10 to-dark-secondary/10 rounded-full blur-3xl"></div>
+            <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-gradient-to-br from-dark-primary/10 to-dark-secondary/10 blur-3xl"></div>
 
             {/* Quote marks */}
-            <div className="absolute top-6 left-6 text-6xl dark:text-dark-primary/20 light:text-light-primary/20 font-serif">
+            <div className="light:text-light-primary/20 absolute left-6 top-6 font-serif text-6xl dark:text-dark-primary/20">
               &ldquo;
             </div>
-            <div className="absolute bottom-6 right-6 text-6xl dark:text-dark-primary/20 light:text-light-primary/20 font-serif">
+            <div className="light:text-light-primary/20 absolute bottom-6 right-6 font-serif text-6xl dark:text-dark-primary/20">
               &rdquo;
             </div>
 
             {/* Main Content */}
-            <div className="flex flex-col h-full justify-between text-center">
+            <div className="flex h-full flex-col justify-between text-center">
               <div>
                 {/* Profile Image */}
-                <div className="relative w-20 h-20 mx-auto mb-6">
+                <div className="relative mx-auto mb-6 h-20 w-20">
                   <img
                     src={
-                      currentTestimonial.image || Placeholder
+                      imageErrors[currentTestimonial.id] ||
+                      !currentTestimonial.image
+                        ? Placeholder
+                        : currentTestimonial.image
                     }
                     alt={currentTestimonial.name}
-                    className="w-full h-full rounded-full object-cover border-4 dark:border-dark-primary/30 light:border-light-primary/30"
+                    className="light:border-light-primary/30 h-full w-full rounded-full border-4 object-cover dark:border-dark-primary/30"
+                    onError={() => handleImageError(currentTestimonial.id)}
                   />
                   <a
                     href={currentTestimonial.linkedinUrl?.trim()}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute -bottom-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center"
+                    className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-blue-500"
                   >
                     <svg
-                      className="w-3 h-3 text-white"
+                      className="h-3 w-3 text-white"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -135,15 +147,15 @@ function TestimonialsComponent() {
                 </div>
 
                 {/* Rating */}
-                <div className="flex justify-center mb-4">
+                <div className="mb-4 flex justify-center">
                   {[...Array(currentTestimonial.rating)].map((_, i) => (
-                    <HiStar key={i} className="w-5 h-5 text-yellow-400" />
+                    <HiStar key={i} className="h-5 w-5 text-yellow-400" />
                   ))}
                 </div>
 
                 {/* Testimonial Text */}
                 <blockquote
-                  className="text-sm lg:text-lg dark:text-dark-text light:text-light-text leading-relaxed mb-4 max-w-3xl mx-auto transition-all duration-300"
+                  className="light:text-light-text mx-auto mb-4 max-w-3xl text-sm leading-relaxed transition-all duration-300 dark:text-dark-text lg:text-lg"
                   style={{
                     maxHeight: expanded ? "none" : "120px",
                     overflow: "hidden",
@@ -157,10 +169,10 @@ function TestimonialsComponent() {
 
                 {/* Read More / Less Button */}
                 {isLongText && (
-                  <div className="text-center mb-6">
+                  <div className="mb-6 text-center">
                     <button
                       onClick={() => setExpanded(!expanded)}
-                      className="text-sm font-medium dark:text-dark-primary light:text-light-primary hover:underline focus:outline-none"
+                      className="light:text-light-primary text-sm font-medium hover:underline focus:outline-none dark:text-dark-primary"
                     >
                       {expanded
                         ? t("testimonials.showLess")
@@ -171,15 +183,15 @@ function TestimonialsComponent() {
               </div>
 
               {/* Author Info */}
-              <div className="space-y-1 mt-4">
-                <h4 className="font-semibold text-lg dark:text-dark-text light:text-light-text">
+              <div className="mt-4 space-y-1">
+                <h4 className="light:text-light-text text-lg font-semibold dark:text-dark-text">
                   {currentTestimonial.name}
                 </h4>
-                <p className="dark:text-dark-muted light:text-light-muted">
+                <p className="light:text-light-muted dark:text-dark-muted">
                   {currentTestimonial.position}
                 </p>
                 {currentTestimonial.company && (
-                  <p className="text-sm dark:text-dark-primary light:text-light-primary font-medium">
+                  <p className="light:text-light-primary text-sm font-medium dark:text-dark-primary">
                     {currentTestimonial.company}
                   </p>
                 )}
@@ -187,7 +199,7 @@ function TestimonialsComponent() {
             </div>
           </div>
         ) : (
-          <p className="text-center dark:text-dark-muted light:text-light-muted">
+          <p className="light:text-light-muted text-center dark:text-dark-muted">
             {t("testimonials.loading")}
           </p>
         )}
@@ -197,33 +209,33 @@ function TestimonialsComponent() {
           <>
             <button
               onClick={prevTestimonial}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center dark:text-dark-text light:text-light-text hover:scale-110 transition-all duration-300 hover-lift"
+              className="glass light:text-light-text hover-lift absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 dark:text-dark-text"
               aria-label={t("testimonials.prev")}
             >
-              <HiChevronLeft className="w-6 h-6" />
+              <HiChevronLeft className="h-6 w-6" />
             </button>
 
             <button
               onClick={nextTestimonial}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 glass rounded-full flex items-center justify-center dark:text-dark-text light:text-light-text hover:scale-110 transition-all duration-300 hover-lift"
+              className="glass light:text-light-text hover-lift absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full transition-all duration-300 hover:scale-110 dark:text-dark-text"
               aria-label={t("testimonials.next")}
             >
-              <HiChevronRight className="w-6 h-6" />
+              <HiChevronRight className="h-6 w-6" />
             </button>
           </>
         )}
 
         {/* Dots Indicator */}
         {testimonialsData.length > 1 && (
-          <div className="flex justify-center mt-8 gap-2">
+          <div className="mt-8 flex justify-center gap-2">
             {testimonialsData.map((testimonial) => (
               <button
                 key={testimonial.id}
                 onClick={() => goToTestimonial(testimonial.id - 1)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`h-3 w-3 rounded-full transition-all duration-300 ${
                   testimonial.id - 1 === currentIndex
-                    ? "dark:bg-dark-primary light:bg-light-primary scale-125"
-                    : "dark:bg-dark-muted/30 light:bg-light-muted/30 hover:scale-110"
+                    ? "light:bg-light-primary scale-125 dark:bg-dark-primary"
+                    : "light:bg-light-muted/30 hover:scale-110 dark:bg-dark-muted/30"
                 }`}
                 aria-label={t("testimonials.goTo", { id: testimonial.id })}
               />
@@ -233,10 +245,10 @@ function TestimonialsComponent() {
 
         {/* Auto-play indicator */}
         {testimonialsData.length > 1 && (
-          <div className="text-center mt-4">
+          <div className="mt-4 text-center">
             <button
               onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="text-xs dark:text-dark-muted light:text-light-muted hover:text-dark-primary transition-colors duration-300"
+              className="light:text-light-muted text-xs transition-colors duration-300 hover:text-dark-primary dark:text-dark-muted"
             >
               {isAutoPlaying ? t("testimonials.pause") : t("testimonials.play")}{" "}
               {t("testimonials.autoScroll")}

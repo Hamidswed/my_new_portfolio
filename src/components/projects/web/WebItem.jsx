@@ -52,30 +52,22 @@ function WebItemComponent({ item }) {
           <Link
             to={item.github}
             target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-card hover:bg-gray-700 text-dark-muted hover:text-white transition-all duration-300 hover:scale-110 group/btn focus:outline-none focus:ring-2 focus:ring-dark-primary focus:ring-offset-2 focus:ring-offset-dark-bg"
-            aria-label={`${t("projects.viewSource")} ${t("projects.for", "for")} ${typeof item.title === "object" ? item.title[lang] : item.title} ${t("projects.onGitHub", "on GitHub")}`}
+            className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-card hover:bg-gray-700 text-dark-muted hover:text-white transition-all duration-300 hover:scale-110 group/btn"
+            title={t("projects.viewSource")} // ✅
           >
-            <IoLogoGithub size={20} className="group-hover/btn:animate-pulse" aria-hidden="true" />
+            <IoLogoGithub size={20} className="group-hover/btn:animate-pulse" />
           </Link>
 
           {/* Live demo button */}
           <Link
             to={item.link || "#"}
             target={item.link ? "_blank" : "_self"}
-            rel={item.link ? "noopener noreferrer" : undefined}
             className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
               item.link
-                ? "neon-button text-dark-primary border-dark-primary hover:text-white hover:shadow-lg hover:shadow-dark-primary/25 focus:outline-none focus:ring-2 focus:ring-dark-primary focus:ring-offset-2 focus:ring-offset-dark-bg"
+                ? "neon-button text-dark-primary border-dark-primary hover:text-white hover:shadow-lg hover:shadow-dark-primary/25"
                 : "bg-dark-card/50 text-dark-muted cursor-not-allowed border border-dark-border/30"
             }`}
             onClick={!item.link ? (e) => e.preventDefault() : undefined}
-            aria-label={
-              item.link 
-                ? `${t("projects.liveDemo")} ${t("projects.for", "for")} ${typeof item.title === "object" ? item.title[lang] : item.title}` 
-                : `${t("projects.notDeployed")} - ${typeof item.title === "object" ? item.title[lang] : item.title}`
-            }
-            aria-disabled={!item.link}
           >
             {item.link ? (
               <>

@@ -87,9 +87,9 @@ export function Hero() {
               <SocialMedia />
             </div>
 
-            <div className="order-1 sm:order-2">
-              <Link to={Pdf} target="_blank" download="CV_HamidrezaDelshad">
-                <button className="neon-button hover-lift group flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300">
+            <div className="order-1 sm:order-2 w-full flex justify-center">
+              <Link to={Pdf} target="_blank" download="CV_HamidrezaDelshad" className="text-center">
+                <button className="neon-button w-full hover-lift group flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300">
                   <FaDownload className="flex-shrink-0 animate-bounce transition-all duration-300 group-hover:animate-pulse" />
                   <span className="flex-shrink-0">
                     {t("common.downloadCV")}
