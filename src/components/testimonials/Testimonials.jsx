@@ -3,7 +3,8 @@ import { useState, useEffect, memo } from "react";
 import { HiChevronLeft, HiChevronRight, HiStar } from "react-icons/hi";
 import { HiSparkles } from "react-icons/hi2";
 import axios from "axios";
-import { useTranslation } from "react-i18next"; // ✅ ایمپورت
+import { useTranslation } from "react-i18next";
+import Placeholder from "../../assets/placeholder.svg"
 
 function TestimonialsComponent() {
   const { t } = useTranslation(); // ✅ استفاده از ترجمه
@@ -25,7 +26,7 @@ function TestimonialsComponent() {
             name: "John Doe",
             position: "Developer",
             company: "Tech Corp",
-            image: "https://via.placeholder.com/150",
+            image: Placeholder,
             text: "Great developer and team player with excellent skills in full-stack development.",
             rating: 5,
             linkedinUrl: "#",
@@ -112,8 +113,7 @@ function TestimonialsComponent() {
                 <div className="relative w-20 h-20 mx-auto mb-6">
                   <img
                     src={
-                      currentTestimonial.image ||
-                      "https://via.placeholder.com/80"
+                      currentTestimonial.image || Placeholder
                     }
                     alt={currentTestimonial.name}
                     className="w-full h-full rounded-full object-cover border-4 dark:border-dark-primary/30 light:border-light-primary/30"

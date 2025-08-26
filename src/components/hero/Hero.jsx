@@ -24,12 +24,12 @@ export function Hero() {
         <div className="animate-slide-left space-y-6 lg:space-y-8">
           {/* Animated greeting */}
           <div className="space-y-4 lg:space-y-6">
-            <div className="flex items-center gap-2 flex-wrap">
-              <HiSparkles className="dark:text-dark-accent light:text-light-accent animate-pulse text-xl" />
-              <span className="dark:text-dark-muted light:text-light-muted text-sm uppercase tracking-wider font-medium">
+            <div className="flex flex-wrap items-center gap-2">
+              <HiSparkles className="light:text-light-accent animate-pulse text-xl dark:text-dark-accent" />
+              <span className="light:text-light-muted text-sm font-medium uppercase tracking-wider dark:text-dark-muted">
                 {t("hero.greeting")}
               </span>
-              <HiSparkles className="dark:text-dark-secondary light:text-light-secondary animate-pulse text-xl" />
+              <HiSparkles className="light:text-light-secondary animate-pulse text-xl dark:text-dark-secondary" />
             </div>
 
             <h1
@@ -37,44 +37,44 @@ export function Hero() {
             >
               <span className="gradient-text pb-3">{t("hero.title1")}</span>
               {!isRTL && <br />}
-              <span className="dark:text-dark-text light:text-light-text">
+              <span className="light:text-light-text dark:text-dark-text">
                 {t("hero.title2")}
               </span>
             </h1>
           </div>
 
           {/* Main description with glass effect */}
-          <div className="glass rounded-2xl p-4 lg:p-6 hover-lift space-y-3">
-            <p className="text-lg dark:text-dark-text light:text-light-text leading-relaxed">
+          <div className="glass hover-lift space-y-3 rounded-2xl p-4 lg:p-6">
+            <p className="light:text-light-text text-lg leading-relaxed dark:text-dark-text">
               {t("hero.description1.part1")}
-              <span className="dark:text-dark-primary light:text-light-primary font-semibold">
+              <span className="light:text-light-primary font-semibold dark:text-dark-primary">
                 {t("hero.name")}
               </span>
               {t("hero.description1.part2")}
-              <span className="dark:text-dark-secondary light:text-light-secondary font-semibold">
+              <span className="light:text-light-secondary font-semibold dark:text-dark-secondary">
                 {t("hero.role.dev")}
               </span>
               {t("hero.description1.part3")}
-              <span className="dark:text-dark-accent light:text-light-accent font-semibold">
+              <span className="light:text-light-accent font-semibold dark:text-dark-accent">
                 {t("hero.role.designer")}
               </span>
               {t("hero.description1.part4")}
             </p>
-            <p className="dark:text-dark-muted light:text-light-muted leading-relaxed">
+            <p className="light:text-light-muted leading-relaxed dark:text-dark-muted">
               {t("hero.description2.part1")}
-              <span className="dark:text-dark-primary light:text-light-primary">
+              <span className="light:text-light-primary dark:text-dark-primary">
                 {t("hero.highlight.interfaces")}
               </span>
               {t("hero.description2.part2")}
-              <span className="dark:text-dark-secondary light:text-light-secondary">
+              <span className="light:text-light-secondary dark:text-dark-secondary">
                 {t("hero.highlight.experience")}
               </span>
               {t("hero.description2.part3")}
-              <span className="dark:text-dark-accent light:text-light-accent">
+              <span className="light:text-light-accent dark:text-dark-accent">
                 {t("hero.highlight.architecture")}
               </span>
               {t("hero.description2.part4")}
-              <span className="dark:text-dark-primary light:text-light-primary">
+              <span className="light:text-light-primary dark:text-dark-primary">
                 {t("hero.highlight.code")}
               </span>
               {t("hero.description2.part5")}
@@ -82,19 +82,19 @@ export function Hero() {
           </div>
 
           {/* Action buttons and social media */}
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
-            <div className="animate-slide-up order-2 sm:order-1">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+            <div className="order-2 animate-slide-up sm:order-1">
               <SocialMedia />
             </div>
 
             <div className="order-1 sm:order-2">
               <Link to={Pdf} target="_blank" download="CV_HamidrezaDelshad">
-                <button className="neon-button flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-base transition-all duration-300 hover-lift group whitespace-nowrap">
-                  <FaDownload className="animate-bounce group-hover:animate-pulse transition-all duration-300 flex-shrink-0" />
+                <button className="neon-button hover-lift group flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300">
+                  <FaDownload className="flex-shrink-0 animate-bounce transition-all duration-300 group-hover:animate-pulse" />
                   <span className="flex-shrink-0">
                     {t("common.downloadCV")}
                   </span>
-                  <FaRocket className="opacity-0 group-hover:opacity-100 transition-all duration-300 animate-pulse flex-shrink-0" />
+                  <FaRocket className="flex-shrink-0 animate-pulse opacity-0 transition-all duration-300 group-hover:opacity-100" />
                 </button>
               </Link>
             </div>
@@ -103,9 +103,9 @@ export function Hero() {
       </div>
 
       {/* Decorative background elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-dark-primary/10 to-dark-secondary/10 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute left-10 top-20 h-32 w-32 animate-pulse rounded-full bg-gradient-to-r from-dark-primary/10 to-dark-secondary/10 blur-3xl"></div>
       <div
-        className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-dark-accent/10 to-dark-primary/10 rounded-full blur-3xl animate-pulse"
+        className="absolute bottom-20 right-10 h-40 w-40 animate-pulse rounded-full bg-gradient-to-r from-dark-accent/10 to-dark-primary/10 blur-3xl"
         style={{ animationDelay: "2s" }}
       ></div>
     </div>

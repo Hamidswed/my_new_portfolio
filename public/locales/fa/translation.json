@@ -3,7 +3,11 @@
     "home": "خانه",
     "projects": "پروژه‌ها",
     "contact": "تماس",
-    "resume": "رزومه"
+    "resume": "رزومه",
+    "homeDescription": "رفتن به صفحه اصلی",
+    "projectsDescription": "مشاهده پروژه‌های نمونه کار من",
+    "contactDescription": "ارتباط با من",
+    "resumeDescription": "مشاهده رزومه حرفه‌ای من"
   },
   "navbar": {
     "dev": "توسعه‌دهنده فول‌استک",
@@ -37,11 +41,13 @@
       "architecture": "معماری",
       "code": "کیفیت کد"
     },
-    "connect": " ارتباط:"
+    "connect": " ارتباط:",
+    "connectOn": "ارتباط با من در"
   },
   "common": {
     "fullstack": "توسعه‌دهنده فول‌استک و طراح",
     "downloadCV": "دانلود رزومه (PDF)",
+    "downloadCVDescription": "دانلود رزومه حمیدرضا دلشاد به صورت فایل PDF",
     "location": "مشهد، ایران",
     "email": "delshad.swdn@gmail.com",
     "phone": "تلفن",
@@ -143,7 +149,11 @@
     "description": "مجموعه‌ای از پروژه‌هایی که روی آن‌ها کار کرده‌ام و فناوری‌ها و رویکردهای طراحی مختلفی را نشان می‌دهند.",
     "viewSource": "مشاهده کد منبع",
     "liveDemo": "دموی زنده",
-    "notDeployed": "منتشر نشده"
+    "notDeployed": "منتشر نشده",
+    "for": "برای",
+    "onGitHub": "در گیت‌هاب",
+    "project": "پروژه",
+    "screenshotOf": "تصویر صفحه از"
   },
   "chat": {
     "welcomeMessage": "سلام! من حمید هستم. چطور می‌تونم کمکتون کنم؟",

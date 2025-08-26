@@ -3,7 +3,11 @@
     "home": "Home",
     "projects": "Projects",
     "contact": "Contact",
-    "resume": "Resume"
+    "resume": "Resume",
+    "homeDescription": "Navigate to home page",
+    "projectsDescription": "View my portfolio projects",
+    "contactDescription": "Get in touch with me",
+    "resumeDescription": "View my professional resume"
   },
   "navbar": {
     "dev": "Fullstack Developer",
@@ -37,11 +41,13 @@
       "architecture": "architecture",
       "code": "code quality"
     },
-    "connect": "Connect:"
+    "connect": "Connect:",
+    "connectOn": "Connect with me on"
   },
   "common": {
     "fullstack": "Full Stack Developer & Designer",
     "downloadCV": "Download CV (PDF)",
+    "downloadCVDescription": "Download Hamidreza Delshad's resume as PDF file",
     "location": "Umeå, Sweden",
     "email": "delshad.swdn@gmail.com",
     "phone": "Phone",
@@ -143,7 +149,11 @@
     "description": "A collection of projects I've worked on, showcasing different technologies and design approaches.",
     "viewSource": "View Source Code",
     "liveDemo": "Live Demo",
-    "notDeployed": "Not Deployed"
+    "notDeployed": "Not Deployed",
+    "for": "for",
+    "onGitHub": "on GitHub",
+    "project": "project",
+    "screenshotOf": "Screenshot of"
   },
   "chat": {
     "welcomeMessage": "Hi! I'm Hamid. How can I help you today?",

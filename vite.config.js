@@ -5,22 +5,15 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    // Enable minification
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-    // Optimize chunk splitting
+    // Enable minification with esbuild (faster than terser)
+    minify: 'esbuild',
+    target: 'es2015',
+    // Optimize chunk splitting - less aggressive
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          i18n: ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
-          socket: ['socket.io-client'],
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          utils: ['i18next', 'react-i18next', 'socket.io-client'],
         },
       },
     },

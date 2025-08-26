@@ -18,7 +18,7 @@ function WebItemComponent({ item }) {
       <div className="relative w-full h-48 mb-4 rounded-xl overflow-hidden flex-shrink-0">
         <img
           src={item.image}
-          alt={item.title}
+          alt={`${t("projects.screenshotOf", "Screenshot of")} ${typeof item.title === "object" ? item.title[lang] : item.title} ${t("projects.project", "project")}`}
           className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
         />
 
@@ -26,7 +26,7 @@ function WebItemComponent({ item }) {
         <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
         {/* Hover preview button */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300" aria-hidden="true">
           <div className="bg-dark-primary/90 backdrop-blur-sm rounded-full p-3 transform scale-0 group-hover:scale-100 transition-transform duration-300">
             <HiEye className="w-6 h-6 text-white" />
           </div>
@@ -52,26 +52,34 @@ function WebItemComponent({ item }) {
           <Link
             to={item.github}
             target="_blank"
-            className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-card hover:bg-gray-700 text-dark-muted hover:text-white transition-all duration-300 hover:scale-110 group/btn"
-            title={t("projects.viewSource")} // ✅
+            rel="noopener noreferrer"
+            className="flex items-center justify-center w-12 h-12 rounded-xl bg-dark-card hover:bg-gray-700 text-dark-muted hover:text-white transition-all duration-300 hover:scale-110 group/btn focus:outline-none focus:ring-2 focus:ring-dark-primary focus:ring-offset-2 focus:ring-offset-dark-bg"
+            aria-label={`${t("projects.viewSource")} ${t("projects.for", "for")} ${typeof item.title === "object" ? item.title[lang] : item.title} ${t("projects.onGitHub", "on GitHub")}`}
           >
-            <IoLogoGithub size={20} className="group-hover/btn:animate-pulse" />
+            <IoLogoGithub size={20} className="group-hover/btn:animate-pulse" aria-hidden="true" />
           </Link>
 
           {/* Live demo button */}
           <Link
             to={item.link || "#"}
             target={item.link ? "_blank" : "_self"}
+            rel={item.link ? "noopener noreferrer" : undefined}
             className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
               item.link
-                ? "neon-button text-dark-primary border-dark-primary hover:text-white hover:shadow-lg hover:shadow-dark-primary/25"
+                ? "neon-button text-dark-primary border-dark-primary hover:text-white hover:shadow-lg hover:shadow-dark-primary/25 focus:outline-none focus:ring-2 focus:ring-dark-primary focus:ring-offset-2 focus:ring-offset-dark-bg"
                 : "bg-dark-card/50 text-dark-muted cursor-not-allowed border border-dark-border/30"
             }`}
             onClick={!item.link ? (e) => e.preventDefault() : undefined}
+            aria-label={
+              item.link 
+                ? `${t("projects.liveDemo")} ${t("projects.for", "for")} ${typeof item.title === "object" ? item.title[lang] : item.title}` 
+                : `${t("projects.notDeployed")} - ${typeof item.title === "object" ? item.title[lang] : item.title}`
+            }
+            aria-disabled={!item.link}
           >
             {item.link ? (
               <>
-                <HiExternalLink size={16} />
+                <HiExternalLink size={16} aria-hidden="true" />
                 <span>{t("projects.liveDemo")}</span>
               </>
             ) : (
