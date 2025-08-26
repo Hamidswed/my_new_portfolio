@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* Fonts are now loaded via HTML for better performance */
 
 @tailwind base;
 @tailwind components;
@@ -27,9 +25,10 @@ html {
 }
 
 body {
-  font-family: "Inter", "Maven Pro", 'Vazirmatn', sans-serif;
+  font-family: "Maven Pro", 'Vazirmatn', system-ui, -apple-system, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+  font-display: swap;
 }
 
 /* Prevent flash of unstyled content */
@@ -237,7 +236,7 @@ html {
 
 /* Elegant Name Text Effect */
 .elegant-name-text {
-  font-family: 'Playfair Display', serif;
+  font-family: "Maven Pro", 'Vazirmatn', serif;
   font-weight: 700;
   letter-spacing: -0.02em;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -332,7 +331,7 @@ html {
 
 /* Professional Typography */
 .professional-text {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Maven Pro", 'Vazirmatn', sans-serif;
   font-weight: 300;
   letter-spacing: 0.025em;
   line-height: 1.6;

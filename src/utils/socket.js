@@ -20,7 +20,7 @@ export const getSocket = () => {
   }
 
   if (socket.disconnected) {
-    try { socket.connect(); } catch {}
+    try { socket.connect(); } catch { /* empty */ }
   }
 
   return socket;

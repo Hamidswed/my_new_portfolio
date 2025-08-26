@@ -16,18 +16,18 @@ export function Navbar() {
       <div className="flex flex-col animate-slide-left mb-6 lg:mb-0 relative">
         <div className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl flex flex-col group cursor-default space-y-2 sm:space-y-0">
           <span className="elegant-name-text">Hamidreza</span>
-          <span className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl -mt-2 lg:-mt-3 elegant-name-text">Delshad</span>
+          <span className="text-5xl sm:text-7xl lg:text-[5rem] xl:text-[5.5rem] -mt-2 lg:-mt-3 elegant-name-text">Delshad</span>
         </div>
         <div className="mt-2 lg:mt-1">
           <p className="dark:text-dark-muted light:text-light-muted text-sm lg:text-base xl:text-lg font-light tracking-wide">
             <span className="inline-block dark:hover:text-dark-text light:hover:text-light-text transition-all duration-300 cursor-default relative">
-              {t('navbar.dev')} {/* ✅ */}
+              {t('navbar.dev')} 
               <span className="absolute bottom-0 left-0 w-0 h-0.5 dark:bg-dark-primary light:bg-light-primary transition-all duration-300 hover:w-full"></span>
             </span>
             <span className="hidden sm:inline mx-3 dark:text-dark-primary/50 light:text-light-primary/50 font-thin">|</span>
             <br className="sm:hidden" />
             <span className="inline-block dark:hover:text-dark-text light:hover:text-light-text transition-all duration-300 cursor-default relative">
-              {t('navbar.designer')} {/* ✅ */}
+              {t('navbar.designer')} 
               <span className="absolute bottom-0 left-0 w-0 h-0.5 dark:bg-dark-secondary light:bg-light-secondary transition-all duration-300 hover:w-full"></span>
             </span>
           </p>
@@ -51,7 +51,7 @@ export function Navbar() {
               to="/"
               className="relative dark:hover:text-dark-primary light:hover:text-light-primary transition-all duration-300 hover:scale-110 group-hover:translate-x-1"
             >
-              <span className="relative z-10">{t('nav.home')}</span> {/* ✅ */}
+              <span className="relative z-10">{t('nav.home')}</span> 
               <span className="absolute inset-0 bg-gradient-to-r from-dark-primary to-dark-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg -m-2"></span>
             </Link>
           </li>
@@ -72,7 +72,7 @@ export function Navbar() {
                 to="/projects"
                 className="relative dark:hover:text-dark-primary light:hover:text-light-primary transition-all duration-300 hover:scale-110 group-hover:translate-x-1"
               >
-                <span className="relative z-10">{t('nav.projects')}</span> {/* ✅ */}
+                <span className="relative z-10">{t('nav.projects')}</span> 
                 <span className="absolute inset-0 bg-gradient-to-r from-dark-primary to-dark-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg -m-2"></span>
               </Link>
             </div>
@@ -94,7 +94,7 @@ export function Navbar() {
                 to="/contact"
                 className="relative dark:hover:text-dark-primary light:hover:text-light-primary transition-all duration-300 hover:scale-110 group-hover:translate-x-1"
               >
-                <span className="relative z-10">{t('nav.contact')}</span> {/* ✅ */}
+                <span className="relative z-10">{t('nav.contact')}</span> 
                 <span className="absolute inset-0 bg-gradient-to-r from-dark-primary to-dark-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg -m-2"></span>
               </Link>
             </div>
@@ -116,7 +116,7 @@ export function Navbar() {
                 to="/resume"
                 className="relative dark:hover:text-dark-primary light:hover:text-light-primary transition-all duration-300 hover:scale-110 group-hover:translate-x-1"
               >
-                <span className="relative z-10">{t('nav.resume')}</span> {/* ✅ */}
+                <span className="relative z-10">{t('nav.resume')}</span> 
                 <span className="absolute inset-0 bg-gradient-to-r from-dark-primary to-dark-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg -m-2"></span>
               </Link>
             </div>

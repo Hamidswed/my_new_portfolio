@@ -35,7 +35,7 @@ export function Hero() {
             <h1
               className={`text-4xl md:text-5xl lg:${!isRTL ? "text-6xl" : "text-[3.5rem]"} font-bold leading-tight`}
             >
-              <span className="gradient-text">{t("hero.title1")}</span>
+              <span className="gradient-text pb-3">{t("hero.title1")}</span>
               {!isRTL && <br />}
               <span className="dark:text-dark-text light:text-light-text">
                 {t("hero.title2")}

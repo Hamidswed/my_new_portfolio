@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import io from 'socket.io-client';
-import profileImage from '../assets/hamid.webp';
+import profileImage from '../assets/hamid-sm.webp';
 
 // ✅ ایجاد یا بازیابی یک Session ID منحصر به فرد
 const generateSessionId = () => {

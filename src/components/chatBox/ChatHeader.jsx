@@ -1,9 +1,10 @@
 // src/components/ChatBox/ChatHeader.jsx
 import { useTranslation } from "react-i18next";
-import profileImage from "../../assets/hamid.webp";
+import { memo } from "react";
+import profileImage from "../../assets/hamid-sm.webp";
 import PropTypes from "prop-types";
 
-export function ChatHeader({ onClose }) {
+export const ChatHeader = memo(function ChatHeader({ onClose }) {
   const { t } = useTranslation();
 
   return (
@@ -13,6 +14,8 @@ export function ChatHeader({ onClose }) {
           src={profileImage}
           alt="Hamidreza"
           className="w-8 h-8 rounded-full object-cover"
+          loading="lazy"
+          decoding="async"
         />
         <span className="font-bold text-gray-800 dark:text-white">
           {t("chat.title")}
@@ -26,7 +29,7 @@ export function ChatHeader({ onClose }) {
       </button>
     </div>
   );
-}
+});
 
 ChatHeader.propTypes = {
   onClose: PropTypes.func.isRequired,

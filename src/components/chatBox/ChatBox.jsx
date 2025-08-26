@@ -6,7 +6,7 @@ import { ChatHeader } from "./ChatHeader";
 import { UserInfoForm } from "./UserInfoForm";
 import { ChatMessages } from "./ChatMessages";
 import { ChatInput } from "./ChatInput";
-import profileImage from "../../assets/hamid.webp";
+import profileImage from "../../assets/hamid-sm.webp";
 
 export function ChatBox() {
   const { t } = useTranslation();
