@@ -11,7 +11,7 @@ import { AIMessage } from "./AIMessage";
 import profileImage from "../../assets/hamid-sm.webp";
 
 export function ChatBox() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [step, setStep] = useState(() => {
     const savedStep = localStorage.getItem("chatStep");
@@ -180,9 +180,15 @@ export function ChatBox() {
     }
   };
 
+  // Determine position based on language and screen size
+  const isRTL = i18n.language === "fa";
+
   return (
-    <div className="fixed bottom-6 left-6 right-6 z-50">
-      {!isOpen ? (
+    <div
+      className={`fixed ${isRTL ? "bottom-6 left-6" : "bottom-6 right-6"} z-50`}
+    >
+      {/* Chat Button - Hidden on mobile when chat is open */}
+      {!isOpen && (
         <button
           onClick={handleOpenChat}
           className="group flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
@@ -199,11 +205,11 @@ export function ChatBox() {
             {t("chat.online")}
           </span>
         </button>
-      ) : (
-        <div
-          className="flex max-h-[400px] min-h-[350px] w-full max-w-sm flex-col overflow-hidden rounded-2xl border bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900"
-          // style={{ maxWidth: "380px", width: "380px", height: "400px" }}
-        >
+      )}
+
+      {/* Chat Window */}
+      {isOpen && (
+        <div className="flex max-h-[600px] min-h-[450px] w-full max-w-xs sm:max-w-sm flex-col overflow-hidden rounded-2xl border bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900">
           <ChatHeader onClose={() => setIsOpen(false)} />
 
           {/* Mode Toggle */}
