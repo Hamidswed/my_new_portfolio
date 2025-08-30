@@ -181,7 +181,7 @@ export function ChatBox() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 left-6 right-6 z-50">
       {!isOpen ? (
         <button
           onClick={handleOpenChat}
@@ -201,7 +201,7 @@ export function ChatBox() {
         </button>
       ) : (
         <div
-          className="mx-auto flex max-h-[400px] min-h-[350px] w-full max-w-xs flex-col overflow-hidden rounded-2xl border bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900 sm:max-w-sm"
+          className="flex max-h-[400px] min-h-[350px] w-full max-w-sm flex-col overflow-hidden rounded-2xl border bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900"
           // style={{ maxWidth: "380px", width: "380px", height: "400px" }}
         >
           <ChatHeader onClose={() => setIsOpen(false)} />
