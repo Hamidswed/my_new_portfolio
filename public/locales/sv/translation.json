@@ -170,10 +170,31 @@
     "send": "Skicka",
     "noMessages": "Inga meddelanden ännu",
     "loading": "Läser in...",
+    "humanChat": "Mänsklig chatt",
+    "aiChat": "AI-assistent",
+    "aiAssistant": "AI-assistent",
+    "askAI": "Fråga AI vad som helst...",
+    "aiWelcome": "Hej! Jag är din AI-assistent. Fråga mig vad som helst!",
+    "aiThinking": "AI tänker...",
+    "aiError": "Tyvärr, jag har problem just nu. Försök igen senare.",
+    "aiErrorConnection": "Kan inte ansluta till AI-tjänsten. Backend-servern kanske sover eller är otillgänglig.",
+    "aiErrorNotFound": "AI-slutpunkt hittades inte. AI-funktionen kanske inte har distribuerats ännu.",
+    "aiErrorServer": "Serverfel. Detta kan bero på saknad OpenAI API-nyckel eller serverkonfiguration.",
     "errors": {
       "nameRequired": "Namn är obligatoriskt",
       "emailRequired": "E-post är obligatorisk",
       "invalidEmail": "Vänligen ange en giltig e-postadress"
+    },
+    "aiAssistant": {
+      "errors": {
+        "missingMessage": "Meddelande krävs",
+        "apiKeyNotConfigured": "API-nyckel är inte konfigurerad",
+        "quotaExceeded": "API-användningskvoten har överskridits",
+        "invalidApiKey": "Ogiltig API-nyckel",
+        "processingError": "Fel vid bearbetning av begäran",
+        "general": "Tyvärr, jag har problem just nu. Försök igen senare.",
+        "network": "Anslutningsfel. Kontrollera din internetanslutning."
+      }
     }
   },
   "admin": {

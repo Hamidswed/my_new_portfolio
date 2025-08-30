@@ -170,10 +170,31 @@
     "send": "Send",
     "noMessages": "No messages yet",
     "loading": "Loading...",
+    "humanChat": "Human Chat",
+    "aiChat": "AI Assistant",
+    "aiAssistant": "AI Assistant",
+    "askAI": "Ask AI anything...",
+    "aiWelcome": "Hi! I'm your AI assistant. Ask me anything!",
+    "aiThinking": "AI is thinking...",
+    "aiError": "Sorry, I'm having trouble right now. Please try again later.",
+    "aiErrorConnection": "Cannot connect to AI service. The backend server might be sleeping or unavailable.",
+    "aiErrorNotFound": "AI endpoint not found. The AI feature might not be deployed yet.",
+    "aiErrorServer": "Server error. This might be due to missing OpenAI API key or server configuration.",
     "errors": {
       "nameRequired": "Name is required",
       "emailRequired": "Email is required",
       "invalidEmail": "Please enter a valid email"
+    },
+    "aiAssistant": {
+      "errors": {
+        "missingMessage": "Message is required",
+        "apiKeyNotConfigured": "API key is not configured",
+        "quotaExceeded": "API usage quota has been exceeded",
+        "invalidApiKey": "Invalid API key",
+        "processingError": "Error processing request",
+        "general": "Sorry, I'm having trouble right now. Please try again later.",
+        "network": "Connection error. Please check your internet connection."
+      }
     }
   },
   "admin": {

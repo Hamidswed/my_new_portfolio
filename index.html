@@ -30,6 +30,12 @@
     <!-- Preload critical resources -->
     <link rel="modulepreload" href="/src/main.jsx" />
     <link rel="modulepreload" href="/src/App.jsx" />
+    <link
+      rel="preload"
+      href="/src/assets/hamid-sm.webp"
+      as="image"
+      type="image/webp"
+    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -40,7 +46,7 @@
 
     <title>Hamidreza Delshad - Full Stack Developer</title>
   </head>
-  <body class="bg-backColor custom-scrollbar">
+  <body class="custom-scrollbar bg-backColor">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

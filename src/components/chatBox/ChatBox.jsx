@@ -1,11 +1,13 @@
 // src/components/ChatBox/ChatBox.jsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { getSocket } from "../../utils/socket";
 import { ChatHeader } from "./ChatHeader";
 import { UserInfoForm } from "./UserInfoForm";
 import { ChatMessages } from "./ChatMessages";
 import { ChatInput } from "./ChatInput";
+import { AIAssistant } from "./AIAssistant";
+import { AIMessage } from "./AIMessage";
 import profileImage from "../../assets/hamid-sm.webp";
 
 export function ChatBox() {
@@ -16,6 +18,10 @@ export function ChatBox() {
     return savedStep || "initial";
   });
   const [messages, setMessages] = useState([]);
+  const [aiMessages, setAiMessages] = useState([]);
+  const [isAIMode, setIsAIMode] = useState(false);
+  const [isAILoading, setIsAILoading] = useState(false);
+  const aiMessagesEndRef = useRef(null);
   const [userInfo, setUserInfo] = useState(() => {
     const saved = localStorage.getItem("chatUserInfo");
     return saved ? JSON.parse(saved) : null;
@@ -61,6 +67,109 @@ export function ChatBox() {
     setMessages((prev) => [...prev, msg]);
   };
 
+  // Helper function to get error message based on error code
+  const getErrorMessage = (errorCode) => {
+    const errorMap = {
+      MISSING_MESSAGE: t("chat.aiAssistant.errors.missingMessage"),
+      API_KEY_NOT_CONFIGURED: t("chat.aiAssistant.errors.apiKeyNotConfigured"),
+      QUOTA_EXCEEDED: t("chat.aiAssistant.errors.quotaExceeded"),
+      INVALID_API_KEY: t("chat.aiAssistant.errors.invalidApiKey"),
+      PROCESSING_ERROR: t("chat.aiAssistant.errors.processingError"),
+    };
+    return errorMap[errorCode] || t("chat.aiAssistant.errors.general");
+  };
+
+  // Handle AI message sending
+  const handleAIMessage = async (message) => {
+    const userMessage = {
+      text: message,
+      timestamp: new Date().toISOString(),
+      isUser: true,
+    };
+
+    setAiMessages((prev) => [...prev, userMessage]);
+    setIsAILoading(true);
+
+    try {
+      // Use the Render backend URL
+      const response = await fetch(
+        "https://chat-backend-3xpu.onrender.com/api/ai-chat",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ message }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        const aiResponse = {
+          text: data.response,
+          timestamp: new Date().toISOString(),
+          isUser: false,
+        };
+        setAiMessages((prev) => [...prev, aiResponse]);
+      } else {
+        const errorMessage = {
+          text: getErrorMessage(data.error),
+          timestamp: new Date().toISOString(),
+          isUser: false,
+        };
+        setAiMessages((prev) => [...prev, errorMessage]);
+      }
+    } catch (error) {
+      console.error("AI Error Details:", {
+        message: error.message,
+        stack: error.stack,
+        url: "https://chat-backend-3xpu.onrender.com/api/ai-chat",
+      });
+
+      let errorText = t("chat.aiAssistant.errors.network");
+
+      // More specific error messages for network issues
+      if (error.message.includes("Failed to fetch")) {
+        errorText = t("chat.aiErrorConnection");
+      } else if (error.message.includes("404")) {
+        errorText = t("chat.aiErrorNotFound");
+      } else if (error.message.includes("500")) {
+        errorText = t("chat.aiErrorServer");
+      }
+
+      const errorMessage = {
+        text: errorText,
+        timestamp: new Date().toISOString(),
+        isUser: false,
+      };
+      setAiMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsAILoading(false);
+    }
+  };
+
+  // Auto scroll to bottom for AI messages
+  const scrollToBottom = () => {
+    aiMessagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (isAIMode && aiMessages.length > 0) {
+      scrollToBottom();
+    }
+  }, [aiMessages, isAIMode, isAILoading]);
+
+  // Handle mode switching
+  const handleModeSwitch = (aiMode) => {
+    setIsAIMode(aiMode);
+    // اگر به human chat برمیگردیم و قبلاً user info داریم، تاریخچه رو دوباره لود کن
+    if (!aiMode && step === "chat" && userInfo) {
+      const socket = getSocket();
+      socket.emit("request_chat_history", socket.auth.sessionId);
+    }
+  };
+
   // Handle opening chat box and loading history
   const handleOpenChat = () => {
     setIsOpen(true);
@@ -76,39 +185,116 @@ export function ChatBox() {
       {!isOpen ? (
         <button
           onClick={handleOpenChat}
-          className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group"
+          className="group flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
         >
           <div className="relative">
             <img
               src={profileImage}
               alt="Profile"
-              className="w-10 h-10 rounded-full object-cover border-2 border-blue-400 dark:border-blue-500"
+              className="h-10 w-10 rounded-full border-2 border-blue-400 object-cover dark:border-blue-500"
             />
-            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white dark:border-gray-800"></span>
+            <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-white bg-green-500 dark:border-gray-800"></span>
           </div>
-          <span className="font-medium text-sm dark:text-gray-200">
+          <span className="text-sm font-medium dark:text-gray-200">
             {t("chat.online")}
           </span>
         </button>
       ) : (
         <div
-          className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border dark:border-gray-700 flex flex-col overflow-hidden mx-auto"
-          style={{ maxWidth: "90vw", width: "auto" }}
+          className="mx-auto flex max-h-[400px] min-h-[350px] w-full max-w-xs flex-col overflow-hidden rounded-2xl border bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-900 sm:max-w-sm"
+          // style={{ maxWidth: "380px", width: "380px", height: "400px" }}
         >
           <ChatHeader onClose={() => setIsOpen(false)} />
 
-          <div className="flex-1 p-4 flex flex-col space-y-4">
-            {step === "initial" ? (
-              <UserInfoForm onSubmit={startChat} />
+          {/* Mode Toggle */}
+          <div className="flex flex-shrink-0 border-b dark:border-gray-700">
+            <button
+              onClick={() => handleModeSwitch(false)}
+              className={`flex-1 px-3 py-2 text-xs font-medium transition-colors ${
+                !isAIMode
+                  ? "bg-blue-500 text-white"
+                  : "text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
+              }`}
+            >
+              {t("chat.humanChat", "Human Chat")}
+            </button>
+            <button
+              onClick={() => handleModeSwitch(true)}
+              className={`flex-1 px-3 py-2 text-xs font-medium transition-colors ${
+                isAIMode
+                  ? "bg-blue-500 text-white"
+                  : "text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800"
+              }`}
+            >
+              {t("chat.aiChat", "AI Assistant")}
+            </button>
+          </div>
+
+          <div className="flex flex-1 flex-col overflow-hidden">
+            {step === "initial" && !isAIMode ? (
+              <div className="p-4">
+                <UserInfoForm onSubmit={startChat} />
+              </div>
+            ) : isAIMode ? (
+              <>
+                {/* AI Messages */}
+                <div className="min-h-0 flex-1 space-y-3 overflow-y-auto p-3">
+                  {aiMessages.length === 0 ? (
+                    <div className="py-6 text-center text-gray-500 dark:text-gray-400">
+                      <div className="mb-3 text-3xl">🤖</div>
+                      <p className="px-4 text-sm">
+                        {t(
+                          "chat.aiWelcome",
+                          "Hi! I'm your AI assistant. Ask me anything!",
+                        )}
+                      </p>
+                    </div>
+                  ) : (
+                    aiMessages.map((msg, index) => (
+                      <AIMessage
+                        key={index}
+                        message={msg}
+                        isUser={msg.isUser}
+                      />
+                    ))
+                  )}
+                  {isAILoading && (
+                    <div className="flex gap-3">
+                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700">
+                        <div className="h-3 w-3 animate-spin rounded-full border-2 border-blue-500 border-t-transparent"></div>
+                      </div>
+                      <div className="rounded-2xl rounded-bl-md bg-gray-100 px-3 py-2 dark:bg-gray-800">
+                        <p className="text-xs text-gray-600 dark:text-gray-400">
+                          {t("chat.aiThinking", "AI is thinking...")}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  <div ref={aiMessagesEndRef} />
+                </div>
+                {/* AI Input */}
+                <div className="flex-shrink-0">
+                  <AIAssistant
+                    onSendMessage={handleAIMessage}
+                    isLoading={isAILoading}
+                  />
+                </div>
+              </>
             ) : (
               <>
-                <ChatMessages messages={messages} setMessages={setMessages} />
-                {userInfo ? (
+                <div className="flex-1 overflow-hidden">
+                  <ChatMessages
+                    key={`human-chat-${isAIMode}`}
+                    messages={messages}
+                    setMessages={setMessages}
+                  />
+                </div>
+                {userInfo && (
                   <ChatInput
                     userInfo={userInfo}
                     onLocalSend={handleLocalSend}
                   />
-                ) : null}
+                )}
               </>
             )}
           </div>
