@@ -275,6 +275,7 @@ export function ChatBox() {
                 {/* AI Input */}
                 <div className="flex-shrink-0">
                   <AIAssistant
+                    key="ai-assistant"
                     onSendMessage={handleAIMessage}
                     isLoading={isAILoading}
                   />
