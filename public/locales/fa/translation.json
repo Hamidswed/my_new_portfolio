@@ -21,8 +21,8 @@
     "description1": {
       "part1": "من ",
       "part2": " هستم، یک توسعه‌دهنده فول‌استک پرشور و یک ",
-      "part3": " طراح گرافیک فریلنسر ",
-      "part4": " از سوئد."
+      "part3": " طراح گرافیک فریلنسر.",
+      "part4": ""
     },
     "role": {
       "dev": "",
@@ -55,7 +55,7 @@
     "locationLabel": "موقعیت",
     "phoneValue": "0098-915-6020-204",
     "emailValue": "delshad.swdn@gmail.com",
-    "locationValue": "سوئد"
+    "locationValue": "ایران"
   },
   "resume": {
     "name": "حمیدرضا دلشاد",

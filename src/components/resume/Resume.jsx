@@ -6,11 +6,9 @@ import ResumeExperience from "./ResumeExperience";
 import ResumeProjects from "./ResumeProjects";
 import ResumeEducation from "./ResumeEducation";
 import DownloadButton from "../common/DownloadButton";
-import { useTranslation } from "react-i18next";
 
 export default function Resume() {
   const [isVisible, setIsVisible] = useState(false);
-  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const id = setTimeout(() => setIsVisible(true), 0);
