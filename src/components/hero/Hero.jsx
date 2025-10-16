@@ -1,10 +1,8 @@
 // src/components/hero/Hero.jsx
-import { Link } from "react-router-dom";
 import Profile from "./Profile";
 import SocialMedia from "./socialMedia/SocialMedia";
-import { FaDownload, FaRocket } from "react-icons/fa6";
 import { HiSparkles } from "react-icons/hi2";
-import Pdf from "/download/CV_HamidrezaDelshad.pdf";
+import DownloadButton from "../common/DownloadButton";
 import { useTranslation } from "react-i18next";
 
 export function Hero() {
@@ -88,15 +86,7 @@ export function Hero() {
             </div>
 
             <div className="order-1 sm:order-2 w-full flex justify-center">
-              <Link to={Pdf} target="_blank" download="CV_HamidrezaDelshad" className="text-center">
-                <button className="neon-button w-full hover-lift group flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300">
-                  <FaDownload className="flex-shrink-0 animate-bounce transition-all duration-300 group-hover:animate-pulse" />
-                  <span className="flex-shrink-0">
-                    {t("common.downloadCV")}
-                  </span>
-                  <FaRocket className="flex-shrink-0 animate-pulse opacity-0 transition-all duration-300 group-hover:opacity-100" />
-                </button>
-              </Link>
+              <DownloadButton variant="neon" fullWidth={true} />
             </div>
           </div>
         </div>

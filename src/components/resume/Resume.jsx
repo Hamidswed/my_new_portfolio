@@ -5,9 +5,12 @@ import ResumeSkills from "./ResumeSkills";
 import ResumeExperience from "./ResumeExperience";
 import ResumeProjects from "./ResumeProjects";
 import ResumeEducation from "./ResumeEducation";
+import DownloadButton from "../common/DownloadButton";
+import { useTranslation } from "react-i18next";
 
 export default function Resume() {
   const [isVisible, setIsVisible] = useState(false);
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const id = setTimeout(() => setIsVisible(true), 0);
@@ -27,14 +30,8 @@ export default function Resume() {
       <ResumeProjects />
       <ResumeEducation />
 
-      <div className="text-center mt-12 animate-slide-up">
-        <a
-          href="/CV_HamidrezaDelshad_2025.pdf"
-          download
-          className="inline-block px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition duration-300"
-        >
-          📥 Download CV
-        </a>
+      <div className="flex justify-center mt-12 animate-slide-up">
+        <DownloadButton variant="neon"/>
       </div>
     </div>
   );
