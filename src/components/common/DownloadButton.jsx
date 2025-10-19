@@ -17,11 +17,11 @@ export default function DownloadButton({
 
   // Base styles for different variants
   const variants = {
-    neon: "neon-button hover-lift group flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300",
+    neon: "neon-button hover-lift group gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300",
     simple:
       "inline-block px-6 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition duration-300",
     glass:
-      "glass hover-lift group flex items-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300",
+      "glass hover-lift group gap-2 whitespace-nowrap rounded-full px-6 py-3 text-base font-semibold transition-all duration-300",
   };
 
   // Size variations
@@ -31,14 +31,14 @@ export default function DownloadButton({
     large: "px-8 py-4 text-lg",
   };
 
-  const buttonClasses = `${variants[variant]} ${fullWidth ? "w-full" : ""} ${className}`;
+  const buttonClasses = `flex items-center justify-evenly ${variants[variant]} ${fullWidth ? "w-full" : ""} ${className}`;
 
   return (
     <Link
       to={isRTL ? IRCV : SWCV}
       target="_blank"
       download={`CV_HamidrezaDelshad_${isRTL ? "IR" : "SW"}`}
-      className={fullWidth ? "w-full text-center" : "text-center"}
+      className={`flex items-center justify-center ${fullWidth ? "w-full sm:max-w-sm md:max-w-md" : ""}`}
     >
       <button className={buttonClasses}>
         {showIcons && variant === "neon" && (

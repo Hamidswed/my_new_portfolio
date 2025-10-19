@@ -29,7 +29,7 @@ export default function Resume() {
       <ResumeEducation />
 
       <div className="flex justify-center mt-12 animate-slide-up">
-        <DownloadButton variant="neon"/>
+        <DownloadButton variant="neon" fullWidth/>
       </div>
     </div>
   );

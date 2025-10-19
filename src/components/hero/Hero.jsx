@@ -86,7 +86,7 @@ export function Hero() {
             </div>
 
             <div className="order-1 sm:order-2 w-full flex justify-center">
-              <DownloadButton variant="neon" fullWidth={true} />
+              <DownloadButton variant="neon" fullWidth />
             </div>
           </div>
         </div>
