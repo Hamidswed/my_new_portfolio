@@ -2,8 +2,7 @@
 import { Link } from "react-router-dom";
 import { FaDownload, FaRocket } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
-import SWCV from "/download/CV_HamidrezaDelshad_SW.pdf";
-import IRCV from "/download/CV_HamidrezaDelshad_IR.pdf";
+import CV from "/download/Hamidreza_Delshad_Frontend_Developer.pdf";
 
 export default function DownloadButton({
   variant = "neon",
@@ -35,9 +34,9 @@ export default function DownloadButton({
 
   return (
     <Link
-      to={isRTL ? IRCV : SWCV}
+      to={CV}
       target="_blank"
-      download={`CV_HamidrezaDelshad_${isRTL ? "IR" : "SW"}`}
+      download={"Hamidreza_Delshad_Frontend_Developer"}
       className={`flex items-center justify-center ${fullWidth ? "w-full sm:max-w-sm md:max-w-md" : ""}`}
     >
       <button className={buttonClasses}>
