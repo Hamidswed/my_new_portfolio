@@ -6,21 +6,21 @@ export default function ResumeExperience() {
 
   const jobs = [
     {
-      role: t("resume.signumRole"),
-      company: t("resume.signumCompany"),
-      period: "02/2025 – Present",
+      role: t("resume.pegahRole"),
+      company: t("resume.pegahCompany"),
+      period: t("resume.pegahDate"),
       duties: [
-        t("resume.signumDuty1"),
-        t("resume.signumDuty2"),
-        t("resume.signumDuty3"),
-        t("resume.signumDuty4"),
-        t("resume.signumDuty5"),
+        t("resume.pegahDuty1"),
+        t("resume.pegahDuty2"),
+        t("resume.pegahDuty3"),
+        t("resume.pegahDuty4"),
+        t("resume.pegahDuty5"),
       ],
     },
     {
       role: t("resume.hantverksRole"),
       company: t("resume.hantverksCompany"),
-      period: `${isHejri ? "1403/05" : "08/2024"} – ${isHejri ? "1403/08" : "11/2024"}`,
+      period: t("resume.hantverksDate"),
       duties: [
         t("resume.hantverksDuty1"),
         t("resume.hantverksDuty2"),
@@ -30,13 +30,13 @@ export default function ResumeExperience() {
     {
       role: t("resume.swedconRole"),
       company: t("resume.swedconCompany"),
-      period: `${isHejri ? "1401/05" : "08/2022"} – ${isHejri ? "1403/04" : "07/2024"}`,
+      period: t("resume.swedconDate"),
       duties: [t("resume.swedconDuty1"), t("resume.swedconDuty2")],
     },
     {
       role: t("resume.integrifyRole"),
       company: t("resume.integrifyCompany"),
-      period: `${isHejri ? "1401/08" : "11/2022"} – ${isHejri ? "1401/12" : "03/2023"}`,
+      period: t("resume.integrifyDate"),
       duties: [t("resume.integrifyDuty1"), t("resume.integrifyDuty2")],
     },
   ];
@@ -59,7 +59,7 @@ export default function ResumeExperience() {
             <p className="mb-3 text-sm text-gray-500 dark:text-gray-500">
               {job.period}
             </p>
-            <ul className="list-inside list-disc space-y-1 text-sm text-gray-700 dark:text-gray-300">
+            <ul className="list-outside list-disc space-y-1 ps-5 text-sm text-gray-700 dark:text-gray-300">
               {job.duties.map((duty, i) => (
                 <li key={i}>{duty}</li>
               ))}

@@ -4,6 +4,16 @@ export default function ResumeProjects() {
   const { t } = useTranslation();
   const projects = [
     {
+      title: t("resume.erpTitle"),
+      desc: t("resume.erpDesc"),
+      tech: t("resume.erpTech"),
+    },
+    {
+      title: t("resume.timeflowTitle"),
+      desc: t("resume.timeflowDesc"),
+      tech: t("resume.timeflowTech"),
+    },
+    {
       title: t("resume.kajutanTitle"),
       desc: t("resume.kajutanDesc"),
       tech: t("resume.kajutanTech"),
@@ -22,20 +32,20 @@ export default function ResumeProjects() {
 
   return (
     <section className="mb-10">
-      <h2 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4 border-b pb-2 border-gray-300 dark:border-gray-700">
+      <h2 className="mb-4 border-b border-gray-300 pb-2 text-2xl font-semibold text-gray-800 dark:border-gray-700 dark:text-white">
         {t("resume.projects")}
       </h2>
       <div className="space-y-6">
         {projects.map((proj, idx) => (
           <div
             key={idx}
-            className="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
+            className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800"
           >
             <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
               {proj.title}
             </h3>
-            <p className="text-gray-700 dark:text-gray-300 mt-2">{proj.desc}</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+            <p className="mt-2 text-gray-700 dark:text-gray-300">{proj.desc}</p>
+            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
               <strong>{t("resume.tech")}:</strong> {proj.tech}
             </p>
           </div>
