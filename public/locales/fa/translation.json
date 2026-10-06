@@ -214,7 +214,7 @@
       "emailRequired": "ایمیل الزامی است",
       "invalidEmail": "لطفاً یک ایمیل معتبر وارد کنید"
     },
-    "aiAssistant": {
+    "ai-Assistant": {
       "errors": {
         "missingMessage": "پیام الزامی است",
         "apiKeyNotConfigured": "کلید API تنظیم نشده است",

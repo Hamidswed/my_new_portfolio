@@ -214,7 +214,7 @@
       "emailRequired": "Email is required",
       "invalidEmail": "Please enter a valid email"
     },
-    "aiAssistant": {
+    "ai-Assistant": {
       "errors": {
         "missingMessage": "Message is required",
         "apiKeyNotConfigured": "API key is not configured",
